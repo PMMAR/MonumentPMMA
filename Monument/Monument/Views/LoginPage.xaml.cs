@@ -26,5 +26,15 @@ namespace Monument.Views
         {
             this.InitializeComponent();
         }
+
+        private void button_Click(System.Object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void textBox_TextChanged(System.Object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
