@@ -7,32 +7,32 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="BigGrid" Background="#FFECECEC">
-        <ScrollViewer Margin="0" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Height="5000">
+    <Grid x:Name="BigGrid" Background="#FF333333">
+        <ScrollViewer Margin="0,0,0,54" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition">
             <Grid x:Name="SmallGrid" Height="3726" Width="335" VerticalAlignment="Top">
-                <Grid x:Name="photoButtonGrid" Width="200" Height="200" d:LayoutOverrides="VerticalAlignment, Height" VerticalAlignment="Top" Margin="80,20,80,0">
+                <Grid x:Name="photoButtonGrid" Width="200" Height="200" d:LayoutOverrides="VerticalAlignment, Height" VerticalAlignment="Top" Margin="0,20,0,0">
                     <Button x:Name="button" Content="Button" HorizontalAlignment="Stretch" Height="200" Margin="0" VerticalAlignment="Stretch" Width="200"/>
 
                 </Grid>
                 <Grid x:Name="typesGrid" Margin="0,250,0,0" Height="308" VerticalAlignment="Top">
-                    <TextBlock x:Name="typesBlock" Margin="0" TextWrapping="Wrap" Text="Types" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32"/>
+                    <TextBlock x:Name="typesBlock" Margin="0" TextWrapping="Wrap" Text="Types" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30"/>
                     <Grid x:Name="CheckBoxes" Margin="0,57,0,0" d:LayoutOverrides="TopPosition, BottomPosition">
-                        <CheckBox x:Name="skulpturCheckBox" Content="CheckBoxCheckBoxCheckBox" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="55" d:LayoutOverrides="Width, LeftPosition, RightPosition" BorderThickness="0,20,0,0" FontSize="24"/>
-                        <CheckBox x:Name="sokkelCheckBox" Content="CheckBox" HorizontalAlignment="Stretch" Margin="0,75,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="55" FontSize="24"/>
-                        <CheckBox x:Name="reliefCheckBox" Content="CheckBox" HorizontalAlignment="Stretch" Margin="0,136,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="55" FontSize="24"/>
-                        <CheckBox x:Name="vandkunstCheckBox" Content="CheckBox" HorizontalAlignment="Stretch" Margin="0,200,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="55" FontSize="24"/>
+                        <CheckBox x:Name="skulpturCheckBox" Content="Skulptur" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="55" d:LayoutOverrides="Width, LeftPosition, RightPosition" BorderThickness="0,20,0,0" FontSize="24" Foreground="#FF0F5A30"/>
+                        <CheckBox x:Name="sokkelCheckBox" Content="Sokkel" HorizontalAlignment="Stretch" Margin="0,75,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="55" FontSize="24" Foreground="#FF0F5A30"/>
+                        <CheckBox x:Name="reliefCheckBox" Content="Relief" HorizontalAlignment="Stretch" Margin="0,136,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="55" FontSize="24" Foreground="#FF0F5A30"/>
+                        <CheckBox x:Name="vandkunstCheckBox" Content="Vandkunst" HorizontalAlignment="Stretch" Margin="0,200,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="55" FontSize="24" Foreground="#FF0F5A30"/>
                     </Grid>
                 </Grid>
                 <Grid x:Name="placeringsGrid" Margin="0,558,0,0" Height="692" VerticalAlignment="Top">
-                    <TextBlock x:Name="placeringsBlock" Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32">
+                    <TextBlock x:Name="placeringsBlock" Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30">
                     	<Run Text="Placering"/>
                     	<LineBreak/>
                     	<Run/>
                     </TextBlock>
                     <Grid x:Name="CheckBoxes1" Margin="0,57,0,0" Height="235" VerticalAlignment="Top">
-                        <CheckBox x:Name="jordCheckBox" Content="CheckBoxCheckBoxCheckBox" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="55" d:LayoutOverrides="Width, LeftPosition, RightPosition" BorderThickness="0,20,0,0" FontSize="24"/>
-                        <CheckBox x:Name="bygningCheckBox" Content="CheckBox" HorizontalAlignment="Stretch" Margin="0,75,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="55" FontSize="24"/>
-                        <CheckBox x:Name="facadeCheckBox" Content="CheckBox" HorizontalAlignment="Stretch" Margin="0,136,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="55" FontSize="24"/>
+                        <CheckBox x:Name="jordCheckBox" Content="Jord" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="55" d:LayoutOverrides="Width, LeftPosition, RightPosition" BorderThickness="0,20,0,0" FontSize="24" Foreground="#FF0F5A30"/>
+                        <CheckBox x:Name="bygningCheckBox" Content="Bygning" HorizontalAlignment="Stretch" Margin="0,75,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="55" FontSize="24" Foreground="#FF0F5A30"/>
+                        <CheckBox x:Name="facadeCheckBox" Content="Facade" HorizontalAlignment="Stretch" Margin="0,136,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="55" FontSize="24" Foreground="#FF0F5A30"/>
                     </Grid>
                 </Grid>
                 <Grid x:Name="noteGrid" Margin="0,1250,0,0" Height="747" VerticalAlignment="Top">
@@ -56,10 +56,10 @@
             </Grid>
         </ScrollViewer>
         <Grid x:Name="buttonBar" Height="54" VerticalAlignment="Bottom" d:LayoutOverrides="LeftPosition, RightPosition">
-            <Button x:Name="button1" Content="Button" Margin="0" VerticalAlignment="Stretch" d:LayoutOverrides="Height" Width="90"/>
-            <Button x:Name="button2" Content="Button" Margin="90,0,0,0" VerticalAlignment="Stretch" d:LayoutOverrides="Height" Width="90"/>
-            <Button x:Name="button3" Content="Button" Margin="180,0,0,0" VerticalAlignment="Stretch" d:LayoutOverrides="Height" Width="90"/>
-            <Button x:Name="button4" Content="Button" Margin="270,0,0,0" VerticalAlignment="Stretch" d:LayoutOverrides="Height" HorizontalAlignment="Left" Width="90"/>
+            <Button x:Name="button1" Content="Button" Margin="0" VerticalAlignment="Stretch" d:LayoutOverrides="Height" Width="90" Foreground="#FF0F5A30" FontSize="20"/>
+            <Button x:Name="button2" Content="Button" Margin="90,0,0,0" VerticalAlignment="Stretch" d:LayoutOverrides="Height" Width="90" Foreground="#FF0F5A30" FontSize="20"/>
+            <Button x:Name="button3" Content="Button" Margin="180,0,0,0" VerticalAlignment="Stretch" d:LayoutOverrides="Height" Width="90" Foreground="#FF0F5A30" FontSize="20"/>
+            <Button x:Name="button4" Content="Button" Margin="270,0,0,0" VerticalAlignment="Stretch" d:LayoutOverrides="Height" HorizontalAlignment="Left" Width="90" Foreground="#FF0F5A30" FontSize="20"/>
         </Grid>
 
     </Grid>
