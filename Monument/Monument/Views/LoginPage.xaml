@@ -8,11 +8,16 @@
     mc:Ignorable="d">
 
     <Grid Background="#FF333333" RenderTransformOrigin="0.973,0.016">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="99,50,0,0" TextWrapping="Wrap" Text="   Login" VerticalAlignment="Top" Width="160" Height="51" FontSize="36" Foreground="#FF0F5A30"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="67,305,0,0" TextWrapping="Wrap" Text="   Login" VerticalAlignment="Top" Width="224" Height="51" FontSize="36" Foreground="#FF0F5A30" RenderTransformOrigin="0.481,0.532"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="67,361,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="53" Width="224" TextChanged="textBox_TextChanged" PlaceholderText="Brugernavn" FontSize="22"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="67,419,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="224" Height="53" PlaceholderText="Password" FontSize="22"/>
         <Button x:Name="button" Content="Login" HorizontalAlignment="Left" Margin="67,477,0,0" VerticalAlignment="Top" Click="button_Click" Foreground="#FF0F5A30" Width="108" Height="54"/>
         <Button x:Name="button1" Content="Cancel" HorizontalAlignment="Left" Margin="183,477,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.819,0.562" Foreground="#FF0F5A30" Height="54" Width="108"/>
+        <Rectangle HorizontalAlignment="Left" Height="229" Margin="67,71,0,0" VerticalAlignment="Top" Width="224">
+            <Rectangle.Fill>
+                <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Logo/MonumentLogoLarge.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
     </Grid>
 </Page>
