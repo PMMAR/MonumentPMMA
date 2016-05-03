@@ -26,5 +26,10 @@ namespace Monument.Views
         {
             this.InitializeComponent();
         }
+
+        private void matrialeBlock_SelectionChanged(System.Object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

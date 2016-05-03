@@ -9,10 +9,10 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <ScrollViewer Margin="0,0,0,54" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" Background="#FF333333">
+        <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" Background="#FF333333">
             <Grid x:Name="scrollGrid" Height="1245" Width="335" VerticalAlignment="Top">
                 <Grid x:Name="photoButtonGrid" Width="200" Height="200" d:LayoutOverrides="Height" Margin="0,30,0,0" VerticalAlignment="Top">
-                    <Button x:Name="button" Content="Button" HorizontalAlignment="Stretch" Height="200" Margin="0" VerticalAlignment="Stretch" Width="200" BorderThickness="2" Background="#33FFFFFF"/>
+                    <Button x:Name="Button" Content="Button" HorizontalAlignment="Stretch" Height="200" Margin="0" VerticalAlignment="Stretch" Width="200" BorderThickness="2" Background="#33FFFFFF"/>
 
                 </Grid>
                 <Grid x:Name="basicInfoGrid" Margin="0,250,0,0" Height="200" VerticalAlignment="Top">
@@ -24,17 +24,15 @@
                     </Grid>
                 </Grid>
                 <Grid x:Name="matrialeGrid" Margin="0,450,0,0" d:LayoutOverrides="TopPosition, BottomPosition">
-                    <TextBlock x:Name="matrialeBlock" Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30">
-                    	<Run Text="Matriale"/>
-                    	<LineBreak/>
-                    	<Run/>
-                    </TextBlock>
+                    <TextBlock x:Name="matrialeBlock" Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30" SelectionChanged="matrialeBlock_SelectionChanged" Text="Materiale"/>
                     <Grid x:Name="stenGrid" Margin="0,50,0,0" Height="220" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment, TopMargin, BottomMargin">
                         <TextBlock x:Name="stenBlock" Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width" Height="35" VerticalAlignment="Top" FontSize="24" Text="Sten" Foreground="#FF0F5A30"/>
                         <Grid x:Name="stenCheckBox" Margin="0,40,0,0" Height="180" VerticalAlignment="Top">
                             <CheckBox x:Name="granitCheck" Content="Granit" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
                             <CheckBox x:Name="sandstenCheck" Content="Sandsten" VerticalAlignment="Top" Margin="0,35,0,0" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
-                            <CheckBox x:Name="kalkstenCheck" Content="Kalksten" VerticalAlignment="Top" Margin="0,70,0,0" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
+                            <CheckBox x:Name="kalkstenCheck" VerticalAlignment="Top" Margin="-227,105,0,0" Foreground="#FF0F5A30" FontSize="24" Height="40">
+                                <Button x:Name="button" Content=""/>
+                            </CheckBox>
                             <CheckBox x:Name="marmorCheck" Content="Marmor" VerticalAlignment="Top" Margin="0,105,0,0" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
                             <CheckBox x:Name="andenBjergartCheck" Content="Anden Bjergart" VerticalAlignment="Top" Margin="0,140,0,0" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
                         </Grid>
