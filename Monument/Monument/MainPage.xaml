@@ -8,18 +8,50 @@
     mc:Ignorable="d">
 
     <Grid Background="#FF333333">
-        <Button x:Name="button" Content="Login" HorizontalAlignment="Left" Margin="0,586,0,0" VerticalAlignment="Top" Click="button_Click" Foreground="#FF0F5A30" Width="90" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0"/>
         <Rectangle HorizontalAlignment="Left" Height="229" Margin="67,71,0,0" VerticalAlignment="Top" Width="224">
             <Rectangle.Fill>
                 <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Logo/MonumentLogoLarge.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Button x:Name="button_Copy" Content="Login" HorizontalAlignment="Left" Margin="90,586,0,0" VerticalAlignment="Top" Click="button_Click" Foreground="#FF0F5A30" Width="90" Height="54" BorderThickness="0,2,2,0" BorderBrush="#FF212121"/>
-        <Button x:Name="button_Copy1" Content="Login" HorizontalAlignment="Left" Margin="180,586,0,0" VerticalAlignment="Top" Click="button_Click" Foreground="#FF0F5A30" Width="89" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0"/>
-        <Button x:Name="button_Copy2" Content="Login" HorizontalAlignment="Left" Margin="269,586,0,0" VerticalAlignment="Top" Click="button_Click" Foreground="#FF0F5A30" Width="91" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,0,0"/>
-        <Border BorderThickness="1" HorizontalAlignment="Left" Height="47" Margin="67,345,0,0" VerticalAlignment="Top" Width="90" Background="#FF292929"/>
-        <Border BorderThickness="1" HorizontalAlignment="Left" Height="47" Margin="201,345,0,0" VerticalAlignment="Top" Width="90" Background="#FF292929"/>
-        <Border BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="168,317,0,0" VerticalAlignment="Top" Width="22" Background="#FF292929"/>
+        <Button x:Name="button" Content="" HorizontalAlignment="Left" Margin="0,586,0,0" VerticalAlignment="Top" Click="button_Click" Foreground="#FF0F5A30" Width="90" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0">
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="Assets/Icons/HomeIconMedium.png">
+                    <ImageBrush.RelativeTransform>
+                        <CompositeTransform CenterY="0.5" CenterX="0.5" ScaleX="1.2" ScaleY="1.2"/>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="button_Copy" Content="Login" HorizontalAlignment="Left" Margin="90,586,0,0" VerticalAlignment="Top" Click="button_Click" Foreground="{x:Null}" Width="90" Height="54" BorderThickness="0,2,2,0" BorderBrush="#FF212121">
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="Assets/Icons/SearchIconMedium.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="button_Copy1" Content="Login" HorizontalAlignment="Left" Margin="180,586,0,0" VerticalAlignment="Top" Click="button_Click" Width="89" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0">
+            <Button.Foreground>
+                <ImageBrush Stretch="Fill" ImageSource="Assets/Logo/MonumentLogoSmall.png"/>
+            </Button.Foreground>
+        </Button>
+        <Button x:Name="button_Copy2" Content="||||||" HorizontalAlignment="Left" Margin="269,586,0,0" VerticalAlignment="Top" Click="button_Click" Width="91" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,0,0" FontSize="11" FontWeight="Bold" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="Assets/Icons/SettingsIconMedium.png"/>
+            </Button.Background>
+        </Button>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="47" Margin="60,345,0,0" VerticalAlignment="Top" Width="90">
+            <Border.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Icons/ArrowIconLeftFile.png"/>
+            </Border.Background>
+        </Border>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="47" Margin="208,345,0,0" VerticalAlignment="Top" Width="90">
+            <Border.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Icons/ArrowIconRightFile.png"/>
+            </Border.Background>
+        </Border>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="51" Margin="155,303,0,0" VerticalAlignment="Top" Width="48">
+            <Border.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Icons/InformationIcon.png"/>
+            </Border.Background>
+        </Border>
 
     </Grid>
 </Page>
