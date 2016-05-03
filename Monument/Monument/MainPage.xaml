@@ -14,7 +14,7 @@
                 <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Logo/MonumentLogoLarge.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Button x:Name="button" Content="" HorizontalAlignment="Left" Margin="0,586,0,0" VerticalAlignment="Top" Click="button_Click" Foreground="#FF0F5A30" Width="90" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0">
+        <Button x:Name="button" Content="" HorizontalAlignment="Stretch" Margin="0,586,270,0" VerticalAlignment="Top" Click="button_Click" Foreground="#FF0F5A30" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="Assets/Icons/HomeIconMedium.png">
                     <ImageBrush.RelativeTransform>
