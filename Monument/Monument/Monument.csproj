@@ -92,6 +92,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Assets\Icons\ArrowIconRightFile.ai" />
+    <None Include="Assets\Icons\HomeIconFile.ai" />
+    <None Include="Assets\Icons\InformationIcon.ai" />
+    <None Include="Assets\Icons\SearchIconFile.png.ai" />
+    <None Include="Assets\Icons\SettingsIconFile.png.ai" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +124,19 @@
     <None Include="Monument_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Icons\ArrowIconLeftFile.png" />
+    <Content Include="Assets\Icons\ArrowIconRightFile.png" />
+    <Content Include="Assets\Icons\HomeIconLarge.png" />
+    <Content Include="Assets\Icons\HomeIconMedium.png" />
+    <Content Include="Assets\Icons\HomeIconSmall.png" />
+    <Content Include="Assets\Icons\InformationIcon.png" />
+    <Content Include="Assets\Icons\SearchIconLarge.png" />
+    <Content Include="Assets\Icons\SearchIconMedium.png" />
+    <Content Include="Assets\Icons\SearchIconSmall.png" />
+    <Content Include="Assets\Icons\SettingsIconLarge.gif" />
+    <Content Include="Assets\Icons\SettingsIconLarge.png" />
+    <Content Include="Assets\Icons\SettingsIconMedium.png" />
+    <Content Include="Assets\Icons\SettingsIconSmall.png" />
     <Content Include="Assets\Logo\MonumentLogoLarge.png" />
     <Content Include="Assets\Logo\MonumentLogoMedium.png" />
     <Content Include="Assets\Logo\MonumentLogoSmall.png" />
