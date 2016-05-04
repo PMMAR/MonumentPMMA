@@ -7,15 +7,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Monument.Annotations;
+using Monument.Models;
 
 namespace Monument.ViewModels
 {
     class StatueViewmodel : INotifyPropertyChanged
     {
+        private BrugerClass _brugerClass;
+        private StatueClass _statueClasses;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ICommand AddStatueCommand { get; set; }
+        public StatueClass StatueClasses
+        {
+            get { return _statueClasses; }
+            set { _statueClasses = value; OnPropertyChanged(); }
+        }
 
+        public ICommand AddStatueCommand { get; set; }
+        public ICommand DeleteStatueCommand { get; set; }
+        public ICommand UpdateStatueCommand { get; set; }
+        public ICommand GetStatueCommand { get; set; }
 
 
 
