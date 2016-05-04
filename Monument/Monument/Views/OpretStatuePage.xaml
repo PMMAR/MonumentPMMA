@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" Background="#FF333333">
-            <Grid x:Name="scrollGrid" Height="1245" Width="335" VerticalAlignment="Top">
+            <Grid x:Name="scrollGrid" Height="1400" Width="335" VerticalAlignment="Top">
                 <Grid x:Name="photoButtonGrid" Width="200" Height="200" d:LayoutOverrides="Height" Margin="0,30,0,0" VerticalAlignment="Top">
                     <Button x:Name="Button" Content="Button" HorizontalAlignment="Stretch" Height="200" Margin="0" VerticalAlignment="Stretch" Width="200" BorderThickness="2" Background="#33FFFFFF"/>
 
@@ -23,7 +23,7 @@
                         <TextBox x:Name="addresse" TextWrapping="Wrap" Text="Addresse" VerticalAlignment="Top" d:LayoutOverrides="Width" Margin="0,88,0,0" Foreground="#FF0F5A30" FontSize="24" Height="42"/>
                     </Grid>
                 </Grid>
-                <Grid x:Name="matrialeGrid" Margin="0,450,0,0" d:LayoutOverrides="TopPosition, BottomPosition">
+                <Grid x:Name="matrialeGrid" Margin="0,450,0,0" d:LayoutOverrides="TopPosition, BottomPosition" Height="650">
                     <TextBlock x:Name="matrialeBlock" Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30" SelectionChanged="matrialeBlock_SelectionChanged" Text="Materiale"/>
                     <Grid x:Name="stenGrid" Margin="0,50,0,0" Height="220" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment, TopMargin, BottomMargin">
                         <TextBlock x:Name="stenBlock" Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width" Height="35" VerticalAlignment="Top" FontSize="24" Text="Sten" Foreground="#FF0F5A30"/>
@@ -58,6 +58,8 @@
                         </Grid>
                     </Grid>
                 </Grid>
+                <Grid x:Name="værdisætningGrid" HorizontalAlignment="Left" Width="335" Height="100" VerticalAlignment="Top" Margin="0,1200,0,0"/>
+                <Grid x:Name="behandlingGrid" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="335" Margin="0,1300,0,0"/>
             </Grid>
         </ScrollViewer>
 
