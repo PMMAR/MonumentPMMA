@@ -22,9 +22,9 @@
                 <StackPanel x:Name="BasicInfoStack" Margin="0,10,0,0" Height="192" VerticalAlignment="Top" Width="335">
                     <TextBlock x:Name="InfoBlock" Margin="0" TextWrapping="Wrap" Text="Types" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30"/>
                     <StackPanel x:Name="InfoBoxes" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top" Width="335" Height="140">
-                        <TextBox x:Name="Navn" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" Height="40" HorizontalAlignment="Left" Width="335" DataContext="{Binding Statue.Navn}"/>
-                        <TextBox x:Name="Nummer" TextWrapping="Wrap" Text="Nummer" VerticalAlignment="Top" Margin="0,10,0,0" Height="40" Foreground="#FF0F5A30" FontSize="24" HorizontalAlignment="Left" Width="335"/>
-                        <TextBox x:Name="Addresse" TextWrapping="Wrap" Text="Addresse" VerticalAlignment="Top" Margin="0,10,0,0" Foreground="#FF0F5A30" FontSize="24" Height="40" HorizontalAlignment="Left" Width="335"/>
+                        <TextBox x:Name="Navn" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" Height="40" HorizontalAlignment="Left" Width="335" DataContext="{Binding Statue.Navn}" PlaceholderText="Navn"/>
+                        <TextBox x:Name="Addresse" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="0,10,0,0" Foreground="#FF0F5A30" FontSize="24" Height="40" HorizontalAlignment="Left" Width="335" DataContext="{Binding Statue.Adresse}" PlaceholderText="Addresse"/>
+                        <TextBox x:Name="Nummer" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="0,10,0,0" Height="40" Foreground="#FF0F5A30" FontSize="24" HorizontalAlignment="Left" Width="335" PlaceholderText="Nummer" DataContext="{Binding Statue.Prioritet}"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel x:Name="MatrialeStack" Margin="0,10,0,0" d:LayoutOverrides="TopPosition, BottomPosition" Height="754" VerticalAlignment="Top" HorizontalAlignment="Left" Width="335">
