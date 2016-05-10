@@ -1,11 +1,16 @@
 ﻿<Page
-    x:Class="Monument.Views.OpretStatuePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Monument.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModels="using:Monument.ViewModels"
+    x:Class="Monument.Views.OpretStatuePage"
     mc:Ignorable="d">
+
+    <Page.DataContext>
+        <ViewModels:StatueViewmodel/>
+    </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -17,7 +22,7 @@
                 <StackPanel x:Name="BasicInfoStack" Margin="0,10,0,0" Height="192" VerticalAlignment="Top" Width="335">
                     <TextBlock x:Name="InfoBlock" Margin="0" TextWrapping="Wrap" Text="Types" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30"/>
                     <StackPanel x:Name="InfoBoxes" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top" Width="335" Height="140">
-                        <TextBox x:Name="Navn" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" Height="40" HorizontalAlignment="Left" Width="335"/>
+                        <TextBox x:Name="Navn" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" Height="40" HorizontalAlignment="Left" Width="335" DataContext="{Binding Statue.Navn}"/>
                         <TextBox x:Name="Nummer" TextWrapping="Wrap" Text="Nummer" VerticalAlignment="Top" Margin="0,10,0,0" Height="40" Foreground="#FF0F5A30" FontSize="24" HorizontalAlignment="Left" Width="335"/>
                         <TextBox x:Name="Addresse" TextWrapping="Wrap" Text="Addresse" VerticalAlignment="Top" Margin="0,10,0,0" Foreground="#FF0F5A30" FontSize="24" Height="40" HorizontalAlignment="Left" Width="335"/>
                     </StackPanel>
