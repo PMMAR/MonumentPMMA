@@ -12,7 +12,7 @@
         <ScrollViewer Margin="0,0,0,54" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition">
             <StackPanel x:Name="ScrollStackPanel" Height="2690" Width="335" VerticalAlignment="Top" d:LayoutOverrides="Width, LeftMargin, RightMargin">
                 <StackPanel x:Name="ThemeStack" Height="116" Width="335" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition">
-                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF0F5A30" FontSize="32" Height="42"/>
+                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Tema" Foreground="#FF0F5A30" FontSize="32" Height="42"/>
                     <CheckBox x:Name="DarkThemeButton" Content="Mørkt Tema" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="#FF0F5A30" FontSize="24" Height="37"/>
                     <CheckBox x:Name="LightThemeButton" Content="Lyst Tema" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="#FF0F5A30" FontSize="24" Height="37"/>
                 </StackPanel>
