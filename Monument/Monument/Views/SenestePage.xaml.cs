@@ -24,7 +24,7 @@ namespace Monument.Views
     {
         public SenestePage()
         {
-            this.InitializeComponent();
+            //this.InitializeComponent();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

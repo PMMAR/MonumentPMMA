@@ -11,17 +11,17 @@
 
         <ScrollViewer Margin="0,0,0,54" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition">
             <StackPanel x:Name="ScrollStackPanel" Height="2690" Width="335" VerticalAlignment="Top" d:LayoutOverrides="Width, LeftMargin, RightMargin">
-                <StackPanel x:Name="ThemeStack" Height="100" Width="335" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition">
-                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF0F5A30"/>
-                    <CheckBox x:Name="DarkThemeButton" Content="Mørkt Tema" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="#FF0F5A30"/>
-                    <CheckBox x:Name="LightThemeButton" Content="Lyst Tema" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="#FF0F5A30"/>
+                <StackPanel x:Name="ThemeStack" Height="116" Width="335" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition">
+                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF0F5A30" FontSize="32" Height="42"/>
+                    <CheckBox x:Name="DarkThemeButton" Content="Mørkt Tema" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="#FF0F5A30" FontSize="24" Height="37"/>
+                    <CheckBox x:Name="LightThemeButton" Content="Lyst Tema" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="#FF0F5A30" FontSize="24" Height="37"/>
                 </StackPanel>
-                <StackPanel x:Name="AboutStack" Height="100" Width="335" HorizontalAlignment="Left">
-                    <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="TextBlock"/>
-                    <TextBlock x:Name="AboutTextBlock" TextWrapping="Wrap" Text="TextBlock"/>
+                <StackPanel x:Name="AboutStack" Height="100" Width="335" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0">
+                    <TextBlock x:Name="AboutTitleTextBlock" TextWrapping="Wrap" Text="About" Height="42" FontSize="32" VerticalAlignment="Top" Foreground="#FF0F5A30"/>
+                    <TextBlock x:Name="AboutTextBlock" TextWrapping="Wrap" Text="TextBlock" FontSize="24" Height="100" VerticalAlignment="Top" Foreground="#FF0F5A30"/>
                 </StackPanel>
-                <StackPanel x:Name="LogOutStack" Height="100" Width="335" HorizontalAlignment="Left">
-                    <Button x:Name="LogOutButton" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <StackPanel x:Name="LogOutStack" Height="44" Width="335" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0">
+                    <Button x:Name="LogOutButton" Content="Log Ud" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="24" Foreground="#FF0F5A30" Background="#33FFFFFF"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

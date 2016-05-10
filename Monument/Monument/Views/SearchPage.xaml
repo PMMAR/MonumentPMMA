@@ -19,8 +19,8 @@
     </Page.Resources>
 
     <Grid Background="#FF333333">
-        <Grid x:Name="buttongrid" Height="32" Width="360" VerticalAlignment="Top">
-            <Button x:Name="searchButton1" Content="Søg" VerticalAlignment="Top" Width="180" Background="Transparent" Foreground="#FF0F5A30">
+        <StackPanel x:Name="ButtonStack" Height="32" Width="360" VerticalAlignment="Top" Orientation="Horizontal">
+            <Button x:Name="SearchButton" Content="Søg" VerticalAlignment="Top" Width="180" Background="Transparent" Foreground="#FF0F5A30">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
                         <Core:NavigateToPageAction TargetPage="Monument.Views.SearchPage"/>
@@ -28,7 +28,7 @@
                 </Interactivity:Interaction.Behaviors>
 
             </Button>
-            <Button x:Name="recentButton" Content="Senest" VerticalAlignment="Top" Width="180" Margin="180,0,0,0" Foreground="#FF0F5A30">
+            <Button x:Name="RecentButton" Content="Senest" VerticalAlignment="Top" Width="180" Margin="0" Foreground="#FF0F5A30">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
                         <Core:NavigateToPageAction TargetPage="Monument.Views.SenestePage" />
@@ -36,14 +36,14 @@
                 </Interactivity:Interaction.Behaviors>
             </Button>
 
-        </Grid>
-        <Grid x:Name="searchBarGrid" Height="40" Width="358" Margin="0,32,0,0" VerticalAlignment="Top">
-            <TextBox x:Name="searchBox" TextWrapping="Wrap" Text="Søg" VerticalAlignment="Top" Height="40" Foreground="#FF0F5A30" Margin="0,0,48,0" d:LayoutOverrides="LeftPosition, RightPosition"/>
-            <Button x:Name="searchButton" Content="Button" HorizontalAlignment="Left" Margin="310,0,0,0" VerticalAlignment="Top" Height="40" Width="50"/>
-        </Grid>
-        <Grid x:Name="listViewGrid" Width="360" Margin="0,72,0,468" d:LayoutOverrides="TopPosition, BottomPosition" Height="521">
-            <ListView x:Name="listView" ItemTemplate="{StaticResource searchTemplate}"/>
-        </Grid>
+        </StackPanel>
+        <StackPanel x:Name="SearchBarStack" Height="40" Width="358" Margin="0,32,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+            <TextBox x:Name="SearchBox" TextWrapping="Wrap" Text="Søg" VerticalAlignment="Top" Height="40" Foreground="#FF0F5A30" Margin="0" d:LayoutOverrides="LeftPosition, RightPosition" Width="310"/>
+            <Button x:Name="SearchStatueButton" Content="Button" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="40" Width="50"/>
+        </StackPanel>
+        <StackPanel x:Name="ListViewStack" Width="360" Margin="0,72,0,0" d:LayoutOverrides="TopPosition, BottomPosition" Height="514" VerticalAlignment="Top">
+            <ListView x:Name="SearchListView" ItemTemplate="{StaticResource searchTemplate}"/>
+        </StackPanel>
         <StackPanel x:Name="NavBar" Height="54" Orientation="Horizontal" VerticalAlignment="Bottom" d:LayoutOverrides="Width">
             <Button x:Name="HomeButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="button_Click" Foreground="#FF0F5A30" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0" Background="#4C000000" Width="90" d:LayoutOverrides="HorizontalAlignment">
                 <Interactivity:Interaction.Behaviors>
@@ -57,7 +57,7 @@
                     </Image.RenderTransform>
                 </Image>
             </Button>
-            <Button x:Name="SearchButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="button_Click" Foreground="{x:Null}" Width="90" Height="54" BorderThickness="0,2,2,0" BorderBrush="#FF212121" Background="#19000000">
+            <Button x:Name="SearchNavButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="button_Click" Foreground="{x:Null}" Width="90" Height="54" BorderThickness="0,2,2,0" BorderBrush="#FF212121" Background="#19000000">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
                         <Core:NavigateToPageAction TargetPage="Monument.Views.SearchPage"/>
