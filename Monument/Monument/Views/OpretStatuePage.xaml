@@ -10,55 +10,77 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" Background="#FF333333">
-            <Grid x:Name="scrollGrid" Height="1245" Width="335" VerticalAlignment="Top">
-                <Grid x:Name="photoButtonGrid" Width="200" Height="200" d:LayoutOverrides="Height" Margin="0,30,0,0" VerticalAlignment="Top">
+            <StackPanel x:Name="ScrollStack" Height="3000" Width="335" VerticalAlignment="Top">
+                <StackPanel x:Name="PhotoButtonStack" Width="200" Height="200" d:LayoutOverrides="Height" Margin="0,30,0,0" VerticalAlignment="Top">
                     <Button x:Name="Button" Content="Button" HorizontalAlignment="Stretch" Height="200" Margin="0" VerticalAlignment="Stretch" Width="200" BorderThickness="2" Background="#33FFFFFF"/>
-
-                </Grid>
-                <Grid x:Name="basicInfoGrid" Margin="0,250,0,0" Height="200" VerticalAlignment="Top">
-                    <TextBlock x:Name="typesBlock" Margin="0" TextWrapping="Wrap" Text="Types" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30"/>
-                    <Grid x:Name="InfoBoxes" Margin="0,57,0,10" d:LayoutOverrides="VerticalAlignment, TopPosition, BottomPosition">
-                        <TextBox x:Name="navn" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Top" d:LayoutOverrides="Width" Foreground="#FF0F5A30" FontSize="24" Height="42"/>
-                        <TextBox x:Name="nummer" TextWrapping="Wrap" Text="Nummer" VerticalAlignment="Top" d:LayoutOverrides="Width" Margin="0,44,0,0" Height="42" Foreground="#FF0F5A30" FontSize="24"/>
-                        <TextBox x:Name="addresse" TextWrapping="Wrap" Text="Addresse" VerticalAlignment="Top" d:LayoutOverrides="Width" Margin="0,88,0,0" Foreground="#FF0F5A30" FontSize="24" Height="42"/>
-                    </Grid>
-                </Grid>
-                <Grid x:Name="matrialeGrid" Margin="0,450,0,0" d:LayoutOverrides="TopPosition, BottomPosition">
-                    <TextBlock x:Name="matrialeBlock" Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30" SelectionChanged="matrialeBlock_SelectionChanged" Text="Materiale"/>
-                    <Grid x:Name="stenGrid" Margin="0,50,0,0" Height="220" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment, TopMargin, BottomMargin">
-                        <TextBlock x:Name="stenBlock" Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width" Height="35" VerticalAlignment="Top" FontSize="24" Text="Sten" Foreground="#FF0F5A30"/>
-                        <Grid x:Name="stenCheckBox" Margin="0,40,0,0" Height="180" VerticalAlignment="Top">
-                            <CheckBox x:Name="granitCheck" Content="Granit" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
-                            <CheckBox x:Name="sandstenCheck" Content="Sandsten" VerticalAlignment="Top" Margin="0,35,0,0" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
-                            <CheckBox x:Name="kalkstenCheck" VerticalAlignment="Top" Margin="-227,105,0,0" Foreground="#FF0F5A30" FontSize="24" Height="40">
-                                <Button x:Name="button" Content=""/>
-                            </CheckBox>
-                            <CheckBox x:Name="marmorCheck" Content="Marmor" VerticalAlignment="Top" Margin="0,105,0,0" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
-                            <CheckBox x:Name="andenBjergartCheck" Content="Anden Bjergart" VerticalAlignment="Top" Margin="0,140,0,0" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
-                        </Grid>
-                    </Grid>
-                    <Grid x:Name="metalGrid" Margin="0,270,0,0" Height="260" VerticalAlignment="Top">
-                        <TextBlock x:Name="metalBlock" Margin="0" TextWrapping="Wrap" Height="35" VerticalAlignment="Top" FontSize="24" Text="Metal" Foreground="#FF0F5A30" d:LayoutOverrides="Width"/>
-                        <Grid x:Name="metalCheckBox" Margin="0,40,0,0" d:LayoutOverrides="TopPosition, BottomPosition" Height="215" VerticalAlignment="Top">
-                            <CheckBox x:Name="bronzeCheck" Content="Bronze"  VerticalAlignment="Top"  BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" Height="40"/>
-                            <CheckBox x:Name="cortentstålCheck" Content="Contentstål"  Margin="0,35,0,0" VerticalAlignment="Top"  FontSize="24" Foreground="#FF0F5A30" Height="40"/>
-                            <CheckBox x:Name="bemaletStålCheck" Content="Bemalet Stål"  Margin="0,70,0,0" VerticalAlignment="Top"  FontSize="24" Foreground="#FF0F5A30" Height="40"/>
-                            <CheckBox x:Name="aluminiumCheck" Content="Aluminium"  VerticalAlignment="Top" BorderThickness="0" FontSize="24" d:LayoutOverrides="TopPosition, BottomPosition" Foreground="#FF0F5A30" Margin="0,105,0,0" Height="40"/>
-                            <CheckBox x:Name="jernCheck" Content="Jern"  VerticalAlignment="Top"  BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" Margin="0,140,0,0" Height="40"/>
-                            <CheckBox x:Name="andetMetalCheck" Content="Andet Metal"  VerticalAlignment="Top"  BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" Margin="0,175,0,0" Height="40"/>
-                        </Grid>
-                    </Grid>
-                    <Grid x:Name="andetGrid" Margin="0,525,0,7" d:LayoutOverrides="TopPosition, BottomPosition" Height="270">
-                        <TextBlock x:Name="andetBlock" Margin="0" TextWrapping="Wrap" Height="32" VerticalAlignment="Top" FontSize="24" Text="Andet" Foreground="#FF0F5A30" d:LayoutOverrides="Width"/>
-                        <Grid x:Name="andetCheckBox" Margin="0,40,0,0" d:LayoutOverrides="TopPosition, BottomPosition" Height="145" VerticalAlignment="Top">
-                            <CheckBox x:Name="træCheck" Content="Træ" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" d:LayoutOverrides="Width, LeftPosition, RightPosition" BorderThickness="0" FontSize="24" Foreground="#FF0F5A30"/>
-                            <CheckBox x:Name="teglCheck" Content="Tegl" HorizontalAlignment="Left" Margin="0,35,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="40" FontSize="24" Foreground="#FF0F5A30"/>
-                            <CheckBox x:Name="betonCheck" Content="Beton" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="40" FontSize="24" Foreground="#FF0F5A30"/>
-                            <CheckBox x:Name="andetMatriale" Content="Andet Matriale" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" BorderThickness="0" FontSize="24" d:LayoutOverrides="Width, LeftPosition, RightPosition" Foreground="#FF0F5A30" Margin="0,105,0,0"/>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
+                </StackPanel>
+                <StackPanel x:Name="BasicInfoStack" Margin="0,10,0,0" Height="192" VerticalAlignment="Top" Width="335">
+                    <TextBlock x:Name="InfoBlock" Margin="0" TextWrapping="Wrap" Text="Types" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30"/>
+                    <StackPanel x:Name="InfoBoxes" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top" Width="335" Height="140">
+                        <TextBox x:Name="Navn" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" Height="40" HorizontalAlignment="Left" Width="335"/>
+                        <TextBox x:Name="Nummer" TextWrapping="Wrap" Text="Nummer" VerticalAlignment="Top" Margin="0,10,0,0" Height="40" Foreground="#FF0F5A30" FontSize="24" HorizontalAlignment="Left" Width="335"/>
+                        <TextBox x:Name="Addresse" TextWrapping="Wrap" Text="Addresse" VerticalAlignment="Top" Margin="0,10,0,0" Foreground="#FF0F5A30" FontSize="24" Height="40" HorizontalAlignment="Left" Width="335"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:Name="MatrialeStack" Margin="0,10,0,0" d:LayoutOverrides="TopPosition, BottomPosition" Height="754" VerticalAlignment="Top" HorizontalAlignment="Left" Width="335">
+                    <TextBlock x:Name="MatrialeBlock" Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30" Text="Materiale"/>
+                    <StackPanel x:Name="StenGrid" Margin="0" Height="235" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" Width="335">
+                        <TextBlock x:Name="StenBlock" Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width" Height="35" VerticalAlignment="Top" FontSize="24" Text="Sten" Foreground="#FF0F5A30"/>
+                        <StackPanel x:Name="StenCheckBox" Margin="0" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left" Width="335">
+                            <CheckBox x:Name="GranitCheck" Content="Granit" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
+                            <CheckBox x:Name="SandstenCheck" Content="Sandsten" VerticalAlignment="Top" Margin="0" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
+                            <CheckBox x:Name="KalkstenCheck" VerticalAlignment="Top" Margin="0" Foreground="#FF0F5A30" FontSize="24" Height="40" Content="Kalksten"/>
+                            <CheckBox x:Name="MarmorCheck" Content="Marmor" VerticalAlignment="Top" Margin="0" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
+                            <CheckBox x:Name="AndenBjergartCheck" Content="Anden Bjergart" VerticalAlignment="Top" Margin="0" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel x:Name="MetalStack" Margin="0" Height="275" VerticalAlignment="Top" Width="335" HorizontalAlignment="Left">
+                        <TextBlock x:Name="MetalBlock" Margin="0" TextWrapping="Wrap" Height="35" VerticalAlignment="Top" FontSize="24" Text="Metal" Foreground="#FF0F5A30" HorizontalAlignment="Left" Width="335"/>
+                        <StackPanel x:Name="MetalCheckBox" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" Height="240" VerticalAlignment="Top" HorizontalAlignment="Left" Width="335">
+                            <CheckBox x:Name="BronzeCheck" Content="Bronze"  VerticalAlignment="Top"  BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" Height="40"/>
+                            <CheckBox x:Name="CortentstålCheck" Content="Contentstål"  Margin="0" VerticalAlignment="Top"  FontSize="24" Foreground="#FF0F5A30" Height="40"/>
+                            <CheckBox x:Name="BemaletStålCheck" Content="Bemalet Stål"  Margin="0" VerticalAlignment="Top"  FontSize="24" Foreground="#FF0F5A30" Height="40"/>
+                            <CheckBox x:Name="AluminiumCheck" Content="Aluminium"  VerticalAlignment="Top" BorderThickness="0" FontSize="24" d:LayoutOverrides="TopPosition, BottomPosition" Foreground="#FF0F5A30" Margin="0" Height="40"/>
+                            <CheckBox x:Name="JernCheck" Content="Jern"  VerticalAlignment="Top"  BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" Margin="0" Height="40"/>
+                            <CheckBox x:Name="AndetMetalCheck" Content="Andet Metal"  VerticalAlignment="Top"  BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" Margin="0" Height="40"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel x:Name="AndetStack" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" Height="192" VerticalAlignment="Top" HorizontalAlignment="Left" Width="335">
+                        <TextBlock x:Name="AndetBlock" Margin="0" TextWrapping="Wrap" Height="32" VerticalAlignment="Top" FontSize="24" Text="Andet" Foreground="#FF0F5A30" d:LayoutOverrides="Width"/>
+                        <StackPanel x:Name="AndetCheckBox" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" Height="160" VerticalAlignment="Top" Width="335" HorizontalAlignment="Left">
+                            <CheckBox x:Name="TræCheck" Content="Træ" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" d:LayoutOverrides="Width, LeftPosition, RightPosition" BorderThickness="0" FontSize="24" Foreground="#FF0F5A30"/>
+                            <CheckBox x:Name="TeglCheck" Content="Tegl" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="40" FontSize="24" Foreground="#FF0F5A30"/>
+                            <CheckBox x:Name="BetonCheck" Content="Beton" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="40" FontSize="24" Foreground="#FF0F5A30"/>
+                            <CheckBox x:Name="AndetMatriale" Content="Andet Matriale" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" BorderThickness="0" FontSize="24" d:LayoutOverrides="Width, LeftPosition, RightPosition" Foreground="#FF0F5A30" Margin="0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:Name="VærdisætningStack" HorizontalAlignment="Left" Width="335" Height="172" VerticalAlignment="Top" Margin="0,10,0,0">
+                    <TextBlock x:Name="VærdisætningBlock" HorizontalAlignment="Left" Height="52" TextWrapping="Wrap" Text="Værdisætning" Width="335" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30"/>
+                    <StackPanel x:Name="VærdisætningComboBoxStack" HorizontalAlignment="Left" Height="120" Width="335" d:IsHidden="True" VerticalAlignment="Top">
+                        <ComboBox x:Name="KunsthistoriskVærdiComboBox" Height="40" VerticalAlignment="Top" Width="335" FontSize="24" Foreground="#FF0F5A30"/>
+                        <ComboBox x:Name="SkulpturVærdiComboBox" Height="40" VerticalAlignment="Top" Width="335" Margin="0" FontSize="24" Foreground="#FF0F5A30"/>
+                        <ComboBox x:Name="BevaringsVærdiComboBox" Height="40" VerticalAlignment="Top" Width="335" Margin="0" FontSize="24" Foreground="#FF0F5A30"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:Name="BehandlingStack" HorizontalAlignment="Left" Height="212" VerticalAlignment="Top" Width="335" Margin="0,10,0,0">
+                    <TextBlock x:Name="BehandlingBlock" HorizontalAlignment="Left" Height="52" Width="335" Text="Behandling" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="32"/>
+                    <StackPanel x:Name="BehandlingStackControl" HorizontalAlignment="Left" Height="160" Width="335" VerticalAlignment="Top">
+                        <ComboBox x:Name="FrekvensComboBox" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24"/>
+                        <DatePicker x:Name="SidstBehandletDatePick" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24"/>
+                        <DatePicker x:Name="NæsteBehandlingDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0" Foreground="#FF0F5A30" FontSize="24"/>
+                        <DatePicker x:Name="NæsteTilsynDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0,0,0,0" Foreground="#FF0F5A30" FontSize="24"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:Name="AnbefalingStack" HorizontalAlignment="Left" Height="163" Width="335" VerticalAlignment="Top" Margin="0,10,0,0">
+                    <TextBlock x:Name="AnbefalingBlock" HorizontalAlignment="Left" Height="52" TextWrapping="Wrap" Text="TextBlock" Width="335" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="32"/>
+                    <StackPanel x:Name="AnbefalingBlockControl" HorizontalAlignment="Left" Height="111" Width="335" VerticalAlignment="Top">
+                        <CheckBox x:Name="AkutBehandlingCheckBox" Content="Akut Behandlingskrævende" VerticalAlignment="Top" Width="335" FontSize="24" Height="37" Foreground="#FF0F5A30"/>
+                        <CheckBox x:Name="IndgåBehandlingsPlanCheckBox" Content="Indgå i behandlingsplan" VerticalAlignment="Top" Width="335" FontSize="24" Height="37" Foreground="#FF0F5A30"/>
+                        <CheckBox x:Name="TilseTiÅr" Content="Tilses om 10 år" VerticalAlignment="Stretch" Width="335" Background="#00A87676" Foreground="#FF0F5A30" FontSize="24" Height="37"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
         </ScrollViewer>
 
 
