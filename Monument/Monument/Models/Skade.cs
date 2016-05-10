@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Monument.Models
+namespace Monument
 {
-    class BrugerClass
+    class Skade
     {
     }
 }

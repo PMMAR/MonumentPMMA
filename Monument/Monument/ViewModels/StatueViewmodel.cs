@@ -11,16 +11,16 @@ using Monument.Models;
 
 namespace Monument.ViewModels
 {
-    class StatueViewmodel : INotifyPropertyChanged
+    public class StatueViewmodel : INotifyPropertyChanged
     {
-        private BrugerClass _brugerClass;
-        private StatueClass _statueClasses;
+        private Bruger _brugerClass;
+        private Statue _statue;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public StatueClass StatueClasses
+        public Statue Statue
         {
-            get { return _statueClasses; }
-            set { _statueClasses = value; OnPropertyChanged(); }
+            get { return _statue; }
+            set { _statue = value; OnPropertyChanged(); }
         }
 
         public ICommand AddStatueCommand { get; set; }
