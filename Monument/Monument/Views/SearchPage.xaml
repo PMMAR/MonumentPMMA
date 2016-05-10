@@ -44,5 +44,42 @@
         <Grid x:Name="listViewGrid" Width="360" Margin="0,72,0,468" d:LayoutOverrides="TopPosition, BottomPosition" Height="521">
             <ListView x:Name="listView" ItemTemplate="{StaticResource searchTemplate}"/>
         </Grid>
+        <StackPanel x:Name="NavBar" Height="54" Orientation="Horizontal" VerticalAlignment="Bottom" d:LayoutOverrides="Width">
+            <Button x:Name="HomeButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="button_Click" Foreground="#FF0F5A30" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0" Background="#4C000000" Width="90" d:LayoutOverrides="HorizontalAlignment">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="Monument.MainPage"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+                <Image x:Name="HomeIcon" Margin="-44,-28,-46,-26" Source="ms-appx:///Assets/Icons/HomeIconMedium.png" Width="90" Height="57" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleX="1.3" ScaleY="1.3"/>
+                    </Image.RenderTransform>
+                </Image>
+            </Button>
+            <Button x:Name="SearchButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="button_Click" Foreground="{x:Null}" Width="90" Height="54" BorderThickness="0,2,2,0" BorderBrush="#FF212121" Background="#19000000">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="Monument.Views.SearchPage"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+                <Image x:Name="SearchIcon" Margin="-12,-28,-14,-26" Source="ms-appx:///Assets/Icons/SearchIconMedium.png" Width="90" Height="54"/>
+            </Button>
+            <Button x:Name="PlaceholderButton" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Click="button_Click" Width="89" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0" Foreground="{x:Null}" Background="#4C000000">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:CallMethodAction/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button x:Name="SettingsButton" HorizontalAlignment="Left" VerticalAlignment="Top" Click="button_Click" Width="91" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,0,0" FontSize="11" FontWeight="Bold" Foreground="{x:Null}" Background="#4C000000">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+                <Image x:Name="SettingsIcon" Source="ms-appx:///Assets/Icons/SettingsIconMedium.png" Width="90" Height="54" Margin="-8,-6,-7,-4"/>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>
