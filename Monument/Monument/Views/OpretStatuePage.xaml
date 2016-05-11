@@ -15,7 +15,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" Background="#FF333333" Margin="0,0,0,-1332">
+        <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" Background="#FF333333" Margin="0,0,0,10">
             <StackPanel x:Name="ScrollStack" Height="3000" Width="335" VerticalAlignment="Top">
                 <StackPanel x:Name="PhotoButtonStack" Width="200" Height="200" d:LayoutOverrides="Height" Margin="0,30,0,0" VerticalAlignment="Top">
                     <Button x:Name="Button" Content="Button" HorizontalAlignment="Stretch" Height="200" Margin="0" VerticalAlignment="Stretch" Width="200" BorderThickness="2" Background="#33FFFFFF"/>
