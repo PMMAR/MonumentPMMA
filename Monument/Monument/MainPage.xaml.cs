@@ -27,9 +27,9 @@ namespace Monument
             this.InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        //private void button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
