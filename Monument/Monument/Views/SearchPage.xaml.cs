@@ -24,12 +24,7 @@ namespace Monument.Views
     {
         public SearchPage()
         {
-            //this.InitializeComponent();
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
+            this.InitializeComponent();
         }
     }
 }

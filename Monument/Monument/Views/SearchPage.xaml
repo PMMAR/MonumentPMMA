@@ -4,46 +4,16 @@
     xmlns:local="using:Monument.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModels="using:Monument.ViewModels"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="Monument.Views.SearchPage"
-    mc:Ignorable="d" HorizontalAlignment="Left" VerticalAlignment="Top">
-    <Page.Resources>
-        <DataTemplate x:Key="searchTemplate">
-            <Grid Height="175" Width="360">
-                <TextBlock x:Name="navnBlock" TextWrapping="Wrap" Text="Navn" Height="40" FontSize="24" Width="360" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF0F5A30"/>
-                <TextBlock x:Name="adresseBlock" TextWrapping="Wrap" Text="adresse" Height="40" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,45,0,0" Width="360" Foreground="#FF0F5A30"/>
-                <TextBlock x:Name="nummerBlock" TextWrapping="Wrap" Text="nummer" Height="40" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,90,0,0" Width="360" Foreground="#FF0F5A30"/>
-                <TextBlock x:Name="idBlock" TextWrapping="Wrap" Text="id" Height="40" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,135,0,0" Width="360" Foreground="#FF0F5A30"/>
-            </Grid>
-        </DataTemplate>
-    </Page.Resources>
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <ViewModels:StatueViewmodel/>
+    </Page.DataContext>
 
     <Grid Background="#FF333333">
-        <StackPanel x:Name="ButtonStack" Height="32" Width="360" VerticalAlignment="Top" Orientation="Horizontal">
-            <Button x:Name="SearchButton" Content="Søg" VerticalAlignment="Top" Width="180" Background="Transparent" Foreground="#FF0F5A30">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction TargetPage="Monument.Views.SearchPage"/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-
-            </Button>
-            <Button x:Name="RecentButton" Content="Senest" VerticalAlignment="Top" Width="180" Margin="0" Foreground="#FF0F5A30">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction TargetPage="Monument.Views.SenestePage" />
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </Button>
-
-        </StackPanel>
-        <StackPanel x:Name="SearchBarStack" Height="40" Width="358" Margin="0,32,0,0" VerticalAlignment="Top" Orientation="Horizontal">
-            <TextBox x:Name="SearchBox" TextWrapping="Wrap" Text="Søg" VerticalAlignment="Top" Height="40" Foreground="#FF0F5A30" Margin="0" d:LayoutOverrides="LeftPosition, RightPosition" Width="310"/>
-            <Button x:Name="SearchStatueButton" Content="Button" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="40" Width="50"/>
-        </StackPanel>
-        <StackPanel x:Name="ListViewStack" Width="360" Margin="0,72,0,0" d:LayoutOverrides="TopPosition, BottomPosition" Height="514" VerticalAlignment="Top">
-            <ListView x:Name="SearchListView" ItemTemplate="{StaticResource searchTemplate}"/>
-        </StackPanel>
         <StackPanel x:Name="NavBar" Height="54" Orientation="Horizontal" VerticalAlignment="Bottom" d:LayoutOverrides="Width">
             <Button x:Name="HomeButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Foreground="#FF0F5A30" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0" Background="#4C000000" Width="90" d:LayoutOverrides="HorizontalAlignment">
                 <Interactivity:Interaction.Behaviors>
@@ -75,11 +45,29 @@
             <Button x:Name="SettingsButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,0,0" FontSize="11" FontWeight="Bold" Foreground="{x:Null}" Background="#4C000000">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction/>
+                        <Core:NavigateToPageAction TargetPage="Monument.Views.SettingsPage"/>
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
                 <Image x:Name="SettingsIcon" Source="ms-appx:///Assets/Icons/SettingsIconMedium.png" Width="90" Height="54" Margin="-8,-6,-7,-4"/>
             </Button>
         </StackPanel>
+        <Button x:Name="SearchStatueButton" Content="Søg" VerticalAlignment="Top" Width="180" Background="#33FFFFFF" Foreground="#FF0F5A30" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+        <Button x:Name="SenestButton" Content="Senest" VerticalAlignment="Top" Width="180" Margin="180,0,0,0" Foreground="#FF0F5A30" Background="#33FFFFFF" d:LayoutOverrides="VerticalAlignment">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="Monument.Views.SenestePage"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </Button>
+        <TextBox x:Name="textBox" Margin="0,32,50,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" d:LayoutOverrides="LeftPosition, RightPosition" PlaceholderText="SearchBox"/>
+        <Button x:Name="button" HorizontalAlignment="Right" Margin="0,32,0,0" VerticalAlignment="Top" Width="50" Height="32">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:CallMethodAction/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+            <Image x:Name="image" Height="32" Margin="-25,-6" Width="50" HorizontalAlignment="Center" d:LayoutOverrides="Width" Source="ms-appx:///Assets/Icons/SearchIconMedium.png"/>
+        </Button>
+        <ListView x:Name="listView" Margin="0,64,0,54" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"/>
     </Grid>
 </Page>
