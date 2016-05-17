@@ -4,12 +4,13 @@
     xmlns:local="using:Monument.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ViewModels="using:Monument.ViewModels" xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:viewModels="using:Monument.ViewModels"
     x:Class="Monument.Views.SenestePage"
     mc:Ignorable="d" Background="#FF333333">
 
     <Page.DataContext>
-        <ViewModels:StatueViewmodel/>
+        <viewModels:StatueViewmodel/>
     </Page.DataContext>
 
     <Grid Background="#FF333333">
