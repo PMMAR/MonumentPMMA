@@ -23,8 +23,7 @@
                     <TextBlock x:Name="InfoBlock" Margin="0" TextWrapping="Wrap" Text="Types" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30"/>
                     <StackPanel x:Name="InfoBoxes" Margin="0" VerticalAlignment="Top" Width="335" Height="252">
                         <TextBox x:Name="Navn" TextWrapping="Wrap" Text="{Binding Statuer.Navn, Mode=TwoWay}" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" Height="52" HorizontalAlignment="Left" Width="335" PlaceholderText="Navn" Margin="0,10,0,0"/>
-                        <TextBox x:Name="ByNavn" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" Height="52" HorizontalAlignment="Left" Width="335" PlaceholderText="By Navn" Margin="0,10,0,0" AcceptsReturn="True" Text="{Binding Statuer.ByNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <TextBox x:Name="Postnr" TextWrapping="Wrap" Text="{Binding Statuer.FK_PostNr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" Height="52" HorizontalAlignment="Left" Width="335" PlaceholderText="Post Nr" Margin="0,10,0,0" AcceptsReturn="True"/>
+                        <ListView x:Name="listView" Height="148" ItemsSource="{Binding GetAdresseListCommand}"/>
                         <ComboBox  x:Name="comboBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="52" Margin="0,10,0,0" PlaceholderText="Prioritet" SelectedIndex="{Binding Statuer.Prioritet, Mode=TwoWay}">
                             <ComboBoxItem Content="A" Height="100" Width="100"/>
                             <ComboBoxItem Content="B" Height="100" Width="100"/>

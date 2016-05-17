@@ -18,6 +18,7 @@ namespace Monument.ViewModels
         //private Bruger _bruger;
         private Statuer _Statuer;
         private Adresse _Adresse;
+        private Materialer _Materialer;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Statuer Statuer
@@ -29,6 +30,11 @@ namespace Monument.ViewModels
         {
             get { return _Adresse; }
             set { _Adresse = value; OnPropertyChanged(); }
+        }
+        public Materialer Materialer
+        {
+            get { return _Materialer; }
+            set { _Materialer = value; OnPropertyChanged(); }
         }
 
 
@@ -52,7 +58,17 @@ namespace Monument.ViewModels
         public ICommand GetAdresseListCommand { get; set; }
 
         ////////// Material Commands ////////
-        /// 
+      
+
+        public Handler.MaterialersHandler MaterialerHandler { get; }
+
+        public ICommand AddMaterialerCommand { get; set; }
+        public ICommand DeleteMaterialerCommand { get; set; }
+        public ICommand UpdateMaterialerCommand { get; set; }
+        public ICommand GetMaterialerCommand { get; set; }
+        public ICommand GetMaterialerListCommand { get; set; }
+
+
         public StatueViewmodel()
         {
             StatuerHandler = new Handler.StatuerHandler(this);
@@ -71,8 +87,17 @@ namespace Monument.ViewModels
             GetAdresseCommand = new RelayCommand(AdresseHandler.GetAdresse);
             GetAdresseListCommand = new RelayCommand(AdresseHandler.GetAdresseList);
 
+            MaterialerHandler = new Handler.MaterialersHandler(this);
+
+            AddMaterialerCommand = new RelayCommand(MaterialerHandler.PostMaterialer);
+            DeleteMaterialerCommand = new RelayCommand(MaterialerHandler.DeleteMaterialer);
+            UpdateMaterialerCommand = new RelayCommand(MaterialerHandler.UpdateMaterialer);
+            GetMaterialerCommand = new RelayCommand(MaterialerHandler.GetMaterialer);
+            GetMaterialerListCommand = new RelayCommand(MaterialerHandler.GetMaterialerList);
+
             Statuer = new Statuer();
             Adresse = new Adresse();
+            Materialer = new Materialer();
         }
 
 

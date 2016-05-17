@@ -324,6 +324,158 @@ namespace Monument.Facade
         }
 
         /////////////////ADRESSE end//////////////////
+        /// 
+        /// 
+        /////////////////Materialer//////////////////
+
+        public async Task<List<Materialer>> GetMaterialerList()
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/Materialer";
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var MaterialerList = await response.Content.ReadAsAsync<List<Materialer>>();
+                        return MaterialerList;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        public async Task<Materialer> GetMaterialer(Materialer getMaterialer)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/Materialer/" + getMaterialer.Materiale_id;
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var Materialer = await response.Content.ReadAsAsync<Materialer>();
+                        return Materialer;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        //Http POST
+
+        public async Task<Materialer> PostMaterialer(Materialer newMaterialer)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                //try
+                //{
+                var response = await client.PostAsJsonAsync<Materialer>("API/Materialers/", newMaterialer);
+                if (response.IsSuccessStatusCode)
+                {
+                    //return MyNewGuest;
+                    ErrorMessage = response.StatusCode.ToString();
+                    return newMaterialer;
+                }
+
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+
+            }
+        }
+
+        //HTTP PUT
+        public async Task<Materialer> PutMaterialer(Materialer udMaterialer)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                try
+                {
+                    var response = await client.PutAsJsonAsync<Materialer>("API/Materialer/" + udMaterialer.Materiale_id, udMaterialer);
+                    if (response.IsSuccessStatusCode)
+                    {
+
+                        ErrorMessage = response.StatusCode.ToString();
+                        return udMaterialer;
+                    }
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+
+
+        // Http Delete
+
+        public async Task<Materialer> DeleteMaterialer(Materialer delMaterialer)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                string urlString = "api/Materialer/" + delMaterialer.Materiale_id;
+
+                //try
+                //{
+                HttpResponseMessage response = await client.DeleteAsync(urlString);
+                if (response.IsSuccessStatusCode)
+                {
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+            }
+
+        }
+
+        /////////////////Materialer end//////////////////
     }
 }
 
