@@ -16,9 +16,9 @@ namespace Monument.Handler
 
         public Statuer Statuer { get; set; }
 
-        public StatuerHandler(StatueViewmodel StatueViewmodel)
+        public StatuerHandler(StatueViewmodel statueViewmodel)
         {
-            StatueViewmodels = StatueViewmodel;
+            StatueViewmodels = statueViewmodel;
             
         }
 
