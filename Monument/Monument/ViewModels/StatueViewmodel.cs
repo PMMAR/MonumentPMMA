@@ -7,28 +7,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Monument.Annotations;
-using Monument.Models;
+using Monument.Common;
+using Monument.Handler;
+
 
 namespace Monument.ViewModels
 {
     public class StatueViewmodel : INotifyPropertyChanged
     {
-        private Bruger _brugerClass;
-        private Statue _statue;
+        private Bruger _bruger;
+        private Statuer _Statuer;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Statue Statue
+        public Statuer Statuer
         {
-            get { return _statue; }
-            set { _statue = value; OnPropertyChanged(); }
+            get { return _Statuer; }
+            set { _Statuer = value; OnPropertyChanged(); }
         }
 
-        public ICommand AddStatueCommand { get; set; }
-        public ICommand DeleteStatueCommand { get; set; }
-        public ICommand UpdateStatueCommand { get; set; }
-        public ICommand GetStatueCommand { get; set; }
+        public Handler.StatuerHandler StatuerHandler { get;  }
 
 
+        public ICommand AddStatuerCommand { get; set; }
+        public ICommand DeleteStatuerCommand { get; set; }
+        public ICommand UpdateStatuerCommand { get; set; }
+        public ICommand GetStatuerCommand { get; set; }
+        public ICommand GetStatuerListCommand { get; set; }
+
+        public StatueViewmodel()
+        {
+            StatuerHandler = new Handler.StatuerHandler(this);
+            AddStatuerCommand = new RelayCommand(StatuerHandler.PostStatuer);
+            DeleteStatuerCommand = new RelayCommand(StatuerHandler.DeleteStatuer);
+            UpdateStatuerCommand = new RelayCommand(StatuerHandler.UpdateStatuer);
+            GetStatuerCommand = new RelayCommand(StatuerHandler.GetStatuer);
+            GetStatuerListCommand = new RelayCommand(StatuerHandler.GetStatuerList);
+
+            Statuer = new Statuer();
+
+        }
 
 
 

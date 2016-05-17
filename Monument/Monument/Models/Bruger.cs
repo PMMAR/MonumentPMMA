@@ -1,12 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Monument.Models
+namespace Monument
 {
-    class Bruger
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("Bruger")]
+    public partial class Bruger
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Bruger_id { get; set; }
+
+        [StringLength(50)]
+        public string Brugernavn { get; set; }
+
+        [StringLength(50)]
+        public string Password { get; set; }
+
+        [StringLength(16)]
+        public string Salt { get; set; }
+
+        [StringLength(50)]
+        public string Fornavn { get; set; }
+
+        [StringLength(50)]
+        public string Efternavn { get; set; }
+
+        [StringLength(50)]
+        public string Email { get; set; }
     }
 }

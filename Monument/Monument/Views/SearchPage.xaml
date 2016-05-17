@@ -51,7 +51,7 @@
                 <Image x:Name="SettingsIcon" Source="ms-appx:///Assets/Icons/SettingsIconMedium.png" Width="90" Height="54" Margin="-8,-6,-7,-4"/>
             </Button>
         </StackPanel>
-        <Button x:Name="SearchStatueButton" Content="Søg" VerticalAlignment="Top" Width="180" Background="#33FFFFFF" Foreground="#FF0F5A30" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+        <Button x:Name="SearchStatuerButton" Content="Søg" VerticalAlignment="Top" Width="180" Background="#33FFFFFF" Foreground="#FF0F5A30" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
         <Button x:Name="SenestButton" Content="Senest" VerticalAlignment="Top" Width="180" Margin="180,0,0,0" Foreground="#FF0F5A30" Background="#33FFFFFF" d:LayoutOverrides="VerticalAlignment">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">

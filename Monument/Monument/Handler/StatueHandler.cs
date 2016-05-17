@@ -4,54 +4,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Monument.Facade;
-using Monument.Models;
+
 using Monument.ViewModels;
 
 namespace Monument.Handler
 {
-    public class StatueHandler
+    public class StatuerHandler
     {
-        public static StatueViewmodel StatueViewModels { get; set; }
-        public static StatueSingleton StatueSingletons { get; set; }
+        public static StatueViewmodel StatueViewmodels { get; set; }
         public static Facade.Facade Facades { get; set; }
 
-        public Statue Statue { get; set; }
+        public Statuer Statuer { get; set; }
 
-        public StatueHandler(StatueViewmodel statueViewModels)
+        public StatuerHandler(StatueViewmodel StatueViewmodel)
         {
-            StatueViewModels = statueViewModels;
+            StatueViewmodels = StatueViewmodel;
+            
         }
 
-        public async void GetStatueList()
+        public async void GetStatuerList()
         {
             var facade = new Facade.Facade();
-            await facade.GetStatueList();
+            await facade.GetStatuerList();
 
         }
 
 
-        public async void GetStatue()
+        public async void GetStatuer()
         {
             var facade = new Facade.Facade();
-            await facade.GetStatue(Statue);
+            await facade.GetStatuer(Statuer);
         }
 
-        public async void PostGuest()
+        public async void PostStatuer()
         {
             var facade = new Facade.Facade();
-            await facade.PostStatue(Statue);
+            await facade.PostStatuer(StatueViewmodels.Statuer);
         }
 
-        public async void UpdateGuest()
+        public async void UpdateStatuer()
         {
             var facade = new Facade.Facade();
-            await facade.PutStatue(Statue);
+            await facade.PutStatuer(Statuer);
         }
 
-        public async void DeleteGuest()
+        public async void DeleteStatuer()
         {
             var facade = new Facade.Facade();
-            await facade.DeleteStatue(Statue);
+            await facade.DeleteStatuer(Statuer);
         }
 
 

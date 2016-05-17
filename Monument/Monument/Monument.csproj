@@ -109,12 +109,19 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Adresse.cs" />
     <Compile Include="Models\Bruger.cs" />
-    <Compile Include="Models\StatueSingleton.cs" />
+    <Compile Include="Models\Materialer.cs" />
+    <Compile Include="Models\SkadeNoter.cs" />
+    <Compile Include="Models\Skader.cs" />
+    <Compile Include="Models\SNote_Tags.cs" />
+    <Compile Include="Models\StatueNoter.cs" />
+    <Compile Include="Models\StatuePlacering.cs" />
+    <Compile Include="Models\Statuer.cs" />
+    <Compile Include="Models\StatueType.cs" />
+    <Compile Include="Models\Tags.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Skade.cs" />
-    <Compile Include="Models\Statue.cs" />
     <Compile Include="ViewModels\StatueViewmodel.cs" />
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>

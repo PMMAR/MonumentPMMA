@@ -20,9 +20,9 @@ namespace Monument.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class OpretStatuePage : Page
+    public sealed partial class OpretStatuerPage : Page
     {
-        public OpretStatuePage()
+        public OpretStatuerPage()
         {
             this.InitializeComponent();
         }
