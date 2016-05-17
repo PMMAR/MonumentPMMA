@@ -5,8 +5,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:ViewModels="using:Monument.ViewModels"
     x:Class="Monument.MainPage"
     mc:Ignorable="d">
+
+    <Page.DataContext>
+        <ViewModels:StatueViewmodel/>
+    </Page.DataContext>
 
     <Grid Background="#FF333333">
         <StackPanel x:Name="NavBar" Height="54" Orientation="Horizontal" VerticalAlignment="Bottom" d:LayoutOverrides="Width">
