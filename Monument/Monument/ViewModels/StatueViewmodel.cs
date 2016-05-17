@@ -58,7 +58,8 @@ namespace Monument.ViewModels
         public ICommand GetAdresseListCommand { get; set; }
 
         ////////// Material Commands ////////
-      
+        /// 
+        /// 
 
         public Handler.MaterialersHandler MaterialerHandler { get; }
 

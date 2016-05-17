@@ -39,6 +39,7 @@ namespace Monument.Handler
         public async void PostStatuer()
         {
             var facade = new Facade.Facade();
+            await facade.PostMaterialer(StatueViewmodels.Materialer);
             await facade.PostStatuer(StatueViewmodels.Statuer);
         }
 

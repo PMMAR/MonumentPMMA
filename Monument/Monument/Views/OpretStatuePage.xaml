@@ -36,31 +36,30 @@
                     <StackPanel x:Name="StenGrid" Margin="0" Height="235" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" Width="335">
                         <TextBlock x:Name="StenBlock" Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width" Height="35" VerticalAlignment="Top" FontSize="24" Text="Sten" Foreground="#FF0F5A30"/>
                         <StackPanel x:Name="StenCheckBox" Margin="0" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left" Width="335">
-                            <CheckBox x:Name="GranitCheck" Content="Granit" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
-                            <CheckBox x:Name="SandstenCheck" Content="Sandsten" VerticalAlignment="Top" Margin="0" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
-                            <CheckBox x:Name="KalkstenCheck" VerticalAlignment="Top" Margin="0" Foreground="#FF0F5A30" FontSize="24" Height="40" Content="Kalksten"/>
-                            <CheckBox x:Name="MarmorCheck" Content="Marmor" VerticalAlignment="Top" Margin="0" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
-                            <CheckBox x:Name="AndenBjergartCheck" Content="Anden Bjergart" VerticalAlignment="Top" Margin="0" Foreground="#FF0F5A30" FontSize="24" Height="40"/>
+                            <CheckBox x:Name="GranitCheck" Content="Granit" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" Height="40" IsChecked="{Binding Materialer.Granit, Mode=TwoWay, UpdateSourceTrigger=Default}"/>
+                            <CheckBox x:Name="SandstenCheck" Content="Sandsten" VerticalAlignment="Top" Margin="0" Foreground="#FF0F5A30" FontSize="24" Height="40" IsChecked="{Binding Materialer.Sandsten, Mode=TwoWay}"/>
+                            <CheckBox x:Name="KalkstenCheck" VerticalAlignment="Top" Margin="0" Foreground="#FF0F5A30" FontSize="24" Height="40" Content="Kalksten" IsChecked="{Binding Materialer.Kalksten, Mode=TwoWay}"/>
+                            <CheckBox x:Name="MarmorCheck" Content="Marmor" VerticalAlignment="Top" Margin="0" Foreground="#FF0F5A30" FontSize="24" Height="40" IsChecked="{Binding Materialer.Marmor, Mode=TwoWay}"/>
+                            <CheckBox x:Name="AndenBjergartCheck" Content="Anden Bjergart" VerticalAlignment="Top" Margin="0" Foreground="#FF0F5A30" FontSize="24" Height="40" IsChecked="{Binding Materialer.Anden_Stentype, Mode=TwoWay}"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel x:Name="MetalStack" Margin="0" Height="275" VerticalAlignment="Top" Width="335" HorizontalAlignment="Left">
                         <TextBlock x:Name="MetalBlock" Margin="0" TextWrapping="Wrap" Height="35" VerticalAlignment="Top" FontSize="24" Text="Metal" Foreground="#FF0F5A30" HorizontalAlignment="Left" Width="335"/>
                         <StackPanel x:Name="MetalCheckBox" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" Height="240" VerticalAlignment="Top" HorizontalAlignment="Left" Width="335">
-                            <CheckBox x:Name="BronzeCheck" Content="Bronze"  VerticalAlignment="Top"  BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" Height="40"/>
-                            <CheckBox x:Name="CortentstålCheck" Content="Contentstål"  Margin="0" VerticalAlignment="Top"  FontSize="24" Foreground="#FF0F5A30" Height="40"/>
-                            <CheckBox x:Name="BemaletStålCheck" Content="Bemalet Stål"  Margin="0" VerticalAlignment="Top"  FontSize="24" Foreground="#FF0F5A30" Height="40"/>
-                            <CheckBox x:Name="AluminiumCheck" Content="Aluminium"  VerticalAlignment="Top" BorderThickness="0" FontSize="24" d:LayoutOverrides="TopPosition, BottomPosition" Foreground="#FF0F5A30" Margin="0" Height="40"/>
-                            <CheckBox x:Name="JernCheck" Content="Jern"  VerticalAlignment="Top"  BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" Margin="0" Height="40"/>
-                            <CheckBox x:Name="AndetMetalCheck" Content="Andet Metal"  VerticalAlignment="Top"  BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" Margin="0" Height="40"/>
+                            <CheckBox x:Name="BronzeCheck" Content="Bronze"  VerticalAlignment="Top"  BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" Height="40" IsChecked="{Binding Materialer.Bronze, Mode=TwoWay}"/>
+                            <CheckBox x:Name="CortentstålCheck" Content="Contentstål"  Margin="0" VerticalAlignment="Top"  FontSize="24" Foreground="#FF0F5A30" Height="40" IsChecked="{Binding Materialer.CortenStaal, Mode=TwoWay}"/>
+                            <CheckBox x:Name="BemaletStålCheck" Content="Bemalet Stål"  Margin="0" VerticalAlignment="Top"  FontSize="24" Foreground="#FF0F5A30" Height="40" IsChecked="{Binding Materialer.MaletStaal, Mode=TwoWay}"/>
+                            <CheckBox x:Name="AluminiumCheck" Content="Aluminium"  VerticalAlignment="Top" BorderThickness="0" FontSize="24" d:LayoutOverrides="TopPosition, BottomPosition" Foreground="#FF0F5A30" Margin="0" Height="40" IsChecked="{Binding Materialer.Aluminium, Mode=TwoWay}"/>
+                            <CheckBox x:Name="AndetMetalCheck" Content="Andet Metal"  VerticalAlignment="Top"  BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" Margin="0" Height="40" IsChecked="{Binding Materialer.Anden_Metaltype, Mode=TwoWay}"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel x:Name="AndetStack" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" Height="192" VerticalAlignment="Top" HorizontalAlignment="Left" Width="335">
                         <TextBlock x:Name="AndetBlock" Margin="0" TextWrapping="Wrap" Height="32" VerticalAlignment="Top" FontSize="24" Text="Andet" Foreground="#FF0F5A30" d:LayoutOverrides="Width"/>
                         <StackPanel x:Name="AndetCheckBox" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" Height="160" VerticalAlignment="Top" Width="335" HorizontalAlignment="Left">
-                            <CheckBox x:Name="TræCheck" Content="Træ" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" d:LayoutOverrides="Width, LeftPosition, RightPosition" BorderThickness="0" FontSize="24" Foreground="#FF0F5A30"/>
-                            <CheckBox x:Name="TeglCheck" Content="Tegl" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="40" FontSize="24" Foreground="#FF0F5A30"/>
-                            <CheckBox x:Name="BetonCheck" Content="Beton" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="40" FontSize="24" Foreground="#FF0F5A30"/>
-                            <CheckBox x:Name="AndetMatriale" Content="Andet Matriale" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" BorderThickness="0" FontSize="24" d:LayoutOverrides="Width, LeftPosition, RightPosition" Foreground="#FF0F5A30" Margin="0"/>
+                            <CheckBox x:Name="TræCheck" Content="Træ" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" d:LayoutOverrides="Width, LeftPosition, RightPosition" BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" IsChecked="{Binding Materialer.Trae, Mode=TwoWay}"/>
+                            <CheckBox x:Name="TeglCheck" Content="Tegl" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="40" FontSize="24" Foreground="#FF0F5A30" IsChecked="{Binding Materialer.Mursten, Mode=TwoWay}"/>
+                            <CheckBox x:Name="BetonCheck" Content="Beton" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="40" FontSize="24" Foreground="#FF0F5A30" IsChecked="{Binding Materialer.Beton, Mode=TwoWay}"/>
+                            <CheckBox x:Name="AndetMatriale" Content="Andet Matriale" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" BorderThickness="0" FontSize="24" d:LayoutOverrides="Width, LeftPosition, RightPosition" Foreground="#FF0F5A30" Margin="0" IsChecked="{Binding Materialer.Anden_Materialetype, Mode=TwoWay}"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
