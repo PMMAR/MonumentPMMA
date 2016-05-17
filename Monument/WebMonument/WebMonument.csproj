@@ -238,8 +238,10 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Bruger.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdresseController.cs" />
     <Compile Include="Controllers\BrugersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MaterialersController.cs" />
     <Compile Include="Controllers\SkadersController.cs" />
     <Compile Include="Controllers\StatuersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />

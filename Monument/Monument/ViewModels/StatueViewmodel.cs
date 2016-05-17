@@ -15,8 +15,9 @@ namespace Monument.ViewModels
 {
     public class StatueViewmodel : INotifyPropertyChanged
     {
-        private Bruger _bruger;
+        //private Bruger _bruger;
         private Statuer _Statuer;
+        private Adresse _Adresse;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Statuer Statuer
@@ -24,7 +25,14 @@ namespace Monument.ViewModels
             get { return _Statuer; }
             set { _Statuer = value; OnPropertyChanged(); }
         }
+        public Adresse Adresse
+        {
+            get { return _Adresse; }
+            set { _Adresse = value; OnPropertyChanged(); }
+        }
 
+
+        //////// Statue Commands //////////
         public Handler.StatuerHandler StatuerHandler { get;  }
 
 
@@ -34,17 +42,37 @@ namespace Monument.ViewModels
         public ICommand GetStatuerCommand { get; set; }
         public ICommand GetStatuerListCommand { get; set; }
 
+        ////////// Adresse Commands //////////
+        public Handler.AdresseHandler AdresseHandler { get; }
+
+        public ICommand AddAdresseCommand { get; set; }
+        public ICommand DeleteAdresseCommand { get; set; }
+        public ICommand UpdateAdresseCommand { get; set; }
+        public ICommand GetAdresseCommand { get; set; }
+        public ICommand GetAdresseListCommand { get; set; }
+
+        ////////// Material Commands ////////
+        /// 
         public StatueViewmodel()
         {
             StatuerHandler = new Handler.StatuerHandler(this);
+
             AddStatuerCommand = new RelayCommand(StatuerHandler.PostStatuer);
             DeleteStatuerCommand = new RelayCommand(StatuerHandler.DeleteStatuer);
             UpdateStatuerCommand = new RelayCommand(StatuerHandler.UpdateStatuer);
             GetStatuerCommand = new RelayCommand(StatuerHandler.GetStatuer);
             GetStatuerListCommand = new RelayCommand(StatuerHandler.GetStatuerList);
 
-            Statuer = new Statuer();
+            AdresseHandler = new Handler.AdresseHandler(this);
 
+            AddAdresseCommand = new RelayCommand(AdresseHandler.PostAdresse);
+            DeleteAdresseCommand = new RelayCommand(AdresseHandler.DeleteAdresse);
+            UpdateAdresseCommand = new RelayCommand(AdresseHandler.UpdateAdresse);
+            GetAdresseCommand = new RelayCommand(AdresseHandler.GetAdresse);
+            GetAdresseListCommand = new RelayCommand(AdresseHandler.GetAdresseList);
+
+            Statuer = new Statuer();
+            Adresse = new Adresse();
         }
 
 
@@ -60,7 +88,7 @@ namespace Monument.ViewModels
 
 
 
-        #region MyRegion
+        #region ProptertyChangedSupport
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

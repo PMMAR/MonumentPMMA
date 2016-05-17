@@ -1,3 +1,7 @@
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Monument.Annotations;
+
 namespace Monument
 {
     using System;
@@ -24,5 +28,6 @@ namespace Monument
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Statuer> Statuer { get; set; }
+
     }
 }

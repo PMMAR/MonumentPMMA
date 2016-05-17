@@ -18,6 +18,7 @@ namespace Monument.Facade
         //handler.UseDefaultCredentials = true;
         public string ErrorMessage { get; set; }
 
+        //////////////STATUER ///////////////////////
 
         //http GET - Statuer
         public async Task<List<Statuer>> GetStatuerList()
@@ -86,16 +87,16 @@ namespace Monument.Facade
 
                 //try
                 //{
-                    var response = await client.PostAsJsonAsync<Statuer>("API/Statuers/", newStatuer);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        //return MyNewGuest;
-                        ErrorMessage = response.StatusCode.ToString();
-                        return newStatuer;
-                    }
-
+                var response = await client.PostAsJsonAsync<Statuer>("API/Statuers/", newStatuer);
+                if (response.IsSuccessStatusCode)
+                {
+                    //return MyNewGuest;
                     ErrorMessage = response.StatusCode.ToString();
-                    return null;
+                    return newStatuer;
+                }
+
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
                 //}
                 //catch (Exception e)
                 //{
@@ -149,14 +150,14 @@ namespace Monument.Facade
 
                 //try
                 //{
-                    HttpResponseMessage response = await client.DeleteAsync(urlString);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        ErrorMessage = response.StatusCode.ToString();
-                        return null;
-                    }
+                HttpResponseMessage response = await client.DeleteAsync(urlString);
+                if (response.IsSuccessStatusCode)
+                {
                     ErrorMessage = response.StatusCode.ToString();
                     return null;
+                }
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
                 //}
                 //catch (Exception e)
                 //{
@@ -166,5 +167,163 @@ namespace Monument.Facade
             }
 
         }
+
+        ////////////////STATUER END /////////////////
+
+
+
+
+
+        /////////////////ADRESSE//////////////////
+
+        public async Task<List<Adresse>> GetAdresseList()
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/Adresse";
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var AdresseList = await response.Content.ReadAsAsync<List<Adresse>>();
+                        return AdresseList;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        public async Task<Adresse> GetAdresse(Adresse getAdresse)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/Adresse/" + getAdresse.PostNr;
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var Adresse = await response.Content.ReadAsAsync<Adresse>();
+                        return Adresse;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        //Http POST
+
+        public async Task<Adresse> PostAdresse(Adresse newAdresse)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                //try
+                //{
+                var response = await client.PostAsJsonAsync<Adresse>("API/Adresses/", newAdresse);
+                if (response.IsSuccessStatusCode)
+                {
+                    //return MyNewGuest;
+                    ErrorMessage = response.StatusCode.ToString();
+                    return newAdresse;
+                }
+
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+
+            }
+        }
+
+        //HTTP PUT
+        public async Task<Adresse> PutAdresse(Adresse udAdresse)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                try
+                {
+                    var response = await client.PutAsJsonAsync<Adresse>("API/Adresse/" + udAdresse.PostNr, udAdresse);
+                    if (response.IsSuccessStatusCode)
+                    {
+
+                        ErrorMessage = response.StatusCode.ToString();
+                        return udAdresse;
+                    }
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+
+
+        // Http Delete
+
+        public async Task<Adresse> DeleteAdresse(Adresse delAdresse)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                string urlString = "api/Adresse/" + delAdresse.PostNr;
+
+                //try
+                //{
+                HttpResponseMessage response = await client.DeleteAsync(urlString);
+                if (response.IsSuccessStatusCode)
+                {
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+            }
+
+        }
+
+        /////////////////ADRESSE end//////////////////
     }
 }
+

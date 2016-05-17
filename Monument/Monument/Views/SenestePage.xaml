@@ -7,13 +7,13 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:viewModels="using:Monument.ViewModels"
     x:Class="Monument.Views.SenestePage"
-    mc:Ignorable="d" Background="#FF333333">
+    mc:Ignorable="d" Background="#FF333333" HorizontalAlignment="Center" VerticalAlignment="Center">
 
     <Page.DataContext>
         <viewModels:StatueViewmodel/>
     </Page.DataContext>
 
-    <Grid Background="#FF333333">
+    <Grid Background="#FF333333" HorizontalAlignment="Center" VerticalAlignment="Top" Height="640">
         <StackPanel x:Name="NavBar" Height="54" Orientation="Horizontal" VerticalAlignment="Bottom" d:LayoutOverrides="Width">
             <Button x:Name="HomeButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Foreground="#FF0F5A30" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0" Background="#4C000000" Width="90" d:LayoutOverrides="HorizontalAlignment">
                 <Interactivity:Interaction.Behaviors>

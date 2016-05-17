@@ -1,3 +1,8 @@
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Monument.Annotations;
+using Monument;
+
 namespace Monument
 {
     using System;
@@ -7,8 +12,12 @@ namespace Monument
 
 
     [Table("Statuer")]
-    public partial class Statuer
+    public partial class Statuer : INotifyPropertyChanged
     {
+        public Adresse _adresse;
+        public int _fkPostNr;
+        public string _byNavn;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Statuer()
         {
@@ -26,12 +35,30 @@ namespace Monument
         [StringLength(50)]
         public string Navn { get; set; }
 
-        public int? FK_PostNr { get; set; }
+        public int FK_PostNr
+        {
+            get { return _fkPostNr; }
+            set { _fkPostNr = value; OnPropertyChanged(); }
+        }
+
+        public string ByNavn
+        {
+            get { return _byNavn; }
+            set { _byNavn = value; OnPropertyChanged(); }
+        }
+
 
         [StringLength(1)]
         public string Prioritet { get; set; }
 
-        public virtual Adresse Adresse { get; set; }
+        public virtual Adresse Adresse
+        {
+            get { return _adresse; }
+            set
+            {
+                _adresse = value; OnPropertyChanged();
+            }
+        }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Materialer> Materialer { get; set; }
@@ -47,5 +74,18 @@ namespace Monument
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StatuerType> StatuerType { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #region PropertyChangedSupport
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
+
     }
 }
