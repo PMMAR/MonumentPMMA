@@ -68,6 +68,6 @@
             </Interactivity:Interaction.Behaviors>
             <Image x:Name="image" Height="32" Margin="-25,-6" Width="50" HorizontalAlignment="Center" d:LayoutOverrides="Width" Source="ms-appx:///Assets/Icons/SearchIconMedium.png"/>
         </Button>
-        <ListView x:Name="listView" Margin="0,64,0,54" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"/>
+        <ListView x:Name="listView" Margin="0,64,0,54" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" ItemsSource="{Binding GetStatuerListCommand}"/>
     </Grid>
 </Page>
