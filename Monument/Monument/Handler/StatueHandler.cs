@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,11 +25,7 @@ namespace Monument.Handler
         public async void GetStatuerList()
         {
             var facade = new Facade.Facade();
-            var liste= await facade.GetStatuerList();
-            foreach (var listobj in liste)
-            {
-                StatueViewmodels.StatuerList.Add(listobj);
-            }
+            await facade.GetStatuerList();
 
         }
 
@@ -44,10 +39,8 @@ namespace Monument.Handler
         public async void PostStatuer()
         {
             var facade = new Facade.Facade();
-            await facade.PostAdresse(StatueViewmodels.Adresse);
-            await facade.PostStatuer(StatueViewmodels.Statuer);
             await facade.PostMaterialer(StatueViewmodels.Materialer);
-
+            await facade.PostStatuer(StatueViewmodels.Statuer);
         }
 
         public async void UpdateStatuer()
