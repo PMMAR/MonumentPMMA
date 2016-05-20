@@ -60,10 +60,10 @@
                 <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Icons/ArrowIconRightFile.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="StatuerInfo" Content="" HorizontalAlignment="Stretch" Margin="154,306,156,0" VerticalAlignment="Top" Height="43" Foreground="{x:Null}" d:LayoutOverrides="LeftPosition, RightPosition">
+        <Button x:Name="StatuerInfo" Content="Button" HorizontalAlignment="Stretch" Margin="154,306,156,0" VerticalAlignment="Top" Height="43" Foreground="{x:Null}" d:LayoutOverrides="LeftPosition, RightPosition">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="Monument.Views.SingleStatuePage"/>
+                    <Core:CallMethodAction/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
             <Button.Background>

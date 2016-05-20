@@ -75,15 +75,9 @@ namespace Monument
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StatuerType> StatuerType { get; set; }
 
-
-        public override string ToString()
-        {
-            return $"{Navn}, Prioritet: {Prioritet}, {Adresse}";
-        }
-
+        public event PropertyChangedEventHandler PropertyChanged;
 
         #region PropertyChangedSupport
-        public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

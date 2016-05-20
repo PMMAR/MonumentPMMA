@@ -134,9 +134,6 @@
     <Compile Include="Views\OpretStatuePage.xaml.cs">
       <DependentUpon>OpretStatuePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SingleStatuePage.xaml.cs">
-      <DependentUpon>SingleStatuePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
     </Compile>
@@ -167,7 +164,6 @@
     <Content Include="Assets\Icons\SettingsIconLarge.png" />
     <Content Include="Assets\Icons\SettingsIconMedium.png" />
     <Content Include="Assets\Icons\SettingsIconSmall.png" />
-    <Content Include="Assets\Image\Statue1.jpg" />
     <Content Include="Assets\Logo\MonumentLogoLarge.png" />
     <Content Include="Assets\Logo\MonumentLogoMedium.png" />
     <Content Include="Assets\Logo\MonumentLogoSmall.png" />
@@ -200,10 +196,6 @@
     <Page Include="Views\OpretStatuePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SingleStatuePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\SearchPage.xaml">
       <SubType>Designer</SubType>
