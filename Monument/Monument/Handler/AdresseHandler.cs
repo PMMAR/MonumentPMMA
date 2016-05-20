@@ -25,7 +25,11 @@ namespace Monument.Handler
         public async void GetAdresseList()
         {
             var facade = new Facade.Facade();
-            await facade.GetAdresseList();
+            var liste = await facade.GetAdresseList();
+            foreach (var listobj in liste)
+            {
+                StatueViewmodels.AdresseList.Add(listobj);
+            }
 
         }
 
