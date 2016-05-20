@@ -28,14 +28,18 @@ namespace Monument.Facade
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverUrl);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/Statuer";
+                string urlString = "api/Statuers";
 
                 try
                 {
                     HttpResponseMessage response = client.GetAsync(urlString).Result;
+
+
+
                     if (response.IsSuccessStatusCode)
                     {
                         var StatuerList = await response.Content.ReadAsAsync<List<Statuer>>();
+
                         return StatuerList;
                     }
                     return null;
@@ -55,7 +59,7 @@ namespace Monument.Facade
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverUrl);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/Statuer/" + getStatuer.Statue_Id;
+                string urlString = "api/Statuers/" + getStatuer.Statue_Id;
 
                 try
                 {
@@ -117,7 +121,7 @@ namespace Monument.Facade
                 client.DefaultRequestHeaders.Clear();
                 try
                 {
-                    var response = await client.PutAsJsonAsync<Statuer>("API/Statuer/" + udStatuer.Statue_Id, udStatuer);
+                    var response = await client.PutAsJsonAsync<Statuer>("API/Statuers/" + udStatuer.Statue_Id, udStatuer);
                     if (response.IsSuccessStatusCode)
                     {
 
@@ -146,7 +150,7 @@ namespace Monument.Facade
                 client.BaseAddress = new Uri(serverUrl);
                 client.DefaultRequestHeaders.Clear();
 
-                string urlString = "api/Statuer/" + delStatuer.Statue_Id;
+                string urlString = "api/Statuers/" + delStatuer.Statue_Id;
 
                 //try
                 //{

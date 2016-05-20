@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -20,6 +21,9 @@ namespace Monument.ViewModels
         private Adresse _Adresse;
         private Materialer _Materialer;
         public event PropertyChangedEventHandler PropertyChanged;
+        
+        public ObservableCollection<Statuer> StatuerList { get; set; }
+        public ObservableCollection<Adresse> AdresseList { get; set; }
 
         public Statuer Statuer
         {
@@ -99,6 +103,12 @@ namespace Monument.ViewModels
             Statuer = new Statuer();
             Adresse = new Adresse();
             Materialer = new Materialer();
+            StatuerList = new ObservableCollection<Statuer>();
+            AdresseList = new ObservableCollection<Adresse>();
+
+            StatuerHandler.GetStatuerList();
+            AdresseHandler.GetAdresseList();
+
         }
 
 
