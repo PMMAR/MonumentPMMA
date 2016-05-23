@@ -16,6 +16,14 @@ namespace WebMonument.Controllers
     {
         private MonumentContext db = new MonumentContext();
 
+        [Route("api/Statuer/{Navn:string}/FindNavne")]
+        [HttpGet]
+        public IEnumerable<Statuer> GivMigNavne(string Navn)
+        {
+            return db.Statuer.Where(x => x.Navn.Contains(Navn));
+        }
+
+
         // GET: api/Statuers
         public IQueryable<Statuer> GetStatuer()
         {
