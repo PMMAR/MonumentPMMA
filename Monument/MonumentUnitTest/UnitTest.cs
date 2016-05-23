@@ -6,18 +6,15 @@ using Monument.Facade;
 
 namespace MonumentUnitTest
 {
-    [TestClass]
+    [TestClass()]
     public class StatuerUnitTest
     {
-        [TestMethod]
+        [TestMethod()]
         public void TestGetStatuer()
         {
             //arrange
-            string withinCharacterLimit = "Test";
-            //Over 50 tegn
-            string beyondCharacterLimit = "TestTestTestTestTestTestTestTestTest";
 
-            Statuer StatuerNavnTest = new Statuer("Den llle gav", "A");
+            Statuer StatuerNavnTest = new Statuer("lille havfrue", "A");
             StatuerNavnTest.Statue_Id = 1;
            
             //StatuerNavnTest.
