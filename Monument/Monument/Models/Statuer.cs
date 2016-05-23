@@ -19,14 +19,35 @@ namespace Monument
         public string _byNavn;
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Statuer()
+        public Statuer(string navn, string prioritet)
         {
             Materialer = new HashSet<Materialer>();
             Skader = new HashSet<Skader>();
             StatuerNoter = new HashSet<StatuerNoter>();
             StatuerPlacering = new HashSet<StatuerPlacering>();
             StatuerType = new HashSet<StatuerType>();
+
+            //Til testen
+            Navn = navn;
+            Prioritet = prioritet;
         }
+
+        /// <summary>
+        /// Ignore this
+        /// </summary>
+        //public Statuer(int statueId, string navn, string prioritet, ICollection<Materialer> materialer, ICollection<Skader> skader, ICollection<StatuerNoter> statuerNoter, ICollection<StatuerPlacering> statuerPlacering, ICollection<StatuerType> statuerType)
+        //{
+        //    Statue_Id = statueId;
+        //    Navn = navn;
+        //    Prioritet = prioritet;
+        //    Materialer = materialer;
+        //    Skader = skader;
+        //    StatuerNoter = statuerNoter;
+        //    StatuerPlacering = statuerPlacering;
+        //    StatuerType = statuerType;
+        //}
+
+        
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
