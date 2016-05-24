@@ -10,12 +10,13 @@ namespace MonumentUnitTest
     public class StatuerUnitTest
     {
         [TestMethod()]
+        
         public void TestGetStatuer()
         {
             //arrange
 
-            Statuer StatuerNavnTest = new Statuer("lille havfrue", "A");
-            StatuerNavnTest.Statue_Id = 1;
+            Statuer StatuerNavnTest = new Statuer(1, "bylat", "A");
+            //StatuerNavnTest.Statue_Id = 1;
            
             //StatuerNavnTest.
 
@@ -24,7 +25,9 @@ namespace MonumentUnitTest
             Statuer result = facade.GetStatuer(StatuerNavnTest).Result;//kald facade
 
             //assert
-            Assert.AreEqual("lille havfrue", result.Navn);
+            //Assert.ThrowsException<NullReferenceException>(() => { facade.GetStatuer(result) });
+
+            Assert.AreEqual("bylat", result.Navn);
         }
     }
 }

@@ -11,15 +11,15 @@ namespace Monument
     using System.ComponentModel.DataAnnotations.Schema;
 
 
-    [Table("Statuer")]
+
     public partial class Statuer : INotifyPropertyChanged
     {
         public Adresse _adresse;
         public int _fkPostNr;
         public string _byNavn;
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Statuer(string navn, string prioritet)
+        
+        public Statuer(int statueId, string navn, string prioritet)
         {
             Materialer = new HashSet<Materialer>();
             Skader = new HashSet<Skader>();
@@ -30,6 +30,7 @@ namespace Monument
             //Til testen
             Navn = navn;
             Prioritet = prioritet;
+            Statue_Id = statueId;
         }
 
         /// <summary>
@@ -49,11 +50,9 @@ namespace Monument
 
         
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
         public int Statue_Id { get; set; }
-
-        [StringLength(50)]
+        
         public string Navn { get; set; }
 
         public int FK_PostNr
@@ -69,7 +68,7 @@ namespace Monument
         }
 
 
-        [StringLength(1)]
+   
         public string Prioritet { get; set; }
 
         public virtual Adresse Adresse
@@ -99,9 +98,8 @@ namespace Monument
 
         public override string ToString()
         {
-            return $"{Navn}, Prioritet: {Prioritet}, {Adresse}";
+            return $"Statue_Id: {Statue_Id}, Navn: {Navn}, FK_PostNr: {FK_PostNr}, Prioritet: {Prioritet}";
         }
-
 
         #region PropertyChangedSupport
         public event PropertyChangedEventHandler PropertyChanged;
