@@ -16,6 +16,21 @@ namespace WebMonument.Controllers
     {
         private MonumentContext db = new MonumentContext();
 
+
+        [Route("api/Statuers/{Statue_id:int}/Findid")]
+        [HttpGet]
+        public IEnumerable<Statuer> GivMigid(int Statue_id)
+        {
+            return db.Statuer.Where(x => x.Statue_id == Statue_id);
+        }
+
+        [Route("api/Statuers/{Navn}/FindNavn")]
+        [HttpGet]
+        public IEnumerable<Statuer> GivMigid(string Navn)
+        {
+            return db.Statuer.Where(x => x.Navn.Contains(Navn));
+        }
+
         // GET: api/Statuers
         public IQueryable<Statuer> GetStatuer()
         {
