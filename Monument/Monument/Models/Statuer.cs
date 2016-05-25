@@ -29,7 +29,7 @@ namespace Monument
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Statue_Id { get; set; }
 
         [StringLength(50)]
@@ -38,7 +38,7 @@ namespace Monument
         public int FK_PostNr
         {
             get { return _fkPostNr; }
-            set { _fkPostNr = value; OnPropertyChanged(); }
+            set { _fkPostNr = value;}
         }
 
         public string ByNavn

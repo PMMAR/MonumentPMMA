@@ -44,9 +44,9 @@ namespace Monument.Handler
         public async void PostStatuer()
         {
             var facade = new Facade.Facade();
-            //await facade.PostAdresse(StatueViewmodels.Adresse);
-            await facade.PostStatuer(StatueViewmodels.Statuer);
-            //await facade.PostMaterialer(StatueViewmodels.Materialer);
+            var statue = await facade.PostStatuer(StatueViewmodels.Statuer);
+            StatueViewmodels.Materialer.FK_Statue_Id = statue.Statue_Id;
+            await facade.PostMaterialer(StatueViewmodels.Materialer);
 
         }
 
