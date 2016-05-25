@@ -19,7 +19,7 @@ namespace Monument
         public string _byNavn;
 
         
-        public Statuer(int statueId, string navn, string prioritet)
+        public Statuer()
         {
             Materialer = new HashSet<Materialer>();
             Skader = new HashSet<Skader>();
@@ -27,26 +27,12 @@ namespace Monument
             StatuerPlacering = new HashSet<StatuerPlacering>();
             StatuerType = new HashSet<StatuerType>();
 
-            //Til testen
-            Navn = navn;
-            Prioritet = prioritet;
-            Statue_Id = statueId;
+            ////Til testen
+            //Navn = navn;
+            //Prioritet = prioritet;
+            //Statue_Id = statueId;
         }
 
-        /// <summary>
-        /// Ignore this
-        /// </summary>
-        //public Statuer(int statueId, string navn, string prioritet, ICollection<Materialer> materialer, ICollection<Skader> skader, ICollection<StatuerNoter> statuerNoter, ICollection<StatuerPlacering> statuerPlacering, ICollection<StatuerType> statuerType)
-        //{
-        //    Statue_Id = statueId;
-        //    Navn = navn;
-        //    Prioritet = prioritet;
-        //    Materialer = materialer;
-        //    Skader = skader;
-        //    StatuerNoter = statuerNoter;
-        //    StatuerPlacering = statuerPlacering;
-        //    StatuerType = statuerType;
-        //}
 
         
 
