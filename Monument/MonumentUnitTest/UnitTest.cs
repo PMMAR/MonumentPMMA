@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Monument;
 using Monument.Facade;
+
 
 
 namespace MonumentUnitTest
@@ -10,24 +12,23 @@ namespace MonumentUnitTest
     public class StatuerUnitTest
     {
         [TestMethod()]
-        
         public void TestGetStatuer()
         {
             //arrange
+            Statuer testStatuerName = new Statuer(1 , "Hav", "A");
 
-            Statuer StatuerNavnTest = new Statuer(1, "bylat", "A");
-            //StatuerNavnTest.Statue_Id = 1;
-           
-            //StatuerNavnTest.
+
+            Facade facade = new Facade();
+            //testStatuerName.Statue_Id = 1;
 
             //act
-            Facade facade = new Facade();
-            Statuer result = facade.GetStatuer(StatuerNavnTest).Result;//kald facade
+            Statuer result = facade.GetStatuer(testStatuerName).Result;//kald facade
 
             //assert
-            //Assert.ThrowsException<NullReferenceException>(() => { facade.GetStatuer(result) });
-
-            Assert.AreEqual("bylat", result.Navn);
+           
+            Assert.AreEqual("Hav" , result.Navn);
         }
+
+
     }
 }
