@@ -100,7 +100,7 @@ namespace Monument.ViewModels
             GetMaterialerCommand = new RelayCommand(MaterialerHandler.GetMaterialer);
             GetMaterialerListCommand = new RelayCommand(MaterialerHandler.GetMaterialerList);
 
-            //Statuer = new Statuer();
+            Statuer = new Statuer();
             Adresse = new Adresse();
             Materialer = new Materialer();
             StatuerList = new ObservableCollection<Statuer>();
