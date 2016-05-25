@@ -44,7 +44,8 @@ namespace Monument
         public string ByNavn
         {
             get { return _byNavn; }
-            set { _byNavn = value; OnPropertyChanged(); }
+            set { _byNavn = value;
+                OnPropertyChanged(); }
         }
 
 

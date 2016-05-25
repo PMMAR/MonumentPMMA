@@ -19,11 +19,13 @@
                 <StackPanel x:Name="PhotoButtonStack" Width="200" Height="200" d:LayoutOverrides="Height" Margin="0,30,0,0" VerticalAlignment="Top">
                     <Button x:Name="Button" Content="Button" HorizontalAlignment="Stretch" Height="200" Margin="0" VerticalAlignment="Stretch" Width="200" BorderThickness="2" Background="#33FFFFFF"/>
                 </StackPanel>
-                <StackPanel x:Name="BasicInfoStack" Margin="0,10,0,0" Height="237" VerticalAlignment="Top" Width="335">
+                <StackPanel x:Name="BasicInfoStack" Margin="0,10,0,0" Height="335" VerticalAlignment="Top" Width="335">
                     <TextBlock x:Name="InfoBlock" Margin="0" TextWrapping="Wrap" Text="Info" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30"/>
-                    <StackPanel x:Name="InfoBoxes" Margin="0" VerticalAlignment="Top" Width="335" Height="184">
+                    <StackPanel x:Name="InfoBoxes" Margin="0" VerticalAlignment="Top" Width="335" Height="290">
+                        <TextBox x:Name="postnr" TextWrapping="Wrap" Text="{Binding Adresse.PostNr, Mode=TwoWay}"/>
+                        <TextBox x:Name="bynavn" TextWrapping="Wrap" Text="{Binding Adresse.ByNavn, Mode=TwoWay}"/>
                         <TextBox x:Name="Navn" TextWrapping="Wrap" Text="{Binding Statuer.Navn, Mode=TwoWay}" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="24" PlaceholderText="Navn" Margin="0" BorderBrush="#66000000" Height="54"/>
-                        <ComboBox x:Name="comboBox1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,10,0,0" Height="54" ItemsSource="{Binding AdresseList}" PlaceholderText="Adresse"/>
+                        <ComboBox x:Name="comboBox1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,10,0,0" Height="54" ItemsSource="{Binding AdresseList}" PlaceholderText="" SelectedItem="{Binding Statuer.ByNavn, Mode=TwoWay, UpdateSourceTrigger=Default}"/>
                         <ComboBox  x:Name="comboBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="54" Margin="0,10,0,0" PlaceholderText="Prioritet" SelectedIndex="{Binding Statuer.Prioritet, Mode=TwoWay}">
                             <ComboBoxItem Content="A" Height="100" Width="100"/>
                             <ComboBoxItem Content="B" Height="100" Width="100"/>

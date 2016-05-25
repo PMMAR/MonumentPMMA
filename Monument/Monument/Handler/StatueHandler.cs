@@ -26,7 +26,7 @@ namespace Monument.Handler
         public async void GetStatuerList()
         {
             var facade = new Facade.Facade();
-            var liste= await facade.GetStatuerList();
+            var liste = await facade.GetStatuerList();
             foreach (var listobj in liste)
             {
                 StatueViewmodels.StatuerList.Add(listobj);
@@ -44,9 +44,9 @@ namespace Monument.Handler
         public async void PostStatuer()
         {
             var facade = new Facade.Facade();
-            await facade.PostAdresse(StatueViewmodels.Adresse);
+            //await facade.PostAdresse(StatueViewmodels.Adresse);
             await facade.PostStatuer(StatueViewmodels.Statuer);
-            await facade.PostMaterialer(StatueViewmodels.Materialer);
+            //await facade.PostMaterialer(StatueViewmodels.Materialer);
 
         }
 

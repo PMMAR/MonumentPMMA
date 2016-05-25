@@ -59,6 +59,6 @@
             </Interactivity:Interaction.Behaviors>
         </Button>
         <Button x:Name="SenestButton" Content="Senest" VerticalAlignment="Top" Width="180" Margin="180,0,0,0" Foreground="#FF0F5A30" Background="#33FFFFFF" d:LayoutOverrides="VerticalAlignment"/>
-        <ListView x:Name="listView" Margin="0,32,0,59" RenderTransformOrigin="0.072,0.343" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"/>
+        <ListView x:Name="listView" Margin="0,32,0,59" RenderTransformOrigin="0.072,0.343" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" ItemsSource="{Binding StatuerList}"/>
     </Grid>
 </Page>
