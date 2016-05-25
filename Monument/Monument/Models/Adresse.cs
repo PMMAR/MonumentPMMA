@@ -32,7 +32,7 @@ namespace Monument
 
         public override string ToString()
         {
-            return $"{PostNr},: {ByNavn}";
+            return $"{PostNr} : {ByNavn}";
         }
     }
 }

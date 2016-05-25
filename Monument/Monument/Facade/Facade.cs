@@ -91,22 +91,21 @@ namespace Monument.Facade
 
                 //try
                 //{
-                var response = await client.PostAsJsonAsync<Statuer>("API/Statuers/", newStatuer);
-                if (response.IsSuccessStatusCode)
+                var response = await client.PostAsJsonAsync<Statuer>("api/Statuers", newStatuer);
+                try
                 {
-                    //return MyNewGuest;
-                    ErrorMessage = response.StatusCode.ToString();
-                    return newStatuer;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var Statuer = await response.Content.ReadAsAsync<Statuer>();
+                        return Statuer;
+                    }
+                    return null;
                 }
-
-                ErrorMessage = response.StatusCode.ToString();
-                return null;
-                //}
-                //catch (Exception e)
-                //{
-                //    ErrorMessage = e.Message;
-                //    return null;
-                //}
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
 
             }
         }

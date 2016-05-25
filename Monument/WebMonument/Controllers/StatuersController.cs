@@ -87,15 +87,15 @@ namespace WebMonument.Controllers
 
         // POST: api/Statuers
         [ResponseType(typeof(Statuer))]
-        public IHttpActionResult PostStatuer(Statuer statuer)
+        public Statuer PostStatuer(Statuer statuer)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return null;
             }
-
+            
             db.Statuer.Add(statuer);
-
+            db.Entry(statuer.Adresse).State = EntityState.Unchanged;
             try
             {
                 db.SaveChanges();
@@ -104,7 +104,7 @@ namespace WebMonument.Controllers
             {
                 if (StatuerExists(statuer.Statue_id))
                 {
-                    return Conflict();
+                    return null;
                 }
                 else
                 {
@@ -112,7 +112,7 @@ namespace WebMonument.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = statuer.Statue_id }, statuer);
+            return db.Statuer.ToList().Last();
         }
 
         // DELETE: api/Statuers/5

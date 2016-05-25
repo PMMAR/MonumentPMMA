@@ -20,7 +20,7 @@ namespace WebMonument
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Statue_id { get; set; }
 
         [StringLength(50)]
