@@ -16,7 +16,7 @@ namespace WebMonument
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Behandlingstype_id { get; set; }
 
         [Column("Behandlingstyper")]
