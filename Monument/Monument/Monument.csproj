@@ -104,7 +104,11 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Facade\Class1.cs" />
     <Compile Include="Facade\Facade.cs" />
+    <Compile Include="Handler\StatueBehandlingsHandler.cs" />
+    <Compile Include="Handler\StatuerPlaceringsHandler.cs" />
+    <Compile Include="Handler\StatuerTypesHandler.cs" />
     <Compile Include="Handler\MaterialersHandler.cs" />
     <Compile Include="Handler\AdresseHandler.cs" />
     <Compile Include="Handler\StatueHandler.cs" />
@@ -112,11 +116,13 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Adresse.cs" />
+    <Compile Include="Models\Behandlingstyper.cs" />
     <Compile Include="Models\Bruger.cs" />
     <Compile Include="Models\Materialer.cs" />
     <Compile Include="Models\SkadeNoter.cs" />
     <Compile Include="Models\Skader.cs" />
     <Compile Include="Models\SNote_Tags.cs" />
+    <Compile Include="Models\StatueBehandling.cs" />
     <Compile Include="Models\StatueNoter.cs" />
     <Compile Include="Models\StatuePlacering.cs" />
     <Compile Include="Models\Statuer.cs" />

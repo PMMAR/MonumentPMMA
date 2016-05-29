@@ -14,13 +14,13 @@ namespace WebMonument
         {
             Materialer = new HashSet<Materialer>();
             Skader = new HashSet<Skader>();
+            StatueBehandling = new HashSet<StatueBehandling>();
             StatueNoter = new HashSet<StatueNoter>();
             StatuePlacering = new HashSet<StatuePlacering>();
             StatueType = new HashSet<StatueType>();
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Statue_id { get; set; }
 
         [StringLength(50)]
@@ -38,6 +38,9 @@ namespace WebMonument
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Skader> Skader { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StatueBehandling> StatueBehandling { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StatueNoter> StatueNoter { get; set; }
