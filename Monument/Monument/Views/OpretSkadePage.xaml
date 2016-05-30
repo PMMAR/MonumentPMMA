@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
    
     x:Class="Monument.Views.OpretSkadePage"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Height="2817.667">
 
     <Grid Background="#FF333333">
         <ScrollViewer Margin="0,0,0,54" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition">
@@ -120,14 +120,26 @@
                         <TextBox x:Name="AndreSkaderBox4" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
                     </StackPanel>
                 </StackPanel>
+                <StackPanel x:Name="BehandlingStack" HorizontalAlignment="Left" Height="254" VerticalAlignment="Top" Width="335">
+                    <TextBlock x:Name="BehandlingBlock" HorizontalAlignment="Left" Height="52" Width="335" Text="Behandling" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="32"/>
+                    <StackPanel x:Name="BehandlingStackControl" HorizontalAlignment="Left" Height="201" Width="335" VerticalAlignment="Top">
+                        <ComboBox x:Name="FrekvensComboBox" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24" ItemsSource="{Binding StatueBehandling.Behandlingstyper}" SelectedIndex="{Binding StatueBehandling.fk_Behandlingstype_id}"/>
+                        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="" Height="40" Width="335" BorderBrush="#66000000" PlaceholderText="Andet"/>
+                        <DatePicker x:Name="SidstBehandletDatePick" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24"/>
+                        <DatePicker x:Name="NæsteBehandlingDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0" Foreground="#FF0F5A30" FontSize="24"/>
+                        <DatePicker x:Name="NæsteTilsynDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0,0,0,0" Foreground="#FF0F5A30" FontSize="24"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:Name="AnbefalingStack" HorizontalAlignment="Left" Height="163" Width="335" VerticalAlignment="Top">
+                    <TextBlock x:Name="AnbefalingBlock" HorizontalAlignment="Left" Height="52" TextWrapping="Wrap" Text="TextBlock" Width="335" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="32"/>
+                    <StackPanel x:Name="AnbefalingBlockControl" HorizontalAlignment="Left" Height="111" Width="335" VerticalAlignment="Top">
+                        <CheckBox x:Name="AkutBehandlingCheckBox" Content="Akut Behandlingskrævende" VerticalAlignment="Top" Width="335" FontSize="24" Height="37" Foreground="#FF0F5A30"/>
+                        <CheckBox x:Name="IndgåBehandlingsPlanCheckBox" Content="Indgå i behandlingsplan" VerticalAlignment="Top" Width="335" FontSize="24" Height="37" Foreground="#FF0F5A30"/>
+                        <CheckBox x:Name="TilseTiÅr" Content="Tilses om 10 år" VerticalAlignment="Stretch" Width="335" Background="#00A87676" Foreground="#FF0F5A30" FontSize="24" Height="37"/>
+                    </StackPanel>
+                </StackPanel>
 
             </StackPanel>
         </ScrollViewer>
-        <StackPanel x:Name="NavButtonStack" Height="54" Margin="0" Orientation="Horizontal" d:LayoutOverrides="Width" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-            <Button x:Name="Button1" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="54" Width="90" d:LayoutOverrides="LeftPosition, RightPosition"/>
-            <Button x:Name="Button2" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="54" Width="90" d:LayoutOverrides="LeftPosition, RightPosition"/>
-            <Button x:Name="Button3" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Height="49" Width="90"/>
-            <Button x:Name="Button4" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Height="49" Width="90"/>
-        </StackPanel>
     </Grid>
 </Page>

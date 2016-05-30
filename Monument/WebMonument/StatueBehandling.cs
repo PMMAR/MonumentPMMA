@@ -10,7 +10,7 @@ namespace WebMonument
     public partial class StatueBehandling
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int StatueBehandling_id { get; set; }
 
         public int? fk_Behandlingstype_id { get; set; }
