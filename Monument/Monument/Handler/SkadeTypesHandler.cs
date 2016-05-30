@@ -25,7 +25,11 @@ namespace Monument.Handler
         public async void GetSkadeTyperList()
         {
             var facade = new Facade.Facade();
-            await facade.GetSkadeTyperList();
+            var liste = await facade.GetSkadeTyperList();
+            foreach (var listobj in liste)
+            {
+                StatueViewmodels.SkadeTypeList.Add(listobj);
+            }
 
         }
 

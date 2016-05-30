@@ -1239,6 +1239,158 @@ namespace Monument.Facade
         }
 
         /////////////////Behandlingstyper end////////////////// 
+        /// 
+        ///  /// 
+        ///       /////////////////Skader//////////////////
+
+        public async Task<List<Skader>> GetSkaderList()
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/Skaders";
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var SkaderList = await response.Content.ReadAsAsync<List<Skader>>();
+                        return SkaderList;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        public async Task<Skader> GetSkader(Skader getSkader)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/Skaders/" + getSkader.Skade_id;
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var Skader = await response.Content.ReadAsAsync<Skader>();
+                        return Skader;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        //Http POST
+
+        public async Task<Skader> PostSkader(Skader newSkader)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                //try
+                //{
+                var response = await client.PostAsJsonAsync<Skader>("API/Skaders/", newSkader);
+                if (response.IsSuccessStatusCode)
+                {
+                    //return MyNewGuest;
+                    ErrorMessage = response.StatusCode.ToString();
+                    return newSkader;
+                }
+
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+
+            }
+        }
+
+        //HTTP PUT
+        public async Task<Skader> PutSkader(Skader udSkader)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                try
+                {
+                    var response = await client.PutAsJsonAsync<Skader>("API/Skaders/" + udSkader.Skade_id, udSkader);
+                    if (response.IsSuccessStatusCode)
+                    {
+
+                        ErrorMessage = response.StatusCode.ToString();
+                        return udSkader;
+                    }
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+
+
+        // Http Delete
+
+        public async Task<Skader> DeleteSkader(Skader delSkader)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                string urlString = "api/Skaders/" + delSkader.Skade_id;
+
+                //try
+                //{
+                HttpResponseMessage response = await client.DeleteAsync(urlString);
+                if (response.IsSuccessStatusCode)
+                {
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+            }
+
+        }
+
+        /////////////////Skader end////////////////// 
     }
 }
 

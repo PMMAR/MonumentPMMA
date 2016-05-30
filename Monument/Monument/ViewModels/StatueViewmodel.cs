@@ -23,6 +23,7 @@ namespace Monument.ViewModels
         private StatuerPlacering _StatuerPlacering;
         private StatueBehandling _StatueBehandling;
         private Behandlingstyper _Behandlingstyper;
+        private Skader _Skader;
         public event PropertyChangedEventHandler PropertyChanged;
         
         public ObservableCollection<Statuer> StatuerList { get; set; }
@@ -67,6 +68,11 @@ namespace Monument.ViewModels
             set { _Behandlingstyper = value; OnPropertyChanged(); }
         }
 
+        public Skader Skader
+        {
+            get { return _Skader; }
+            set { _Skader = value; OnPropertyChanged(); }
+        }
         //////// Statue Commands //////////
         public Handler.StatuerHandler StatuerHandler { get;  }
 
@@ -216,6 +222,7 @@ namespace Monument.ViewModels
             StatuerType = new StatuerType();
             StatuerPlacering = new StatuerPlacering();
             StatueBehandling = new StatueBehandling();
+            Skader = new Skader();
             StatuerList = new ObservableCollection<Statuer>();
             AdresseList = new ObservableCollection<Adresse>();
             StatueBehandlingList = new ObservableCollection<StatueBehandling>();
@@ -225,8 +232,8 @@ namespace Monument.ViewModels
             //StatuerHandler.GetStatuerList();
             //AdresseHandler.GetAdresseList();
             //StatueBehandlingHandler.GetStatueBehandlingList();
-            //BehandlingstyperHandler.GetBehandlingstyperList();
-            //SkadeTyperHandler.GetSkadeTyperList();
+            BehandlingstyperHandler.GetBehandlingstyperList();
+            SkadeTyperHandler.GetSkadeTyperList();
 
         }
 

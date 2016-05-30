@@ -9,14 +9,14 @@
     xmlns:ViewModels="using:Monument.ViewModels"
    
     x:Class="Monument.Views.OpretSkadePage"
-    mc:Ignorable="d" Height="2817.667">
+    mc:Ignorable="d" Height="640" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-    <Grid Background="#FF333333" Margin="0,0,0,-464.333">
+    <Grid Background="#FF333333" Margin="0" Height="640" VerticalAlignment="Top" Width="360">
         <Grid.DataContext>
             <ViewModels:StatueViewmodel/>
         </Grid.DataContext>
-        <ScrollViewer Margin="0,0,0,45">
-            <StackPanel x:Name="ScrollStackPanel" Height="2690" Width="335" VerticalAlignment="Top">
+        <ScrollViewer>
+            <StackPanel x:Name="ScrollStackPanel" Height="917" Width="335" VerticalAlignment="Top">
 
                 <StackPanel x:Name="PhotoButtonStack" Width="200" Height="200" d:LayoutOverrides="VerticalAlignment, Height" VerticalAlignment="Top" Margin="67.5,30,0,0" HorizontalAlignment="Left">
                     <Button x:Name="Button" Content="Button" HorizontalAlignment="Stretch" Height="200" Margin="0" VerticalAlignment="Stretch" Width="200" Background="#33FFFFFF" d:LayoutOverrides="Width, Height, LeftPosition, RightPosition, TopPosition, BottomPosition"/>
@@ -46,8 +46,7 @@
                 <StackPanel x:Name="BehandlingStack" HorizontalAlignment="Left" Height="254" VerticalAlignment="Top" Width="335">
                     <TextBlock x:Name="BehandlingBlock" HorizontalAlignment="Left" Height="52" Width="335" Text="Behandling" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="32"/>
                     <StackPanel x:Name="BehandlingStackControl" HorizontalAlignment="Left" Height="201" Width="335" VerticalAlignment="Top">
-                        <ComboBox x:Name="FrekvensComboBox" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24" ItemsSource="{Binding StatueBehandlingList}" SelectedIndex="{Binding StatueBehandling.fk_Behandlingstype_id}"/>
-                        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="" Height="40" Width="335" BorderBrush="#66000000" PlaceholderText="Andet"/>
+                        <ComboBox x:Name="FrekvensComboBox" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24" ItemsSource="{Binding BehandlingstyperList}" SelectedIndex="{Binding StatueBehandling.fk_Behandlingstype_id}"/>
                         <DatePicker x:Name="SidstBehandletDatePick" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24"/>
                         <DatePicker x:Name="NæsteBehandlingDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0" Foreground="#FF0F5A30" FontSize="24"/>
                         <DatePicker x:Name="NæsteTilsynDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0,0,0,0" Foreground="#FF0F5A30" FontSize="24"/>

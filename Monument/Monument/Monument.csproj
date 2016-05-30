@@ -110,6 +110,7 @@
     <Compile Include="Handler\StatueBehandlingsHandler.cs" />
     <Compile Include="Handler\StatuerPlaceringsHandler.cs" />
     <Compile Include="Handler\SkadeTypesHandler.cs" />
+    <Compile Include="Handler\SkaderHandler.cs" />
     <Compile Include="Handler\StatuerTypesHandler.cs" />
     <Compile Include="Handler\MaterialersHandler.cs" />
     <Compile Include="Handler\AdresseHandler.cs" />
