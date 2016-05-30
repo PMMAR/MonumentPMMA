@@ -1,6 +1,4 @@
-using Monument;
-
-namespace WebMonument
+namespace Monument
 {
     using System;
     using System.Collections.Generic;

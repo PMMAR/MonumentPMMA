@@ -9,49 +9,49 @@ using Monument.ViewModels;
 
 namespace Monument.Handler
 {
-    public class StatuerTypesHandler
+    public class SkadeTypersHandler
     {
         public static StatueViewmodel StatueViewmodels { get; set; }
         public static Facade.Facade Facades { get; set; }
 
-        public StatuerType StatuerTypes { get; set; }
+        public SkadeTyper SkadeTypers { get; set; }
 
-        public StatuerTypesHandler(StatueViewmodel statueViewmodel)
+        public SkadeTypersHandler(StatueViewmodel statueViewmodel)
         {
             StatueViewmodels = statueViewmodel;
             
         }
 
-        public async void GetStatuerTypeList()
+        public async void GetSkadeTyperList()
         {
             var facade = new Facade.Facade();
-            await facade.GetStatuerTypeList();
+            await facade.GetSkadeTyperList();
 
         }
 
 
-        public async void GetStatuerType()
+        public async void GetSkadeTyper()
         {
             var facade = new Facade.Facade();
-            await facade.GetStatuerType(StatuerTypes);
+            await facade.GetSkadeTyper(SkadeTypers);
         }
 
-        public async void PostStatuerType()
+        public async void PostSkadeTyper()
         {
             var facade = new Facade.Facade();
-            await facade.PostStatuerType(StatueViewmodels.StatuerType);
+            await facade.PostSkadeTyper(SkadeTypers);
         }
 
-        public async void UpdateStatuerType()
+        public async void UpdateSkadeTyper()
         {
             var facade = new Facade.Facade();
-            await facade.PutStatuerType(StatuerTypes);
+            await facade.PutSkadeTyper(SkadeTypers);
         }
 
-        public async void DeleteStatuerType()
+        public async void DeleteSkadeTyper()
         {
             var facade = new Facade.Facade();
-            await facade.DeleteStatuerType(StatuerTypes);
+            await facade.DeleteSkadeTyper(SkadeTypers);
         }
 
 

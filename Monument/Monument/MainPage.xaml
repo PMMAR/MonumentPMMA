@@ -63,7 +63,7 @@
         <Button x:Name="StatuerInfo" Content="" HorizontalAlignment="Stretch" Margin="154,306,156,0" VerticalAlignment="Top" Height="43" Foreground="{x:Null}">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="Monument.Views.SingleStatuePage"/>
+                    <Core:NavigateToPageAction TargetPage="Monument.Views.OpretSkadePage"/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
             <Button.Background>

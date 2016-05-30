@@ -6,10 +6,15 @@
    
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
    
+    xmlns:ViewModels="using:Monument.ViewModels"
+   
     x:Class="Monument.Views.OpretSkadePage"
     mc:Ignorable="d" Height="2817.667">
 
     <Grid Background="#FF333333" Margin="0,0,0,-464.333">
+        <Grid.DataContext>
+            <ViewModels:StatueViewmodel/>
+        </Grid.DataContext>
         <ScrollViewer Margin="0,0,0,45">
             <StackPanel x:Name="ScrollStackPanel" Height="2690" Width="335" VerticalAlignment="Top">
 
@@ -17,10 +22,10 @@
                     <Button x:Name="Button" Content="Button" HorizontalAlignment="Stretch" Height="200" Margin="0" VerticalAlignment="Stretch" Width="200" Background="#33FFFFFF" d:LayoutOverrides="Width, Height, LeftPosition, RightPosition, TopPosition, BottomPosition"/>
                 </StackPanel>
                 <StackPanel x:Name="SkadeStack" Margin="0,10,0,0" Height="314" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="SkadeBlock" Margin="0,0,0,0" TextWrapping="Wrap" Height="52" FontSize="32" Text="Skade" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top" SelectionChanged="SkadeBlock_SelectionChanged"/>
+                    <TextBlock x:Name="SkadeBlock" Margin="0,0,0,0" TextWrapping="Wrap" Height="52" FontSize="32" Text="Skade" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top"/>
                     <StackPanel x:Name="SkadeboxStack" HorizontalAlignment="Left" Height="309" Width="335" VerticalAlignment="Top" Margin="0,0,0,10">
                         <TextBlock x:Name="Skadetypeblock" TextWrapping="Wrap" Text="Skadetype" Foreground="#FF0F5A30"/>
-                        <ComboBox x:Name="Skadetype" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <ComboBox x:Name="Skadetype" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding SkadeTypeList}"/>
                         <TextBlock x:Name="SkadeGradBlock" TextWrapping="Wrap" Text="Skadegrad" Foreground="#FF0F5A30"/>
                         <ComboBox x:Name="SkadeGrad" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <ComboBoxItem Content="A"/>
@@ -41,7 +46,7 @@
                 <StackPanel x:Name="BehandlingStack" HorizontalAlignment="Left" Height="254" VerticalAlignment="Top" Width="335">
                     <TextBlock x:Name="BehandlingBlock" HorizontalAlignment="Left" Height="52" Width="335" Text="Behandling" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="32"/>
                     <StackPanel x:Name="BehandlingStackControl" HorizontalAlignment="Left" Height="201" Width="335" VerticalAlignment="Top">
-                        <ComboBox x:Name="FrekvensComboBox" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24" ItemsSource="{Binding StatueBehandling.Behandlingstyper}" SelectedIndex="{Binding StatueBehandling.fk_Behandlingstype_id}"/>
+                        <ComboBox x:Name="FrekvensComboBox" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24" ItemsSource="{Binding StatueBehandlingList}" SelectedIndex="{Binding StatueBehandling.fk_Behandlingstype_id}"/>
                         <TextBox x:Name="textBox" TextWrapping="Wrap" Text="" Height="40" Width="335" BorderBrush="#66000000" PlaceholderText="Andet"/>
                         <DatePicker x:Name="SidstBehandletDatePick" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24"/>
                         <DatePicker x:Name="NæsteBehandlingDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0" Foreground="#FF0F5A30" FontSize="24"/>

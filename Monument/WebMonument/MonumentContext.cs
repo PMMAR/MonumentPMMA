@@ -8,7 +8,7 @@ namespace WebMonument
     public partial class MonumentContext : DbContext
     {
         public MonumentContext()
-            : base("name=MonumentContext2")
+            : base("name=MonumentContext")
         {
         }
 

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Monument.Facade;
 
 using Monument.ViewModels;
-using WebMonument;
 
 namespace Monument.Handler
 {
@@ -27,6 +26,10 @@ namespace Monument.Handler
         {
             var facade = new Facade.Facade();
             var liste = await facade.GetStatueBehandlingList();
+            foreach (var listobj in liste)
+            {
+                StatueViewmodels.StatueBehandlingList.Add(listobj);
+            }
 
         }
 

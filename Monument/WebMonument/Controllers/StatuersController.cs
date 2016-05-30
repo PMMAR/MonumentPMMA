@@ -16,21 +16,6 @@ namespace WebMonument.Controllers
     {
         private MonumentContext db = new MonumentContext();
 
-
-        [Route("api/Statuers/{Statue_id:int}/Findid")]
-        [HttpGet]
-        public IEnumerable<Statuer> GivMigid(int Statue_id)
-        {
-            return db.Statuer.Where(x => x.Statue_id == Statue_id);
-        }
-
-        [Route("api/Statuers/{Navn}/FindNavn")]
-        [HttpGet]
-        public IEnumerable<Statuer> GivMigid(string Navn)
-        {
-            return db.Statuer.Where(x => x.Navn.Contains(Navn));
-        }
-
         // GET: api/Statuers
         public IQueryable<Statuer> GetStatuer()
         {
@@ -87,32 +72,17 @@ namespace WebMonument.Controllers
 
         // POST: api/Statuers
         [ResponseType(typeof(Statuer))]
-        public Statuer PostStatuer(Statuer statuer)
+        public IHttpActionResult PostStatuer(Statuer statuer)
         {
             if (!ModelState.IsValid)
             {
-                return null;
-            }
-            
-            db.Statuer.Add(statuer);
-            db.Entry(statuer.Adresse).State = EntityState.Unchanged;
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (StatuerExists(statuer.Statue_id))
-                {
-                    return null;
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest(ModelState);
             }
 
-            return db.Statuer.ToList().Last();
+            db.Statuer.Add(statuer);
+            db.SaveChanges();
+
+            return CreatedAtRoute("DefaultApi", new { id = statuer.Statue_id }, statuer);
         }
 
         // DELETE: api/Statuers/5

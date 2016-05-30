@@ -106,6 +106,7 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Facade\Class1.cs" />
     <Compile Include="Facade\Facade.cs" />
+    <Compile Include="Handler\BehandlingsTypesHandler.cs" />
     <Compile Include="Handler\StatueBehandlingsHandler.cs" />
     <Compile Include="Handler\StatuerPlaceringsHandler.cs" />
     <Compile Include="Handler\SkadeTypesHandler.cs" />

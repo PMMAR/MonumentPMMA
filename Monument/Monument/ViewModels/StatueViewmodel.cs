@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Monument.Annotations;
 using Monument.Common;
-using Monument.Handler;
-using WebMonument;
 
 
 namespace Monument.ViewModels
@@ -24,10 +22,13 @@ namespace Monument.ViewModels
         private StatuerType _StatuerType;
         private StatuerPlacering _StatuerPlacering;
         private StatueBehandling _StatueBehandling;
+        private Behandlingstyper _Behandlingstyper;
         public event PropertyChangedEventHandler PropertyChanged;
         
         public ObservableCollection<Statuer> StatuerList { get; set; }
         public ObservableCollection<Adresse> AdresseList { get; set; }
+        public ObservableCollection<StatueBehandling> StatueBehandlingList { get; set; }
+        public ObservableCollection<Behandlingstyper> BehandlingstyperList { get; set; }
         public ObservableCollection<SkadeTyper> SkadeTypeList { get; set; }
 
         public Statuer Statuer
@@ -59,6 +60,11 @@ namespace Monument.ViewModels
         {
             get { return _StatueBehandling; }
             set { _StatueBehandling = value; OnPropertyChanged(); }
+        }
+        public Behandlingstyper Behandlingstyper
+        {
+            get { return _Behandlingstyper; }
+            set { _Behandlingstyper = value; OnPropertyChanged(); }
         }
 
         //////// Statue Commands //////////
@@ -120,6 +126,23 @@ namespace Monument.ViewModels
         public ICommand GetStatueBehandlingCommand { get; set; }
         public ICommand GetStatueBehandlingListCommand { get; set; }
 
+        public Handler.BehandlingstyperHandler BehandlingstyperHandler { get; }
+
+        public ICommand AddBehandlingstyperCommand { get; set; }
+        public ICommand DeleteBehandlingstyperCommand { get; set; }
+        public ICommand UpdateBehandlingstyperCommand { get; set; }
+        public ICommand GetBehandlingstyperCommand { get; set; }
+        public ICommand GetBehandlingstyperListCommand { get; set; }
+
+
+        public Handler.SkadeTypersHandler SkadeTyperHandler { get; }
+
+        public ICommand AddSkadeTyperCommand { get; set; }
+        public ICommand DeleteSkadeTyperCommand { get; set; }
+        public ICommand UpdateSkadeTyperCommand { get; set; }
+        public ICommand GetSkadeTyperCommand { get; set; }
+        public ICommand GetSkadeTyperListCommand { get; set; }
+
         public StatueViewmodel()
         {
             StatuerHandler = new Handler.StatuerHandler(this);
@@ -171,6 +194,22 @@ namespace Monument.ViewModels
             GetStatueBehandlingCommand = new RelayCommand(StatueBehandlingHandler.GetStatueBehandling);
             GetStatueBehandlingListCommand = new RelayCommand(StatueBehandlingHandler.GetStatueBehandlingList);
 
+            BehandlingstyperHandler = new Handler.BehandlingstyperHandler(this);
+
+            AddBehandlingstyperCommand = new RelayCommand(BehandlingstyperHandler.PostBehandlingstyper);
+            DeleteBehandlingstyperCommand = new RelayCommand(BehandlingstyperHandler.DeleteBehandlingstyper);
+            UpdateBehandlingstyperCommand = new RelayCommand(BehandlingstyperHandler.UpdateBehandlingstyper);
+            GetBehandlingstyperCommand = new RelayCommand(BehandlingstyperHandler.GetBehandlingstyper);
+            GetBehandlingstyperListCommand = new RelayCommand(BehandlingstyperHandler.GetBehandlingstyperList);
+
+            SkadeTyperHandler = new Handler.SkadeTypersHandler(this);
+
+            AddSkadeTyperCommand = new RelayCommand(SkadeTyperHandler.PostSkadeTyper);
+            DeleteSkadeTyperCommand = new RelayCommand(SkadeTyperHandler.DeleteSkadeTyper);
+            UpdateSkadeTyperCommand = new RelayCommand(SkadeTyperHandler.UpdateSkadeTyper);
+            GetSkadeTyperCommand = new RelayCommand(SkadeTyperHandler.GetSkadeTyper);
+            GetSkadeTyperListCommand = new RelayCommand(SkadeTyperHandler.GetSkadeTyperList);
+
             Statuer = new Statuer();
             Adresse = new Adresse();
             Materialer = new Materialer();
@@ -179,11 +218,15 @@ namespace Monument.ViewModels
             StatueBehandling = new StatueBehandling();
             StatuerList = new ObservableCollection<Statuer>();
             AdresseList = new ObservableCollection<Adresse>();
+            StatueBehandlingList = new ObservableCollection<StatueBehandling>();
+            BehandlingstyperList = new ObservableCollection<Behandlingstyper>();
             SkadeTypeList = new ObservableCollection<SkadeTyper>();
 
-            StatuerHandler.GetStatuerList();
-            AdresseHandler.GetAdresseList();
-            SkadeType
+            //StatuerHandler.GetStatuerList();
+            //AdresseHandler.GetAdresseList();
+            //StatueBehandlingHandler.GetStatueBehandlingList();
+            //BehandlingstyperHandler.GetBehandlingstyperList();
+            //SkadeTyperHandler.GetSkadeTyperList();
 
         }
 

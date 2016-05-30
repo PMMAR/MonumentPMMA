@@ -7,7 +7,6 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Media.Protection.PlayReady;
-using WebMonument;
 
 
 namespace Monument.Facade
@@ -796,7 +795,7 @@ namespace Monument.Facade
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverUrl);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/StatueBehandlings";
+                string urlString = "api/statueBehandlings";
 
                 try
                 {
@@ -938,7 +937,308 @@ namespace Monument.Facade
 
         /////////////////StatueBehandling end//////////////////
         ///
+        /// 
+        ///       /////////////////SkadeTyper//////////////////
 
+        public async Task<List<SkadeTyper>> GetSkadeTyperList()
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/SkadeTypers";
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var SkadeTyperList = await response.Content.ReadAsAsync<List<SkadeTyper>>();
+                        return SkadeTyperList;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        public async Task<SkadeTyper> GetSkadeTyper(SkadeTyper getSkadeTyper)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/SkadeTypers/" + getSkadeTyper.SkadeType_Id;
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var SkadeTyper = await response.Content.ReadAsAsync<SkadeTyper>();
+                        return SkadeTyper;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        //Http POST
+
+        public async Task<SkadeTyper> PostSkadeTyper(SkadeTyper newSkadeTyper)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                //try
+                //{
+                var response = await client.PostAsJsonAsync<SkadeTyper>("API/SkadeTypers/", newSkadeTyper);
+                if (response.IsSuccessStatusCode)
+                {
+                    //return MyNewGuest;
+                    ErrorMessage = response.StatusCode.ToString();
+                    return newSkadeTyper;
+                }
+
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+
+            }
+        }
+
+        //HTTP PUT
+        public async Task<SkadeTyper> PutSkadeTyper(SkadeTyper udSkadeTyper)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                try
+                {
+                    var response = await client.PutAsJsonAsync<SkadeTyper>("API/SkadeTypers/" + udSkadeTyper.SkadeType_Id, udSkadeTyper);
+                    if (response.IsSuccessStatusCode)
+                    {
+
+                        ErrorMessage = response.StatusCode.ToString();
+                        return udSkadeTyper;
+                    }
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+
+
+        // Http Delete
+
+        public async Task<SkadeTyper> DeleteSkadeTyper(SkadeTyper delSkadeTyper)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                string urlString = "api/SkadeTypers/" + delSkadeTyper.SkadeType_Id;
+
+                //try
+                //{
+                HttpResponseMessage response = await client.DeleteAsync(urlString);
+                if (response.IsSuccessStatusCode)
+                {
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+            }
+
+        }
+
+        /////////////////SkadeTyper end//////////////////
+        ///    /// 
+        ///       /////////////////Behandlingstyper//////////////////
+
+        public async Task<List<Behandlingstyper>> GetBehandlingstyperList()
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/Behandlingstypers";
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var BehandlingstyperList = await response.Content.ReadAsAsync<List<Behandlingstyper>>();
+                        return BehandlingstyperList;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        public async Task<Behandlingstyper> GetBehandlingstyper(Behandlingstyper getBehandlingstyper)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/Behandlingstypers/" + getBehandlingstyper.Behandlingstype_id;
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var Behandlingstyper = await response.Content.ReadAsAsync<Behandlingstyper>();
+                        return Behandlingstyper;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        //Http POST
+
+        public async Task<Behandlingstyper> PostBehandlingstyper(Behandlingstyper newBehandlingstyper)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                //try
+                //{
+                var response = await client.PostAsJsonAsync<Behandlingstyper>("API/Behandlingstypers/", newBehandlingstyper);
+                if (response.IsSuccessStatusCode)
+                {
+                    //return MyNewGuest;
+                    ErrorMessage = response.StatusCode.ToString();
+                    return newBehandlingstyper;
+                }
+
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+
+            }
+        }
+
+        //HTTP PUT
+        public async Task<Behandlingstyper> PutBehandlingstyper(Behandlingstyper udBehandlingstyper)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                try
+                {
+                    var response = await client.PutAsJsonAsync<Behandlingstyper>("API/Behandlingstypers/" + udBehandlingstyper.Behandlingstype_id, udBehandlingstyper);
+                    if (response.IsSuccessStatusCode)
+                    {
+
+                        ErrorMessage = response.StatusCode.ToString();
+                        return udBehandlingstyper;
+                    }
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+
+
+        // Http Delete
+
+        public async Task<Behandlingstyper> DeleteBehandlingstyper(Behandlingstyper delBehandlingstyper)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                string urlString = "api/Behandlingstypers/" + delBehandlingstyper.Behandlingstype_id;
+
+                //try
+                //{
+                HttpResponseMessage response = await client.DeleteAsync(urlString);
+                if (response.IsSuccessStatusCode)
+                {
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+            }
+
+        }
+
+        /////////////////Behandlingstyper end////////////////// 
     }
 }
 
