@@ -244,7 +244,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MaterialersController.cs" />
     <Compile Include="Controllers\SkadersController.cs" />
-    <Compile Include="Controllers\StatueBehandlingsController.cs" />
     <Compile Include="Controllers\StatuePlaceringsController.cs" />
     <Compile Include="Controllers\StatuersController.cs" />
     <Compile Include="Controllers\StatueTypesController.cs" />
@@ -253,6 +252,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Materialer.cs" />
+    <Compile Include="Model1.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
