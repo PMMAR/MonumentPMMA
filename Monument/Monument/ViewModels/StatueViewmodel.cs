@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Monument.Annotations;
 using Monument.Common;
+using Monument.Handler;
 
 
 namespace Monument.ViewModels
@@ -149,6 +150,16 @@ namespace Monument.ViewModels
         public ICommand GetSkadeTyperCommand { get; set; }
         public ICommand GetSkadeTyperListCommand { get; set; }
 
+
+
+        public Handler.SkadersHandler SkaderHandler { get; }
+
+        public ICommand AddSkaderCommand { get; set; }
+        public ICommand DeleteSkaderCommand { get; set; }
+        public ICommand UpdateSkaderCommand { get; set; }
+        public ICommand GetSkaderCommand { get; set; }
+        public ICommand GetSkaderListCommand { get; set; }
+
         public StatueViewmodel()
         {
             StatuerHandler = new Handler.StatuerHandler(this);
@@ -215,6 +226,14 @@ namespace Monument.ViewModels
             UpdateSkadeTyperCommand = new RelayCommand(SkadeTyperHandler.UpdateSkadeTyper);
             GetSkadeTyperCommand = new RelayCommand(SkadeTyperHandler.GetSkadeTyper);
             GetSkadeTyperListCommand = new RelayCommand(SkadeTyperHandler.GetSkadeTyperList);
+
+            SkaderHandler = new Handler.SkadersHandler(this);
+
+            AddSkaderCommand = new RelayCommand(SkaderHandler.PostSkader);
+            DeleteSkaderCommand = new RelayCommand(SkaderHandler.DeleteSkader);
+            UpdateSkaderCommand = new RelayCommand(SkaderHandler.UpdateSkader);
+            GetSkaderCommand = new RelayCommand(SkaderHandler.GetSkader);
+            GetSkaderListCommand = new RelayCommand(SkaderHandler.GetSkaderList);
 
             Statuer = new Statuer();
             Adresse = new Adresse();
