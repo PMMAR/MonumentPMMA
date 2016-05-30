@@ -14,8 +14,8 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="360" Height="640">
 
-        <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" Background="#FF333333" Margin="0,0,0,-1534">
-            <StackPanel x:Name="ScrollStack" Height="2151" Width="335" VerticalAlignment="Top" HorizontalAlignment="Center">
+        <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" Background="#FF333333" Margin="0" Height="640">
+            <StackPanel x:Name="ScrollStack" Height="1642" Width="335" VerticalAlignment="Top" HorizontalAlignment="Center">
                 <StackPanel x:Name="PhotoButtonStack" Width="200" Height="200" d:LayoutOverrides="Height" Margin="0,30,0,0" VerticalAlignment="Top">
                     <Button x:Name="Button" Content="Button" HorizontalAlignment="Stretch" Height="200" Margin="0" VerticalAlignment="Stretch" Width="200" BorderThickness="2" Background="#33FFFFFF"/>
                 </StackPanel>
@@ -82,24 +82,6 @@
                             <CheckBox x:Name="bygningCheck2" Content="Bygning" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="40" FontSize="24" Foreground="#FF0F5A30" IsChecked="{Binding StatuerPlacering.Bygning, Mode=TwoWay}"/>
                             <CheckBox x:Name="facadeCheck2" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" d:LayoutOverrides="Width" Height="40" FontSize="24" Foreground="#FF0F5A30" IsChecked="{Binding StatuerPlacering.Facade, Mode=TwoWay}" Content="Facade"/>
                         </StackPanel>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel x:Name="BehandlingStack" HorizontalAlignment="Left" Height="254" VerticalAlignment="Top" Width="335" Margin="0,10,0,0">
-                    <TextBlock x:Name="BehandlingBlock" HorizontalAlignment="Left" Height="52" Width="335" Text="Behandling" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="32"/>
-                    <StackPanel x:Name="BehandlingStackControl" HorizontalAlignment="Left" Height="201" Width="335" VerticalAlignment="Top">
-                        <ComboBox x:Name="FrekvensComboBox" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24" ItemsSource="{Binding StatueBehandling.Behandlingstyper}" SelectedIndex="{Binding StatueBehandling.fk_Behandlingstype_id}"/>
-                        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="" Height="40" Width="335" BorderBrush="#66000000" PlaceholderText="Andet"/>
-                        <DatePicker x:Name="SidstBehandletDatePick" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24"/>
-                        <DatePicker x:Name="NæsteBehandlingDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0" Foreground="#FF0F5A30" FontSize="24"/>
-                        <DatePicker x:Name="NæsteTilsynDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0,0,0,0" Foreground="#FF0F5A30" FontSize="24"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel x:Name="AnbefalingStack" HorizontalAlignment="Left" Height="163" Width="335" VerticalAlignment="Top" Margin="0,10,0,0">
-                    <TextBlock x:Name="AnbefalingBlock" HorizontalAlignment="Left" Height="52" TextWrapping="Wrap" Text="TextBlock" Width="335" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="32"/>
-                    <StackPanel x:Name="AnbefalingBlockControl" HorizontalAlignment="Left" Height="111" Width="335" VerticalAlignment="Top">
-                        <CheckBox x:Name="AkutBehandlingCheckBox" Content="Akut Behandlingskrævende" VerticalAlignment="Top" Width="335" FontSize="24" Height="37" Foreground="#FF0F5A30"/>
-                        <CheckBox x:Name="IndgåBehandlingsPlanCheckBox" Content="Indgå i behandlingsplan" VerticalAlignment="Top" Width="335" FontSize="24" Height="37" Foreground="#FF0F5A30"/>
-                        <CheckBox x:Name="TilseTiÅr" Content="Tilses om 10 år" VerticalAlignment="Stretch" Width="335" Background="#00A87676" Foreground="#FF0F5A30" FontSize="24" Height="37"/>
                     </StackPanel>
                 </StackPanel>
                 <Grid Height="39">

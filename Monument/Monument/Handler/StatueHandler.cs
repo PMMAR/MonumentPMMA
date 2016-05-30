@@ -47,6 +47,11 @@ namespace Monument.Handler
             var statue = await facade.PostStatuer(StatueViewmodels.Statuer);
             StatueViewmodels.Materialer.FK_Statue_Id = statue.Statue_Id;
             await facade.PostMaterialer(StatueViewmodels.Materialer);
+            StatueViewmodels.StatuerType.FK_Statue_Id = statue.Statue_Id;
+            await facade.PostStatuerType(StatueViewmodels.StatuerType);
+            StatueViewmodels.StatuerPlacering.FK_Statue_Id = statue.Statue_Id;
+            await facade.PostStatuerPlacering(StatueViewmodels.StatuerPlacering);
+
 
         }
 
