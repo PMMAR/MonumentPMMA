@@ -108,6 +108,7 @@
     <Compile Include="Facade\Facade.cs" />
     <Compile Include="Handler\StatueBehandlingsHandler.cs" />
     <Compile Include="Handler\StatuerPlaceringsHandler.cs" />
+    <Compile Include="Handler\SkadeTypesHandler.cs" />
     <Compile Include="Handler\StatuerTypesHandler.cs" />
     <Compile Include="Handler\MaterialersHandler.cs" />
     <Compile Include="Handler\AdresseHandler.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Models\Materialer.cs" />
     <Compile Include="Models\SkadeNoter.cs" />
     <Compile Include="Models\Skader.cs" />
+    <Compile Include="Models\SkadeTyper.cs" />
     <Compile Include="Models\SNote_Tags.cs" />
     <Compile Include="Models\StatueBehandling.cs" />
     <Compile Include="Models\StatueNoter.cs" />

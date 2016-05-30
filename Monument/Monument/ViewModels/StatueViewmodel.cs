@@ -28,6 +28,7 @@ namespace Monument.ViewModels
         
         public ObservableCollection<Statuer> StatuerList { get; set; }
         public ObservableCollection<Adresse> AdresseList { get; set; }
+        public ObservableCollection<SkadeTyper> SkadeTypeList { get; set; }
 
         public Statuer Statuer
         {
@@ -178,9 +179,11 @@ namespace Monument.ViewModels
             StatueBehandling = new StatueBehandling();
             StatuerList = new ObservableCollection<Statuer>();
             AdresseList = new ObservableCollection<Adresse>();
+            SkadeTypeList = new ObservableCollection<SkadeTyper>();
 
             StatuerHandler.GetStatuerList();
             AdresseHandler.GetAdresseList();
+            SkadeType
 
         }
 

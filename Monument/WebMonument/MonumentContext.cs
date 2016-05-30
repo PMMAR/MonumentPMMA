@@ -8,7 +8,7 @@ namespace WebMonument
     public partial class MonumentContext : DbContext
     {
         public MonumentContext()
-            : base("name=MonumentContext1")
+            : base("name=MonumentContext2")
         {
         }
 
@@ -18,6 +18,7 @@ namespace WebMonument
         public virtual DbSet<Materialer> Materialer { get; set; }
         public virtual DbSet<SkadeNoter> SkadeNoter { get; set; }
         public virtual DbSet<Skader> Skader { get; set; }
+        public virtual DbSet<SkadeTyper> SkadeTyper { get; set; }
         public virtual DbSet<StatueBehandling> StatueBehandling { get; set; }
         public virtual DbSet<StatueNoter> StatueNoter { get; set; }
         public virtual DbSet<StatuePlacering> StatuePlacering { get; set; }
@@ -80,10 +81,6 @@ namespace WebMonument
                 .IsUnicode(false);
 
             modelBuilder.Entity<Skader>()
-                .Property(e => e.SkadeType)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Skader>()
                 .Property(e => e.SkadeGrad)
                 .IsFixedLength()
                 .IsUnicode(false);
@@ -92,6 +89,20 @@ namespace WebMonument
                 .HasMany(e => e.SkadeNoter)
                 .WithOptional(e => e.Skader)
                 .HasForeignKey(e => e.FK_Skade_id);
+
+            modelBuilder.Entity<Skader>()
+                .HasMany(e => e.StatueBehandling)
+                .WithOptional(e => e.Skader)
+                .HasForeignKey(e => e.fk_Skade_id);
+
+            modelBuilder.Entity<SkadeTyper>()
+                .Property(e => e.SkadeTyper1)
+                .IsFixedLength();
+
+            modelBuilder.Entity<SkadeTyper>()
+                .HasMany(e => e.Skader)
+                .WithOptional(e => e.SkadeTyper)
+                .HasForeignKey(e => e.fk_SkadeType_id);
 
             modelBuilder.Entity<StatueNoter>()
                 .Property(e => e.Note)
@@ -123,11 +134,6 @@ namespace WebMonument
                 .HasMany(e => e.Skader)
                 .WithOptional(e => e.Statuer)
                 .HasForeignKey(e => e.FK_Statue_id);
-
-            modelBuilder.Entity<Statuer>()
-                .HasMany(e => e.StatueBehandling)
-                .WithOptional(e => e.Statuer)
-                .HasForeignKey(e => e.fk_Statue_id);
 
             modelBuilder.Entity<Statuer>()
                 .HasMany(e => e.StatueNoter)

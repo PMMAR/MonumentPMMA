@@ -4,120 +4,38 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
    
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+   
     x:Class="Monument.Views.OpretSkadePage"
     mc:Ignorable="d" Height="2817.667">
 
-    <Grid Background="#FF333333">
-        <ScrollViewer Margin="0,0,0,54" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition">
+    <Grid Background="#FF333333" Margin="0,0,0,-464.333">
+        <ScrollViewer Margin="0,0,0,45">
             <StackPanel x:Name="ScrollStackPanel" Height="2690" Width="335" VerticalAlignment="Top">
 
                 <StackPanel x:Name="PhotoButtonStack" Width="200" Height="200" d:LayoutOverrides="VerticalAlignment, Height" VerticalAlignment="Top" Margin="67.5,30,0,0" HorizontalAlignment="Left">
                     <Button x:Name="Button" Content="Button" HorizontalAlignment="Stretch" Height="200" Margin="0" VerticalAlignment="Stretch" Width="200" Background="#33FFFFFF" d:LayoutOverrides="Width, Height, LeftPosition, RightPosition, TopPosition, BottomPosition"/>
                 </StackPanel>
-                <StackPanel x:Name="TypesStack" Margin="0,10,0,0" Height="212" VerticalAlignment="Top" Width="335" HorizontalAlignment="Left">
-                    <TextBlock x:Name="TypesBlock" Margin="0" TextWrapping="Wrap" Text="Types" Height="52" FontSize="32" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition"/>
-                    <StackPanel x:Name="TypesCheckBoxStack" Height="160" Width="335" VerticalAlignment="Top">
-                        <CheckBox x:Name="SkulpturCheckBox" Content="Skulptur" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="40" BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition"/>
-                        <CheckBox x:Name="SokkelCheckBox" Content="Sokkel" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="40" FontSize="24" Foreground="#FF0F5A30"/>
-                        <CheckBox x:Name="ReliefCheckBox" Content="Relief" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="40" FontSize="24" Foreground="#FF0F5A30"/>
-                        <CheckBox x:Name="VandkunstCheckBox" Content="Vandkunst" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="40" FontSize="24" Foreground="#FF0F5A30"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel x:Name="PlaceringStack" Margin="0,10,0,0" Height="172" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="PlaceringsBlock" Margin="0" TextWrapping="Wrap" Height="52" FontSize="32" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition">
-                		<Run Text="Placering"/>
-                		<LineBreak/>
-                		<Run/>
-                    </TextBlock>
-                    <StackPanel x:Name="PlaceringsCheckBoxesStack" HorizontalAlignment="Left" Height="120" Width="335" VerticalAlignment="Top">
-                        <CheckBox x:Name="JordCheckBoxCopy" Content="Jord" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="40" BorderThickness="0" FontSize="24" Foreground="#FF0F5A30" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition"/>
-                        <CheckBox x:Name="BygningCheckBoxCopy" Content="Bygning" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="40" FontSize="24" Foreground="#FF0F5A30"/>
-                        <CheckBox x:Name="FacadeCheckBoxCopy" Content="Facade" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="40" FontSize="24" Foreground="#FF0F5A30"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel x:Name="NoteStack" Margin="0,10,0,0" Height="270" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="NoteBlock" Margin="0,0,0,0" TextWrapping="Wrap" Height="52" FontSize="32" Text="Note" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top"/>
-                    <StackPanel x:Name="NoteBoxStack" HorizontalAlignment="Left" Height="215" Width="335" VerticalAlignment="Top">
-                        <TextBox x:Name="NoteBox_Copy" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="170" Foreground="White" HorizontalAlignment="Left" Margin="0,0,0,0" d:LayoutOverrides="TopPosition, BottomPosition" Width="335" PlaceholderText="Indtast note"/>
-                        <Button x:Name="SaveNoteButton_Copy" Content="Gem Note" VerticalAlignment="Stretch" Width="167.5" Height="45" Margin="0,0,0,0" d:LayoutOverrides="LeftPosition, RightPosition">
+                <StackPanel x:Name="SkadeStack" Margin="0,10,0,0" Height="314" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock x:Name="SkadeBlock" Margin="0,0,0,0" TextWrapping="Wrap" Height="52" FontSize="32" Text="Skade" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top" SelectionChanged="SkadeBlock_SelectionChanged"/>
+                    <StackPanel x:Name="SkadeboxStack" HorizontalAlignment="Left" Height="309" Width="335" VerticalAlignment="Top" Margin="0,0,0,10">
+                        <TextBlock x:Name="Skadetypeblock" TextWrapping="Wrap" Text="Skadetype" Foreground="#FF0F5A30"/>
+                        <ComboBox x:Name="Skadetype" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock x:Name="SkadeGradBlock" TextWrapping="Wrap" Text="Skadegrad" Foreground="#FF0F5A30"/>
+                        <ComboBox x:Name="SkadeGrad" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <ComboBoxItem Content="A"/>
+                            <ComboBoxItem Content="B"/>
+                            <ComboBoxItem Content="C"/>
+                        </ComboBox>
+                        <TextBlock x:Name="Noteblock" TextWrapping="Wrap" Text="Skade Note" Foreground="#FF0F5A30"/>
+                        <TextBox x:Name="NoteBox" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="55" Foreground="White" HorizontalAlignment="Left" Margin="0,10" Width="335" PlaceholderText="Indtast note" BorderBrush="#66000000"/>
+                        <Button x:Name="Tilføj_skade" Content="+" VerticalAlignment="Stretch" Width="45" Height="45" Margin="0,0,0,10" d:LayoutOverrides="HorizontalAlignment" Background="#00000000" FontWeight="Bold" FontSize="24">
                             <!--<Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:CallMethodAction/>
                                 </Core:EventTriggerBehavior>
                             </Interactivity:Interaction.Behaviors>-->
                         </Button>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel x:Name="BiologiskVægstStack" Margin="0,10,0,0" Height="212" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="BioVækstBlock" Margin="0,0,0,0" TextWrapping="Wrap" Height="52" FontSize="32" Text="Biologik Vækst" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top"/>
-                    <StackPanel x:Name="BioVægstCheckBoxStack" HorizontalAlignment="Left" Height="160" Width="335" VerticalAlignment="Top">
-                        <TextBox x:Name="BioVægstBox1_Copy" TextWrapping="Wrap" Text="1" Height="40" FontSize="18" HorizontalAlignment="Left" Margin="0,0,0,0" d:LayoutOverrides="TopPosition, BottomPosition" Width="335" VerticalAlignment="Top"/>
-                        <TextBox x:Name="BioVægstBox2_Copy" TextWrapping="Wrap" Text="2" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335" VerticalAlignment="Top"/>
-                        <TextBox x:Name="BioVægstBox3_Copy" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                        <TextBox x:Name="BiovægstBox4_Copy" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel x:Name="ForvaltningStack" Margin="0,10,0,0" Height="212" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="ForvaltningBlock" Margin="0,0,0,0" TextWrapping="Wrap" Height="52" FontSize="32" Text="Forvaltning" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top"/>
-                    <StackPanel x:Name="FarvaltningCheckBoxStack" HorizontalAlignment="Left" Height="160" Width="335" VerticalAlignment="Top">
-                        <TextBox x:Name="ForvaltningBox1" TextWrapping="Wrap" Text="1" Height="40" FontSize="18" HorizontalAlignment="Left" Margin="0,0,0,0" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="ForvaltningBox2" TextWrapping="Wrap" Text="2" Height="40" FontSize="18" Margin="0,0,-335,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="ForvaltningBox3" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                        <TextBox x:Name="ForvaltningBox4" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel x:Name="KonstruktionStack" Margin="0,10,0,0" Height="212" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="KonstruktionsSkaderBlock" Margin="0,0,0,0" TextWrapping="Wrap" Height="52" FontSize="32" Text="Konstruktions Skader" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top"/>
-                    <StackPanel x:Name="KonstruktionsCheckBoxStack" HorizontalAlignment="Left" Height="160" Width="335" VerticalAlignment="Top">
-                        <TextBox x:Name="KonstSkaBox1" TextWrapping="Wrap" Text="1" Height="40" FontSize="18" HorizontalAlignment="Left" Margin="0,0,0,0" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="KonstSkaBox2" TextWrapping="Wrap" Text="2" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="KonstSkaBox3" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                        <TextBox x:Name="KonstSkaBox4" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel x:Name="MangelfuldeFugerStack" Height="212" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment, LeftPosition, RightPosition" Margin="0,10,0,0" HorizontalAlignment="Left">
-                    <TextBlock x:Name="MangelfuldeFugerBlock" Margin="0" TextWrapping="Wrap" d:LayoutOverrides="Width, LeftMargin, RightMargin, TopPosition, BottomPosition" Height="52" FontSize="32" Text="Mangelfulde Fuger" Foreground="#FF0F5A30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <StackPanel x:Name="MangelfuldeFugerCheckBoxStack" HorizontalAlignment="Left" Height="160" Width="335" VerticalAlignment="Top">
-                        <TextBox x:Name="MangFuBox1" TextWrapping="Wrap" Text="1" Height="40" FontSize="18" HorizontalAlignment="Left" Margin="0,0,0,0" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="MangFuBox2" TextWrapping="Wrap" Text="2" Height="40" FontSize="18" Margin="0,0,-100,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="MangFuBox3" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                        <TextBox x:Name="MangFuBox4" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel x:Name="MisfarvningStack" Margin="0,10,0,0" Height="212" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="MisfarvningBlock" Margin="0,0,0,0" TextWrapping="Wrap" Height="52" FontSize="32" Text="Misfarvning" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top"/>
-                    <StackPanel x:Name="MisfarvningCheckBoxStack" HorizontalAlignment="Left" Height="160" Width="335" VerticalAlignment="Top">
-                        <TextBox x:Name="MisfarvningBox1" TextWrapping="Wrap" Text="1" Height="40" FontSize="18" HorizontalAlignment="Left" Margin="0,0,0,0" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="MisfarvningBox2" TextWrapping="Wrap" Text="2" Height="40" FontSize="18" Margin="0,0,-335,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="MisfarvningBox3" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                        <TextBox x:Name="MisfarvningBox4" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel x:Name="RevnerStack" Margin="0,10,0,0" Height="212" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="RevnerBlock" Margin="0,0,0,0" TextWrapping="Wrap" Height="52" FontSize="32" Text="Revner" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top"/>
-                    <StackPanel x:Name="RevnerCheckBoxStack" HorizontalAlignment="Left" Height="160" Width="335" VerticalAlignment="Top">
-                        <TextBox x:Name="RevnerBox1" TextWrapping="Wrap" Text="1" Height="40" FontSize="18" HorizontalAlignment="Left" Margin="0,0,0,0" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="RevnerBox2" TextWrapping="Wrap" Text="2" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="RevnerBox3" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                        <TextBox x:Name="RevnerBox4" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel x:Name="TabteDeleStack" Margin="0,10,0,0" Height="212" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="TabteDeleBlock" Margin="0,0,0,0" TextWrapping="Wrap" Height="52" FontSize="32" Text="Tabte Dele" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top"/>
-                    <StackPanel x:Name="TabteDeleCheckBoxStack" HorizontalAlignment="Left" Height="160" Width="335" VerticalAlignment="Top">
-                        <TextBox x:Name="TabteDeleBox1" TextWrapping="Wrap" Text="1" Height="40" FontSize="18" HorizontalAlignment="Left" Margin="0,0,0,0" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="TabteDeleBox2" TextWrapping="Wrap" Text="2" Height="40" FontSize="18" Margin="0,0,-335,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="TabteDeleBox3" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                        <TextBox x:Name="TabteDeleBox4" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel x:Name="AndreSkaderStack"  Margin="0,10,0,0" Height="212" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="AndreSkaderBlock" Margin="0,0,0,0" TextWrapping="Wrap" Height="52" FontSize="32" Text="Andre Skader" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top"/>
-                    <StackPanel x:Name="AndreSkaderCheckBoxStack" HorizontalAlignment="Left" Height="160" Width="335" VerticalAlignment="Top">
-                        <TextBox x:Name="AndreSkaderBox1" TextWrapping="Wrap" Text="1" Height="40" FontSize="18" HorizontalAlignment="Left" Margin="0,0,0,0" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="AndreSkaderBox2" TextWrapping="Wrap" Text="2" Height="40" FontSize="18" Margin="0,0,-335,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="335"/>
-                        <TextBox x:Name="AndreSkaderBox3" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
-                        <TextBox x:Name="AndreSkaderBox4" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Height="40" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left" Width="335"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel x:Name="BehandlingStack" HorizontalAlignment="Left" Height="254" VerticalAlignment="Top" Width="335">
@@ -130,13 +48,9 @@
                         <DatePicker x:Name="NæsteTilsynDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0,0,0,0" Foreground="#FF0F5A30" FontSize="24"/>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel x:Name="AnbefalingStack" HorizontalAlignment="Left" Height="163" Width="335" VerticalAlignment="Top">
-                    <TextBlock x:Name="AnbefalingBlock" HorizontalAlignment="Left" Height="52" TextWrapping="Wrap" Text="TextBlock" Width="335" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="32"/>
-                    <StackPanel x:Name="AnbefalingBlockControl" HorizontalAlignment="Left" Height="111" Width="335" VerticalAlignment="Top">
-                        <CheckBox x:Name="AkutBehandlingCheckBox" Content="Akut Behandlingskrævende" VerticalAlignment="Top" Width="335" FontSize="24" Height="37" Foreground="#FF0F5A30"/>
-                        <CheckBox x:Name="IndgåBehandlingsPlanCheckBox" Content="Indgå i behandlingsplan" VerticalAlignment="Top" Width="335" FontSize="24" Height="37" Foreground="#FF0F5A30"/>
-                        <CheckBox x:Name="TilseTiÅr" Content="Tilses om 10 år" VerticalAlignment="Stretch" Width="335" Background="#00A87676" Foreground="#FF0F5A30" FontSize="24" Height="37"/>
-                    </StackPanel>
+                <StackPanel x:Name="opretBar" Height="54" Orientation="Horizontal" Margin="0,10,0,0">
+                    <Button x:Name="HomeButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Foreground="#FF0F5A30" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0" Background="#66000000" Width="160" d:LayoutOverrides="HorizontalAlignment" Content="Opret Skade"/>
+                    <Button x:Name="SearchButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Foreground="#FF0F5A30" Width="160" Height="54" BorderThickness="0,2,2,0" BorderBrush="#FF212121" Background="#66000000" Margin="15,0,0,0" Content="Cancel"/>
                 </StackPanel>
 
             </StackPanel>

@@ -4,25 +4,24 @@ namespace WebMonument
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
-    [Table("Behandlingstyper")]
-    public partial class Behandlingstyper
+    [Table("SkadeTyper")]
+    public partial class SkadeTyper
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Behandlingstyper()
+        public SkadeTyper()
         {
-            StatueBehandling = new HashSet<StatueBehandling>();
+            Skader = new HashSet<Skader>();
         }
 
         [Key]
-        public int Behandlingstype_id { get; set; }
+        public int SkadeType_Id { get; set; }
 
-        [Column("Behandlingstyper")]
+        [Column("SkadeTyper")]
         [StringLength(20)]
-        public string Behandlingstyper1 { get; set; }
+        public string SkadeTyper1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StatueBehandling> StatueBehandling { get; set; }
+        public virtual ICollection<Skader> Skader { get; set; }
     }
 }

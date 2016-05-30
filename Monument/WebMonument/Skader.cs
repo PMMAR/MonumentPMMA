@@ -13,14 +13,13 @@ namespace WebMonument
         public Skader()
         {
             SkadeNoter = new HashSet<SkadeNoter>();
+            StatueBehandling = new HashSet<StatueBehandling>();
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Skade_id { get; set; }
 
-        [StringLength(50)]
-        public string SkadeType { get; set; }
+        public int? fk_SkadeType_id { get; set; }
 
         [StringLength(1)]
         public string SkadeGrad { get; set; }
@@ -30,6 +29,11 @@ namespace WebMonument
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SkadeNoter> SkadeNoter { get; set; }
 
+        public virtual SkadeTyper SkadeTyper { get; set; }
+
         public virtual Statuer Statuer { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StatueBehandling> StatueBehandling { get; set; }
     }
 }
