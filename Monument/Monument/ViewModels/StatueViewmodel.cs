@@ -10,6 +10,7 @@ using System.Windows.Input;
 using Monument.Annotations;
 using Monument.Common;
 using Monument.Handler;
+using WebMonument;
 
 
 namespace Monument.ViewModels
@@ -20,6 +21,9 @@ namespace Monument.ViewModels
         private Statuer _Statuer;
         private Adresse _Adresse;
         private Materialer _Materialer;
+        private StatuerType _StatuerType;
+        private StatuerPlacering _StatuerPlacering;
+        private StatueBehandling _StatueBehandling;
         public event PropertyChangedEventHandler PropertyChanged;
         
         public ObservableCollection<Statuer> StatuerList { get; set; }
@@ -40,7 +44,21 @@ namespace Monument.ViewModels
             get { return _Materialer; }
             set { _Materialer = value; OnPropertyChanged(); }
         }
-
+        public StatuerType StatuerType
+        {
+            get { return _StatuerType; }
+            set { _StatuerType = value; OnPropertyChanged(); }
+        }
+        public StatuerPlacering StatuerPlacering
+        {
+            get { return _StatuerPlacering; }
+            set { _StatuerPlacering = value; OnPropertyChanged(); }
+        }
+        public StatueBehandling StatueBehandling
+        {
+            get { return _StatueBehandling; }
+            set { _StatueBehandling = value; OnPropertyChanged(); }
+        }
 
         //////// Statue Commands //////////
         public Handler.StatuerHandler StatuerHandler { get;  }
@@ -73,6 +91,33 @@ namespace Monument.ViewModels
         public ICommand GetMaterialerCommand { get; set; }
         public ICommand GetMaterialerListCommand { get; set; }
 
+        ////////// Statuertyper Commands ////////
+        /// 
+        /// 
+
+        public Handler.StatuerTypesHandler StatuerTypeHandler { get; }
+
+        public ICommand AddStatuerTypeCommand { get; set; }
+        public ICommand DeleteStatuerTypeCommand { get; set; }
+        public ICommand UpdateStatuerTypeCommand { get; set; }
+        public ICommand GetStatuerTypeCommand { get; set; }
+        public ICommand GetStatuerTypeListCommand { get; set; }
+
+        public Handler.StatuerPlaceringsHandler StatuerPlaceringHandler { get; }
+
+        public ICommand AddStatuerPlaceringCommand { get; set; }
+        public ICommand DeleteStatuerPlaceringCommand { get; set; }
+        public ICommand UpdateStatuerPlaceringCommand { get; set; }
+        public ICommand GetStatuerPlaceringCommand { get; set; }
+        public ICommand GetStatuerPlaceringListCommand { get; set; }
+
+        public Handler.StatueBehandlingHandler StatueBehandlingHandler { get; }
+
+        public ICommand AddStatueBehandlingCommand { get; set; }
+        public ICommand DeleteStatueBehandlingCommand { get; set; }
+        public ICommand UpdateStatueBehandlingCommand { get; set; }
+        public ICommand GetStatueBehandlingCommand { get; set; }
+        public ICommand GetStatueBehandlingListCommand { get; set; }
 
         public StatueViewmodel()
         {
@@ -100,9 +145,37 @@ namespace Monument.ViewModels
             GetMaterialerCommand = new RelayCommand(MaterialerHandler.GetMaterialer);
             GetMaterialerListCommand = new RelayCommand(MaterialerHandler.GetMaterialerList);
 
+            StatuerTypeHandler = new Handler.StatuerTypesHandler(this);
+
+            AddStatuerTypeCommand = new RelayCommand(StatuerTypeHandler.PostStatuerType);
+            DeleteStatuerTypeCommand = new RelayCommand(StatuerTypeHandler.DeleteStatuerType);
+            UpdateStatuerTypeCommand = new RelayCommand(StatuerTypeHandler.UpdateStatuerType);
+            GetStatuerTypeCommand = new RelayCommand(StatuerTypeHandler.GetStatuerType);
+            GetStatuerTypeListCommand = new RelayCommand(StatuerTypeHandler.GetStatuerTypeList);
+
+
+            StatuerPlaceringHandler = new Handler.StatuerPlaceringsHandler(this);
+
+            AddStatuerPlaceringCommand = new RelayCommand(StatuerPlaceringHandler.PostStatuerPlacering);
+            DeleteStatuerPlaceringCommand = new RelayCommand(StatuerPlaceringHandler.DeleteStatuerPlacering);
+            UpdateStatuerPlaceringCommand = new RelayCommand(StatuerPlaceringHandler.UpdateStatuerPlacering);
+            GetStatuerPlaceringCommand = new RelayCommand(StatuerPlaceringHandler.GetStatuerPlacering);
+            GetStatuerPlaceringListCommand = new RelayCommand(StatuerPlaceringHandler.GetStatuerPlaceringList);
+
+            StatueBehandlingHandler = new Handler.StatueBehandlingHandler(this);
+
+            AddStatueBehandlingCommand = new RelayCommand(StatueBehandlingHandler.PostStatueBehandling);
+            DeleteStatueBehandlingCommand = new RelayCommand(StatueBehandlingHandler.DeleteStatueBehandling);
+            UpdateStatueBehandlingCommand = new RelayCommand(StatueBehandlingHandler.UpdateStatueBehandling);
+            GetStatueBehandlingCommand = new RelayCommand(StatueBehandlingHandler.GetStatueBehandling);
+            GetStatueBehandlingListCommand = new RelayCommand(StatueBehandlingHandler.GetStatueBehandlingList);
+
             Statuer = new Statuer();
             Adresse = new Adresse();
             Materialer = new Materialer();
+            StatuerType = new StatuerType();
+            StatuerPlacering = new StatuerPlacering();
+            StatueBehandling = new StatueBehandling();
             StatuerList = new ObservableCollection<Statuer>();
             AdresseList = new ObservableCollection<Adresse>();
 

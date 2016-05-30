@@ -236,6 +236,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Behandlingstyper.cs" />
     <Compile Include="Bruger.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdresseController.cs" />
@@ -243,7 +244,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MaterialersController.cs" />
     <Compile Include="Controllers\SkadersController.cs" />
+    <Compile Include="Controllers\StatueBehandlingsController.cs" />
+    <Compile Include="Controllers\StatuePlaceringsController.cs" />
     <Compile Include="Controllers\StatuersController.cs" />
+    <Compile Include="Controllers\StatueTypesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -260,6 +264,7 @@
     <Compile Include="Skader.cs" />
     <Compile Include="SNote_Tags.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="StatueBehandling.cs" />
     <Compile Include="StatueNoter.cs" />
     <Compile Include="StatuePlacering.cs" />
     <Compile Include="Statuer.cs" />

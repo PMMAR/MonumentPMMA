@@ -8,15 +8,17 @@ namespace WebMonument
     public partial class MonumentContext : DbContext
     {
         public MonumentContext()
-            : base("name=MonumentContext")
+            : base("name=MonumentContext1")
         {
         }
 
         public virtual DbSet<Adresse> Adresse { get; set; }
+        public virtual DbSet<Behandlingstyper> Behandlingstyper { get; set; }
         public virtual DbSet<Bruger> Bruger { get; set; }
         public virtual DbSet<Materialer> Materialer { get; set; }
         public virtual DbSet<SkadeNoter> SkadeNoter { get; set; }
         public virtual DbSet<Skader> Skader { get; set; }
+        public virtual DbSet<StatueBehandling> StatueBehandling { get; set; }
         public virtual DbSet<StatueNoter> StatueNoter { get; set; }
         public virtual DbSet<StatuePlacering> StatuePlacering { get; set; }
         public virtual DbSet<Statuer> Statuer { get; set; }
@@ -35,6 +37,15 @@ namespace WebMonument
                 .HasMany(e => e.Statuer)
                 .WithOptional(e => e.Adresse)
                 .HasForeignKey(e => e.FK_PostNr);
+
+            modelBuilder.Entity<Behandlingstyper>()
+                .Property(e => e.Behandlingstyper1)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Behandlingstyper>()
+                .HasMany(e => e.StatueBehandling)
+                .WithOptional(e => e.Behandlingstyper)
+                .HasForeignKey(e => e.fk_Behandlingstype_id);
 
             modelBuilder.Entity<Bruger>()
                 .Property(e => e.Brugernavn)
@@ -112,6 +123,11 @@ namespace WebMonument
                 .HasMany(e => e.Skader)
                 .WithOptional(e => e.Statuer)
                 .HasForeignKey(e => e.FK_Statue_id);
+
+            modelBuilder.Entity<Statuer>()
+                .HasMany(e => e.StatueBehandling)
+                .WithOptional(e => e.Statuer)
+                .HasForeignKey(e => e.fk_Statue_id);
 
             modelBuilder.Entity<Statuer>()
                 .HasMany(e => e.StatueNoter)

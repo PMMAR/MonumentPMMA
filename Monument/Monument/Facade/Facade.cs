@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Media.Protection.PlayReady;
+using WebMonument;
 
 
 namespace Monument.Facade
@@ -479,6 +480,465 @@ namespace Monument.Facade
         }
 
         /////////////////Materialer end//////////////////
+        /// 
+        /// 
+        /////////////////StatuerType//////////////////
+
+        public async Task<List<StatuerType>> GetStatuerTypeList()
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/StatueTypes";
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var StatuerTypeList = await response.Content.ReadAsAsync<List<StatuerType>>();
+                        return StatuerTypeList;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        public async Task<StatuerType> GetStatuerType(StatuerType getStatuerType)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/StatueTypes/" + getStatuerType.StatuerType_id;
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var StatuerType = await response.Content.ReadAsAsync<StatuerType>();
+                        return StatuerType;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        //Http POST
+
+        public async Task<StatuerType> PostStatuerType(StatuerType newStatuerType)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                //try
+                //{
+                var response = await client.PostAsJsonAsync<StatuerType>("API/StatueTypes/", newStatuerType);
+                if (response.IsSuccessStatusCode)
+                {
+                    //return MyNewGuest;
+                    ErrorMessage = response.StatusCode.ToString();
+                    return newStatuerType;
+                }
+
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+
+            }
+        }
+
+        //HTTP PUT
+        public async Task<StatuerType> PutStatuerType(StatuerType udStatuerType)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                try
+                {
+                    var response = await client.PutAsJsonAsync<StatuerType>("API/StatueTypes/" + udStatuerType.StatuerType_id, udStatuerType);
+                    if (response.IsSuccessStatusCode)
+                    {
+
+                        ErrorMessage = response.StatusCode.ToString();
+                        return udStatuerType;
+                    }
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+
+
+        // Http Delete
+
+        public async Task<StatuerType> DeleteStatuerType(StatuerType delStatuerType)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                string urlString = "api/StatueTypes/" + delStatuerType.StatuerType_id;
+
+                //try
+                //{
+                HttpResponseMessage response = await client.DeleteAsync(urlString);
+                if (response.IsSuccessStatusCode)
+                {
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+            }
+
+        }
+
+        /////////////////StatuerType end//////////////////
+        /// 
+        /// 
+        ///       /////////////////StatuerPlacering//////////////////
+
+        public async Task<List<StatuerPlacering>> GetStatuerPlaceringList()
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/StatuePlacerings";
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var StatuerPlaceringList = await response.Content.ReadAsAsync<List<StatuerPlacering>>();
+                        return StatuerPlaceringList;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        public async Task<StatuerPlacering> GetStatuerPlacering(StatuerPlacering getStatuerPlacering)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/StatuePlacerings/" + getStatuerPlacering.StatuerPlacering_id;
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var StatuerPlacering = await response.Content.ReadAsAsync<StatuerPlacering>();
+                        return StatuerPlacering;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        //Http POST
+
+        public async Task<StatuerPlacering> PostStatuerPlacering(StatuerPlacering newStatuerPlacering)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                //try
+                //{
+                var response = await client.PostAsJsonAsync<StatuerPlacering>("API/StatuePlacerings/", newStatuerPlacering);
+                if (response.IsSuccessStatusCode)
+                {
+                    //return MyNewGuest;
+                    ErrorMessage = response.StatusCode.ToString();
+                    return newStatuerPlacering;
+                }
+
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+
+            }
+        }
+
+        //HTTP PUT
+        public async Task<StatuerPlacering> PutStatuerPlacering(StatuerPlacering udStatuerPlacering)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                try
+                {
+                    var response = await client.PutAsJsonAsync<StatuerPlacering>("API/StatuePlacerings/" + udStatuerPlacering.StatuerPlacering_id, udStatuerPlacering);
+                    if (response.IsSuccessStatusCode)
+                    {
+
+                        ErrorMessage = response.StatusCode.ToString();
+                        return udStatuerPlacering;
+                    }
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+
+
+        // Http Delete
+
+        public async Task<StatuerPlacering> DeleteStatuerPlacering(StatuerPlacering delStatuerPlacering)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                string urlString = "api/StatuePlacerings/" + delStatuerPlacering.StatuerPlacering_id;
+
+                //try
+                //{
+                HttpResponseMessage response = await client.DeleteAsync(urlString);
+                if (response.IsSuccessStatusCode)
+                {
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+            }
+
+        }
+
+        /////////////////StatuerPlacering end//////////////////
+        ///
+
+        /// 
+        ///       /////////////////StatueBehandling//////////////////
+
+        public async Task<List<StatueBehandling>> GetStatueBehandlingList()
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/StatueBehandlings";
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var StatueBehandlingList = await response.Content.ReadAsAsync<List<StatueBehandling>>();
+                        return StatueBehandlingList;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        public async Task<StatueBehandling> GetStatueBehandling(StatueBehandling getStatueBehandling)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/StatueBehandlings/" + getStatueBehandling.StatueBehandling_id;
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var StatueBehandling = await response.Content.ReadAsAsync<StatueBehandling>();
+                        return StatueBehandling;
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+        //Http POST
+
+        public async Task<StatueBehandling> PostStatueBehandling(StatueBehandling newStatueBehandling)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                //try
+                //{
+                var response = await client.PostAsJsonAsync<StatueBehandling>("API/StatueBehandlings/", newStatueBehandling);
+                if (response.IsSuccessStatusCode)
+                {
+                    //return MyNewGuest;
+                    ErrorMessage = response.StatusCode.ToString();
+                    return newStatueBehandling;
+                }
+
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+
+            }
+        }
+
+        //HTTP PUT
+        public async Task<StatueBehandling> PutStatueBehandling(StatueBehandling udStatueBehandling)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                try
+                {
+                    var response = await client.PutAsJsonAsync<StatueBehandling>("API/StatueBehandlings/" + udStatueBehandling.StatueBehandling_id, udStatueBehandling);
+                    if (response.IsSuccessStatusCode)
+                    {
+
+                        ErrorMessage = response.StatusCode.ToString();
+                        return udStatueBehandling;
+                    }
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    ErrorMessage = e.Message;
+                    return null;
+                }
+            }
+        }
+
+
+
+        // Http Delete
+
+        public async Task<StatueBehandling> DeleteStatueBehandling(StatueBehandling delStatueBehandling)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                string urlString = "api/StatueBehandlings/" + delStatueBehandling.StatueBehandling_id;
+
+                //try
+                //{
+                HttpResponseMessage response = await client.DeleteAsync(urlString);
+                if (response.IsSuccessStatusCode)
+                {
+                    ErrorMessage = response.StatusCode.ToString();
+                    return null;
+                }
+                ErrorMessage = response.StatusCode.ToString();
+                return null;
+                //}
+                //catch (Exception e)
+                //{
+                //    ErrorMessage = e.Message;
+                //    return null;
+                //}
+            }
+
+        }
+
+        /////////////////StatueBehandling end//////////////////
+        ///
+
     }
 }
 
