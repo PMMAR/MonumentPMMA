@@ -24,7 +24,7 @@ namespace WebMonument
         [Column("3rd_Behandling", TypeName = "date")]
         public DateTime? C3rd_Behandling { get; set; }
 
-        public int? fk_Statue_id { get; set; }
+        public int? fk_Skade_id { get; set; }
 
         public virtual Behandlingstyper Behandlingstyper { get; set; }
 
