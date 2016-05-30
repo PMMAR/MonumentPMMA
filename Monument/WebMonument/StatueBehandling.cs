@@ -10,7 +10,6 @@ namespace WebMonument
     public partial class StatueBehandling
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int StatueBehandling_id { get; set; }
 
         public int? fk_Behandlingstype_id { get; set; }
@@ -24,10 +23,6 @@ namespace WebMonument
         [Column("3rd_Behandling", TypeName = "date")]
         public DateTime? C3rd_Behandling { get; set; }
 
-        public int? fk_Statue_id { get; set; }
-
-        public virtual Behandlingstyper Behandlingstyper { get; set; }
-
-        public virtual Statuer Statuer { get; set; }
+        public int? fk_Skade_id { get; set; }
     }
 }
