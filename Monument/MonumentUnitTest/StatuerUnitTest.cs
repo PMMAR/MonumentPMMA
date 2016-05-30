@@ -33,17 +33,24 @@ namespace MonumentUnitTest
 
             var facade = new Facade();
 
+            Adresse adresse = new Adresse();
+            //adresse.ByNavn = "Roskilde";
+            adresse.PostNr = 4100;
+            adresse.ByNavn = "Ringsted";
+
             testStatuer.Navn = "TestStatue";
             testStatuer.Prioritet = "A";
-            testStatuer.FK_PostNr = 1308;
-            testStatuer.ByNavn = "Klerkegade";
+            //testStatuer.FK_PostNr = 1308;
+            //testStatuer.ByNavn = "Klerkegade";
+            testStatuer.Adresse = adresse;
 
             //act
             Statuer result = facade.PostStatuer(testStatuer).Result;
 
             //assert
 
-            Assert.AreNotEqual(testStatuer, result);
+            Assert.AreEqual(testStatuer.Navn, result.Navn);
+            
 
              //Assert.AreNotEqual("10" + "b" + "Klerkegade" + "1308", result.Navn + result.Prioritet + result.ByNavn + result.FK_PostNr);
         }
