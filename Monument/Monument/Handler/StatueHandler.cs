@@ -4,9 +4,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
+using Microsoft.Xaml.Interactions.Core;
 using Monument.Facade;
 
 using Monument.ViewModels;
+using Monument.Views;
 
 namespace Monument.Handler
 {
@@ -38,8 +41,9 @@ namespace Monument.Handler
         public async void GetStatuer()
         {
             var facade = new Facade.Facade();
-            await facade.GetStatuer(Statuer);
+            await facade.GetStatuer(StatueViewmodels.Statuer);
         }
+
 
         public async void PostStatuer()
         {

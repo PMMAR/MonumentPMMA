@@ -27,7 +27,7 @@
                     </Image.RenderTransform>
                 </Image>
             </Button>
-            <Button x:Name="SearchNavButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Foreground="{x:Null}" Width="90" Height="54" BorderThickness="0,2,2,0" BorderBrush="#FF212121" Background="#19000000">
+            <Button x:Name="SearchNavButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Foreground="{x:Null}" Width="90" Height="54" BorderThickness="0,2,2,0" BorderBrush="#FF212121" Background="#19000000" Command="{Binding GetAdresseListCommand}">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
                         <Core:NavigateToPageAction TargetPage="Monument.Views.SearchPage"/>

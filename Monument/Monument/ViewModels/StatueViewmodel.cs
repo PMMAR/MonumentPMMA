@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
 using Monument.Annotations;
 using Monument.Common;
 using Monument.Handler;
@@ -25,6 +26,9 @@ namespace Monument.ViewModels
         private StatueBehandling _StatueBehandling;
         private Behandlingstyper _Behandlingstyper;
         private Skader _Skader;
+
+        
+
         public event PropertyChangedEventHandler PropertyChanged;
         
         public ObservableCollection<Statuer> StatuerList { get; set; }
@@ -74,6 +78,8 @@ namespace Monument.ViewModels
             get { return _Skader; }
             set { _Skader = value; OnPropertyChanged(); }
         }
+
+
         //////// Statue Commands //////////
         public Handler.StatuerHandler StatuerHandler { get;  }
 
@@ -248,11 +254,12 @@ namespace Monument.ViewModels
             BehandlingstyperList = new ObservableCollection<Behandlingstyper>();
             SkadeTypeList = new ObservableCollection<SkadeTyper>();
 
-            //StatuerHandler.GetStatuerList();
-            //AdresseHandler.GetAdresseList();
-            //StatueBehandlingHandler.GetStatueBehandlingList();
+
+            StatueBehandlingHandler.GetStatueBehandlingList();
             BehandlingstyperHandler.GetBehandlingstyperList();
             SkadeTyperHandler.GetSkadeTyperList();
+
+
 
         }
 

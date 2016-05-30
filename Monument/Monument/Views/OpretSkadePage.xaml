@@ -16,24 +16,26 @@
             <ViewModels:StatueViewmodel/>
         </Grid.DataContext>
         <ScrollViewer>
-            <StackPanel x:Name="ScrollStackPanel" Height="917" Width="335" VerticalAlignment="Top">
+            <StackPanel x:Name="ScrollStackPanel" Height="1066" Width="335" VerticalAlignment="Top">
 
                 <StackPanel x:Name="PhotoButtonStack" Width="200" Height="200" d:LayoutOverrides="VerticalAlignment, Height" VerticalAlignment="Top" Margin="67.5,30,0,0" HorizontalAlignment="Left">
                     <Button x:Name="Button" Content="Button" HorizontalAlignment="Stretch" Height="200" Margin="0" VerticalAlignment="Stretch" Width="200" Background="#33FFFFFF" d:LayoutOverrides="Width, Height, LeftPosition, RightPosition, TopPosition, BottomPosition"/>
                 </StackPanel>
-                <StackPanel x:Name="SkadeStack" Margin="0,10,0,0" Height="314" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <StackPanel x:Name="SkadeStack" Margin="0,10,0,0" Height="386" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <TextBlock x:Name="SkadeBlock" Margin="0,0,0,0" TextWrapping="Wrap" Height="52" FontSize="32" Text="Skade" Foreground="#FF0F5A30" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition" VerticalAlignment="Top"/>
-                    <StackPanel x:Name="SkadeboxStack" HorizontalAlignment="Left" Height="309" Width="335" VerticalAlignment="Top" Margin="0,0,0,10">
+                    <StackPanel x:Name="SkadeboxStack" HorizontalAlignment="Left" Height="322" Width="335" VerticalAlignment="Top" Margin="0,0,0,10">
                         <TextBlock x:Name="Skadetypeblock" TextWrapping="Wrap" Text="Skadetype" Foreground="#FF0F5A30"/>
-                        <ComboBox x:Name="Skadetype" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding SkadeTypeList}"/>
+                        <ComboBox x:Name="Skadetype" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding SkadeTypeList}" SelectedIndex="{Binding Skader.fk_SkadeType_id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <TextBlock x:Name="SkadeGradBlock" TextWrapping="Wrap" Text="Skadegrad" Foreground="#FF0F5A30"/>
-                        <ComboBox x:Name="SkadeGrad" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ComboBox x:Name="SkadeGrad" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedItem="{Binding Skader.SkadeGrad, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                             <ComboBoxItem Content="A"/>
                             <ComboBoxItem Content="B"/>
                             <ComboBoxItem Content="C"/>
                         </ComboBox>
                         <TextBlock x:Name="Noteblock" TextWrapping="Wrap" Text="Skade Note" Foreground="#FF0F5A30"/>
-                        <TextBox x:Name="NoteBox" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="55" Foreground="White" HorizontalAlignment="Left" Margin="0,10" Width="335" PlaceholderText="Indtast note" BorderBrush="#66000000"/>
+                        <TextBox x:Name="Titel" TextWrapping="Wrap" Text="{Binding Skader.SkadeNoter[0].Titel, Mode=TwoWay}" VerticalAlignment="Top" Height="27" Foreground="White" HorizontalAlignment="Left" Margin="0,10,0,0" Width="335" PlaceholderText="Indtast note" BorderBrush="#66000000"/>
+                        <TextBox x:Name="NoteBox" TextWrapping="Wrap" Text="{Binding Skader.SkadeNoter[0].Note, Mode=TwoWay}" VerticalAlignment="Top" Height="55" Foreground="White" HorizontalAlignment="Left" Margin="0,10" Width="335" PlaceholderText="Indtast note" BorderBrush="#66000000"/>
+                        <DatePicker x:Name="Dato" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24" Date="{Binding StatueBehandling.C1st_Behandling}"/>
                         <Button x:Name="Tilføj_skade" Content="+" VerticalAlignment="Stretch" Width="45" Height="45" Margin="0,0,0,10" d:LayoutOverrides="HorizontalAlignment" Background="#00000000" FontWeight="Bold" FontSize="24">
                             <!--<Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
@@ -46,15 +48,21 @@
                 <StackPanel x:Name="BehandlingStack" HorizontalAlignment="Left" Height="254" VerticalAlignment="Top" Width="335">
                     <TextBlock x:Name="BehandlingBlock" HorizontalAlignment="Left" Height="52" Width="335" Text="Behandling" VerticalAlignment="Top" Foreground="#FF0F5A30" FontSize="32"/>
                     <StackPanel x:Name="BehandlingStackControl" HorizontalAlignment="Left" Height="201" Width="335" VerticalAlignment="Top">
-                        <ComboBox x:Name="FrekvensComboBox" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24" ItemsSource="{Binding BehandlingstyperList}" SelectedIndex="{Binding StatueBehandling.fk_Behandlingstype_id}"/>
-                        <DatePicker x:Name="SidstBehandletDatePick" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24"/>
-                        <DatePicker x:Name="NæsteBehandlingDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0" Foreground="#FF0F5A30" FontSize="24"/>
-                        <DatePicker x:Name="NæsteTilsynDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0,0,0,0" Foreground="#FF0F5A30" FontSize="24"/>
+                        <ComboBox x:Name="FrekvensComboBox" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24" ItemsSource="{Binding BehandlingstyperList}" SelectedIndex="{Binding StatueBehandling.fk_Behandlingstype_id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <DatePicker x:Name="SidstBehandletDatePick" Height="40" VerticalAlignment="Top" Width="335" Foreground="#FF0F5A30" FontSize="24" Date="{Binding StatueBehandling.C1st_Behandling}"/>
+                        <DatePicker x:Name="NæsteBehandlingDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0" Foreground="#FF0F5A30" FontSize="24" Date="{Binding StatueBehandling.C2nd_Behandling}"/>
+                        <DatePicker x:Name="NæsteTilsynDatePick" Height="40" VerticalAlignment="Top" Width="335" Margin="0,0,0,0" Foreground="#FF0F5A30" FontSize="24" Date="{Binding StatueBehandling.C3rd_Behandling}"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel x:Name="opretBar" Height="54" Orientation="Horizontal" Margin="0,10,0,0">
-                    <Button x:Name="HomeButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Foreground="#FF0F5A30" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0" Background="#66000000" Width="160" d:LayoutOverrides="HorizontalAlignment" Content="Opret Skade"/>
-                    <Button x:Name="SearchButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Foreground="#FF0F5A30" Width="160" Height="54" BorderThickness="0,2,2,0" BorderBrush="#FF212121" Background="#66000000" Margin="15,0,0,0" Content="Cancel"/>
+                    <Button x:Name="Opret_Skade" HorizontalAlignment="Stretch" VerticalAlignment="Top" Foreground="#FF0F5A30" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0" Background="#66000000" Width="160" d:LayoutOverrides="HorizontalAlignment" Content="Opret Skade" Command="{Binding AddSkaderCommand}"/>
+                    <Button x:Name="Tilbage" HorizontalAlignment="Stretch" VerticalAlignment="Top" Foreground="#FF0F5A30" Width="160" Height="54" BorderThickness="0,2,2,0" BorderBrush="#FF212121" Background="#66000000" Margin="15,0,0,0" Content="Cancel">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Core:NavigateToPageAction TargetPage="Monument.MainPage"/>
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Button>
                 </StackPanel>
 
             </StackPanel>

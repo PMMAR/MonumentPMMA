@@ -15,16 +15,16 @@
 
     <Grid Background="#FF333333" Height="640" HorizontalAlignment="Center" VerticalAlignment="Top" Width="360">
         <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" Background="#FF333333" d:LayoutOverrides="Height, TopPosition, BottomPosition">
-            <StackPanel x:Name="ScrollStack" Height="2006" Width="335" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <StackPanel x:Name="ScrollStack" Height="895" Width="335" VerticalAlignment="Top" HorizontalAlignment="Center">
                 <StackPanel x:Name="PhotoButtonStack1" Width="202" Height="204" Margin="68,30,67,0" BorderBrush="#66000000" BorderThickness="2,2,4,2">
                     <Image x:Name="image" Height="200" Width="200" Source="ms-appx:///Assets/Image/Statue1.jpg"/>
                 </StackPanel>
                 <StackPanel x:Name="BasicInfoStack" Margin="0,10,0,0" Height="161" VerticalAlignment="Top" Width="335">
                     <TextBlock x:Name="InfoBlock" Margin="0" TextWrapping="Wrap" Text="Info" d:LayoutOverrides="Width" Height="52" VerticalAlignment="Top" FontSize="32" Foreground="#FF0F5A30" FontWeight="Bold"/>
                     <StackPanel x:Name="InfoBoxes" Margin="0" VerticalAlignment="Top" Width="335" Height="184">
-                        <TextBlock x:Name="Navn" Margin="0" TextWrapping="Wrap" Height="35" VerticalAlignment="Top" FontSize="24" Text="Statue1" Foreground="White" d:LayoutOverrides="Width"/>
-                        <TextBlock x:Name="Navn_Copy" Margin="0" TextWrapping="Wrap" Height="35" VerticalAlignment="Top" FontSize="24" Text="Adresse: 4100, Ringsted" Foreground="White" d:LayoutOverrides="Width"/>
-                        <TextBlock x:Name="Navn_Copy1" Margin="0" TextWrapping="Wrap" Height="35" VerticalAlignment="Top" FontSize="24" Text="Prioritet: B" Foreground="White" d:LayoutOverrides="Width"/>
+                        <TextBlock x:Name="Navn" Margin="0" TextWrapping="Wrap" Height="35" VerticalAlignment="Top" FontSize="24" Foreground="White" d:LayoutOverrides="Width" Text="StatueNavn"/>
+                        <TextBlock x:Name="Navn_Copy" Margin="0" TextWrapping="Wrap" Height="35" VerticalAlignment="Top" FontSize="24" Foreground="White" d:LayoutOverrides="Width" Text="Adresse"/>
+                        <TextBlock x:Name="Navn_Copy1" Margin="0" TextWrapping="Wrap" Height="35" VerticalAlignment="Top" FontSize="24" Foreground="White" d:LayoutOverrides="Width" Text="Prioritet"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel x:Name="MatrialeStack" Margin="0,10,0,0" Height="152" VerticalAlignment="Top" HorizontalAlignment="Left" Width="335">
@@ -44,7 +44,15 @@
                     </StackPanel>
                 </StackPanel>
                 <Grid Height="39">
-                    <Button x:Name="Opret_Skade" Content="Opret Skade" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Height="32" Margin="0,10,0,-3" Command="{Binding AddStatuerCommand}"/>
+                    <Button x:Name="Opret_Skade" Content="Opret Skade" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Height="32" Margin="0,10,0,-3">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Core:NavigateToPageAction TargetPage="Monument.Views.OpretSkadePage"/>
+                                <Core:CallMethodAction TargetObject="{Binding GetSkadeTyperListCommand}"/>
+                                <Core:CallMethodAction TargetObject="{Binding BehandlingstyperList}"/>
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Button>
                     <Button x:Name="Tilbage" Content="Tilbage" HorizontalAlignment="Right" VerticalAlignment="Top" Width="165" Margin="0,10,0,-3">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">

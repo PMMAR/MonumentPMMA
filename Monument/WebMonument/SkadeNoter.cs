@@ -10,7 +10,7 @@ namespace WebMonument
     public partial class SkadeNoter
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SkadeNote_id { get; set; }
 
         [Column(TypeName = "text")]
