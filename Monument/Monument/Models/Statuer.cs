@@ -1,6 +1,5 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Windows.UI.Xaml;
 using Monument.Annotations;
 using Monument;
 

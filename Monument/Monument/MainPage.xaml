@@ -22,7 +22,7 @@
                     </Image.RenderTransform>
                 </Image>
             </Button>
-            <Button x:Name="SearchButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Foreground="{x:Null}" Width="90" Height="54" BorderThickness="0,2,2,0" BorderBrush="#FF212121" Background="#4C000000" Command="{Binding GetStatuerListCommand}">
+            <Button x:Name="SearchButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" Foreground="{x:Null}" Width="90" Height="54" BorderThickness="0,2,2,0" BorderBrush="#FF212121" Background="#4C000000">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
                         <Core:NavigateToPageAction TargetPage="Monument.Views.SearchPage"/>
@@ -30,7 +30,7 @@
                 </Interactivity:Interaction.Behaviors>
                 <Image x:Name="SearchIcon" Margin="-12,-28,-14,-26" Source="Assets/Icons/SearchIconMedium.png" Width="90" Height="54"/>
             </Button>
-            <Button x:Name="PlaceholderButton" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0" Foreground="{x:Null}" Background="#4C000000"/>
+            <Button x:Name="PlaceholderButton" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,2,0" Foreground="{x:Null}" Background="#4C000000"/>
             <Button x:Name="SettingsButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Height="54" BorderBrush="#FF212121" BorderThickness="0,2,0,0" FontSize="11" FontWeight="Bold" Foreground="{x:Null}" Background="#4C000000">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
@@ -70,7 +70,7 @@
                 <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Icons/InformationIcon.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="OpretStatuer" VerticalAlignment="Top" Margin="67,71,69,0" HorizontalAlignment="Stretch" Height="229" d:LayoutOverrides="LeftPosition, RightPosition" Command="{Binding GetAdresseListCommand}">
+        <Button x:Name="OpretStatuer" VerticalAlignment="Top" Margin="67,71,69,0" HorizontalAlignment="Stretch" Height="229" d:LayoutOverrides="LeftPosition, RightPosition">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
                     <Core:NavigateToPageAction TargetPage="Monument.Views.OpretStatuerPage"/>
