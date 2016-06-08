@@ -248,8 +248,8 @@ namespace Monument.ViewModels
             BehandlingstyperList = new ObservableCollection<Behandlingstyper>();
             SkadeTypeList = new ObservableCollection<SkadeTyper>();
 
-            //StatuerHandler.GetStatuerList();
-            //AdresseHandler.GetAdresseList();
+            StatuerHandler.GetStatuerList();
+            AdresseHandler.GetAdresseList();
             //StatueBehandlingHandler.GetStatueBehandlingList();
             BehandlingstyperHandler.GetBehandlingstyperList();
             SkadeTyperHandler.GetSkadeTyperList();

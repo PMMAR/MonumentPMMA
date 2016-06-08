@@ -10,6 +10,7 @@ namespace WebMonument
     public partial class StatuePlacering
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int StatuePlacering_id { get; set; }
 
         public bool? Jord { get; set; }

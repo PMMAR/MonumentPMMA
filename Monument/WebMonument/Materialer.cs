@@ -10,6 +10,7 @@ namespace WebMonument
     public partial class Materialer
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Materiale_id { get; set; }
 
         public int? FK_Statue_id { get; set; }

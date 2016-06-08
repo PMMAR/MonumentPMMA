@@ -17,6 +17,7 @@ namespace WebMonument
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Skade_id { get; set; }
 
         public int? fk_SkadeType_id { get; set; }
