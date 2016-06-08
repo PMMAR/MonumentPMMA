@@ -17,6 +17,7 @@ namespace Monument
         public Adresse _adresse;
         public int _fkPostNr;
         public string _byNavn;
+        private string _prioritet;
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Statuer()
@@ -50,7 +51,37 @@ namespace Monument
 
 
         [StringLength(1)]
-        public string Prioritet { get; set; }
+        public string Prioritet
+        {
+            get
+            {
+                switch (_prioritet)
+                {
+                    case "0":
+                        return "A";
+                        break;
+                    case "1":
+                        return "B";
+                        break;
+                    case "2":
+                        return "C";
+                        break;
+                    case "A":
+                        return "A";
+                        break;
+                    case "B":
+                        return "B";
+                        break;
+                    case "C":
+                        return "C";
+                        break;
+                    default:
+                        return "D";
+                        break;
+                };
+            }
+            set { _prioritet = value; OnPropertyChanged(); }
+        }
 
         public virtual Adresse Adresse
         {
